@@ -2,6 +2,18 @@
 {{ $rating := .Params.rating | default 0 }}
 {{ $aiScore := .Params.ai_friendliness.score | default 0 }}
 
+<nav class="breadcrumb">
+  <a href="{{ .Site.Home.RelPermalink }}">Home</a>
+  {{ if not .CurrentSection.Parent.IsHome }}
+    <span class="breadcrumb-sep">/</span>
+    <a href="{{ .CurrentSection.Parent.RelPermalink }}">{{ .CurrentSection.Parent.Title }}</a>
+  {{ end }}
+  <span class="breadcrumb-sep">/</span>
+  <a href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+  <span class="breadcrumb-sep">/</span>
+  <span class="breadcrumb-current">{{ .Title }}</span>
+</nav>
+
 <article class="post skill-detail">
   {{/* ── Header: Name + Description + Tags ── */}}
   <header class="skill-header">

@@ -9,7 +9,7 @@ tags:
 description: "Learn how to install, configure, and master Claude Code for AI-assisted development"
 related_skills:
   - claude-code
-category: "tutorial"
+category: "guides"
 rating: 5
 ---
 

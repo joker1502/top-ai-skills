@@ -8,11 +8,7 @@ set -euo pipefail
 CONTENT_DIR="content/skills"
 TMP_FILE=$(mktemp)
 
-for file in "$CONTENT_DIR"/*.md; do
-  [ -f "$file" ] || continue
-  basename=$(basename "$file")
-  # Skip _index files
-  [[ "$basename" == _index* ]] && continue
+find "$CONTENT_DIR" -name '*.md' -not -name '_index*' -print0 | while IFS= read -r -d '' file; do
 
   repo_url=$(grep -oP 'repo_url:\s*["\x27]?\K[^"\x27\n]+' "$file" || true)
   [ -z "$repo_url" ] && continue

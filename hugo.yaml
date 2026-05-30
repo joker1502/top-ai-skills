@@ -5,7 +5,7 @@ title: "Top AI Skills"
 defaultContentLanguage: "en"
 
 pagination:
-  pagerSize: 5
+  pagerSize: 8
 
 markup:
   goldmark:

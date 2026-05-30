@@ -54,6 +54,7 @@
   border-bottom: 3px dotted var(--accent);
   padding-bottom: 10px;
   margin-bottom: 25px;
+  margin-top: 10px;
 }
 .section-header h1,
 .section-header h2 {
@@ -118,6 +119,14 @@
   text-decoration: none;
 }
 .skill-tag:hover { border-color: var(--accent); }
+.post-category {
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 0.8rem;
+  border: 1px solid var(--card-border);
+  padding: 1px 6px;
+}
+.post-category:hover { border-color: var(--accent); }
 .skill-cat-badge {
   display: inline-block;
   font-size: 0.65rem;
@@ -127,10 +136,15 @@
   border: 1px solid var(--card-border);
   color: color-mix(in srgb, var(--foreground) 50%, transparent);
   margin-bottom: 8px;
+  text-decoration: none;
+}
+.skill-cat-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ── Skill detail ── */
-.skill-detail { padding: 0; }
+.post.skill-detail { padding: 0; }
 .skill-header {
   padding: 30px 0;
   border-bottom: 2px solid var(--card-border);
@@ -199,9 +213,17 @@
   letter-spacing: 0.08em;
   color: color-mix(in srgb, var(--foreground) 45%, transparent);
   padding-top: 6px;
-  width: 60px;
+  white-space: nowrap;
 }
-.filter-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+.filter-buttons {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex-wrap: nowrap;
+}
+.filter-buttons::-webkit-scrollbar { display: none; }
 .filter-btn {
   padding: 5px 14px;
   font-size: 0.8rem;
@@ -210,6 +232,8 @@
   border: 1px solid var(--card-border);
   cursor: pointer;
   font-weight: normal;
+  text-decoration: none;
+  white-space: nowrap;
 }
 .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
 .filter-btn.active {
@@ -373,6 +397,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .review-item:hover .review-title {
@@ -386,6 +411,15 @@
   display: flex;
   gap: 12px;
 }
+.review-cat {
+  text-decoration: none;
+  border: 1px solid var(--card-border);
+  padding: 1px 6px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.review-cat:hover { border-color: var(--accent); }
 
 /* ── Compare table ── */
 .compare-table-wrapper { overflow-x: auto; margin: 25px 0; }
@@ -517,6 +551,59 @@
   opacity: 0.5;
 }
 .theme-toggle:hover { opacity: 1; }
+
+/* ── Pagination ── */
+.pagination { margin: 30px 0; }
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: color-mix(in srgb, var(--foreground) 45%, transparent);
+}
+.breadcrumb a {
+  color: color-mix(in srgb, var(--foreground) 60%, transparent);
+  text-decoration: none;
+}
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb-sep {
+  margin: 0 6px;
+  color: color-mix(in srgb, var(--foreground) 30%, transparent);
+}
+.breadcrumb-current {
+  color: color-mix(in srgb, var(--foreground) 75%, transparent);
+}
+.pagination__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  font-size: 0.85rem;
+  border: 1px solid var(--card-border);
+  background: transparent;
+  color: color-mix(in srgb, var(--foreground) 65%, transparent);
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.pagination-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.pagination-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--background);
+  font-weight: bold;
+}
 
 /* ── Responsive ── */
 @media (max-width: 684px) {

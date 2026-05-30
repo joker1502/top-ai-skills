@@ -9,7 +9,7 @@ tags:
 description: "从安装到精通，手把手教你使用 Claude Code 进行 AI 辅助开发"
 related_skills:
   - claude-code
-category: "tutorial"
+category: "guides"
 rating: 5
 ---
 

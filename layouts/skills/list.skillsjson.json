@@ -1,11 +1,18 @@
+{{ $skills := slice }}
+{{ if .Parent.IsHome }}
+  {{ $skills = .RegularPagesRecursive }}
+{{ else }}
+  {{ $category := .Params.category_filter | default "" }}
+  {{ $skills = where .Parent.RegularPagesRecursive "Params.category" $category }}
+{{ end }}
 {
   "meta": {
     "title": "{{ .Title }}",
     "description": "{{ .Description }}",
-    "total": {{ len .Pages }}
+    "total": {{ len $skills }}
   },
   "skills": [
-    {{ range $i, $skill := .Pages.ByTitle }}
+    {{ range $i, $skill := $skills.ByTitle }}
     {
       "name": "{{ $skill.Title }}",
       "slug": "{{ $skill.File.ContentBaseName }}",
@@ -19,7 +26,7 @@
       "rating": {{ $skill.Params.rating | default 0 }},
       "tags": [{{ with $skill.Params.tags }}{{ range $j, $tag := . }}{{ if $j }}, {{ end }}"{{ $tag }}"{{ end }}{{ end }}],
       "compatibility": [{{ with $skill.Params.compatibility }}{{ range $j, $c := . }}{{ if $j }}, {{ end }}"{{ $c }}"{{ end }}{{ end }}]
-    }{{ if lt $i (sub (len $.Pages) 1) }},{{ end }}
+    }{{ if lt $i (sub (len $skills) 1) }},{{ end }}
     {{ end }}
   ]
 }

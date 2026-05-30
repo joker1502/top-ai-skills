@@ -40,16 +40,16 @@
     <a class="view-all" href="/skills/">View All →</a>
   </div>
   <div class="skills-grid">
-    {{ range sort $skills ".Params.installs" "desc" }}
+    {{ range first 8 (sort $skills ".Params.installs" "desc") }}
       {{ $installs := .Params.installs | default 0 }}
       {{ $lastUp := .Params.last_updated | default "" }}
-      <a href="{{ .RelPermalink }}" class="skill-card-link">
-        <div class="skill-card">
-          <div class="skill-card-header">
-            <h3>{{ .Title }}</h3>
-            <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
-          </div>
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
+        </div>
           <div class="skill-author">{{ .Params.author }}</div>
+          <a class="skill-cat-badge" href="/skills/{{ .Params.category }}/">{{ .Params.category }}</a>
           {{ with .Params.description }}
             <p class="skill-desc">{{ . | markdownify }}</p>
           {{ end }}
@@ -76,12 +76,11 @@
           {{ if .Params.tags }}
             <div class="skill-tags" style="margin-top: 12px;">
               {{ range first 3 .Params.tags }}
-                <span class="skill-tag">{{ . }}</span>
+                <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
               {{ end }}
             </div>
           {{ end }}
         </div>
-      </a>
     {{ end }}
   </div>
 {{ end }}
@@ -89,18 +88,18 @@
 {{/* ── Latest Reviews ── */}}
 {{ if $reviews }}
   <div class="section-header" style="margin-top: 50px;">
-    <h2>Latest Reviews</h2>
+    <h2>Latest Tutorials</h2>
     <a class="view-all" href="/tutorials/">View All →</a>
   </div>
   <div class="review-list">
     {{ range first 5 $reviews.ByDate.Reverse }}
-      <a href="{{ .Permalink }}" class="review-item">
-        <span class="review-title">{{ .Title | markdownify }}</span>
+      <div class="review-item">
+        <a href="{{ .Permalink }}" class="review-title">{{ .Title | markdownify }}</a>
         <span class="review-meta">
-          {{ with .Params.category }}<span class="review-cat">{{ . }}</span>{{ end }}
+          {{ with .Params.category }}<a class="review-cat" href="/tutorials/{{ . }}/">{{ . }}</a>{{ end }}
           {{ with .Date }}<time class="review-date">{{ .Format "2006-01-02" }}</time>{{ end }}
         </span>
-      </a>
+      </div>
     {{ end }}
   </div>
 {{ end }}

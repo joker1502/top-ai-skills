@@ -1,117 +1,99 @@
 {{ define "main" }}
-{{ $skills := .Pages }}
-{{ $allTags := slice }}
-{{ $allCategories := slice }}
-{{ range $skills }}
-  {{ with .Params.category }}
-    {{ $allCategories = $allCategories | append . | uniq }}
-  {{ end }}
-  {{ range .Params.tags }}
-    {{ $allTags = $allTags | append . | uniq }}
-  {{ end }}
-{{ end }}
-{{ $allTags = sort (uniq $allTags) }}
-{{ $allCategories = sort (uniq $allCategories) }}
 
-<div class="section-header">
-  <h1>{{ .Title }}</h1>
-</div>
-{{ with .Content }}
-  <div class="index-content">{{ . }}</div>
-{{ end }}
-
-{{/* ── Filter Controls ── */}}
-<div class="filter-bar">
-  <div class="filter-group">
-    <span class="filter-group-label">Category</span>
-    <div class="filter-buttons" data-filter-type="category">
-      <button class="filter-btn active" data-value="all">All</button>
-      {{ range $allCategories }}
-        <button class="filter-btn" data-value="{{ . }}">{{ . }}</button>
-      {{ end }}
-    </div>
+{{ if .Parent.IsHome }}
+  {{/* ── Main Skills Listing (/skills/) — category links + all skills ── */}}
+  <div class="section-header">
+    <h1>{{ .Title }}</h1>
   </div>
-  <div class="filter-group">
-    <span class="filter-group-label">Tags</span>
-    <div class="filter-buttons" data-filter-type="tag">
-      <button class="filter-btn active" data-value="all">All</button>
-      {{ range $allTags }}
-        <button class="filter-btn" data-value="{{ . }}">{{ . }}</button>
-      {{ end }}
-    </div>
-  </div>
-</div>
+  {{ with .Content }}
+    <div class="index-content">{{ . }}</div>
+  {{ end }}
 
-{{/* ── Skills Grid ── */}}
-<div class="skills-grid" id="skills-grid">
-  {{ range $skills.ByTitle }}
-    <div class="skill-card filter-card" data-category="{{ .Params.category | default "" }}" data-tags='{{ with .Params.tags }}[{{ range $i, $t := . }}{{ if $i }},{{ end }}"{{ $t }}"{{ end }}]{{ else }}[]{{ end }}'>
-      <div class="skill-card-header">
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
-      </div>
-      <div class="skill-author">{{ .Params.author }}</div>
-      <div class="skill-cat-badge">{{ .Params.category }}</div>
-      {{ with .Params.description }}
-        <p class="skill-desc">{{ . | markdownify }}</p>
-      {{ end }}
-      {{ if .Params.tags }}
-        <div class="skill-tags">
-          {{ range .Params.tags }}
-            <span class="skill-tag static">{{ . }}</span>
-          {{ end }}
-        </div>
-      {{ end }}
-      {{ with .Params.install_cmd }}
-        {{ if ne . "" }}
-          <div class="skill-install"><span style="color:var(--accent)">$</span> {{ . }}</div>
+  <div class="filter-bar">
+    <div class="filter-group">
+      <span class="filter-group-label">Category</span>
+      <div class="filter-buttons">
+        <a href="{{ .RelPermalink }}" class="filter-btn active">All</a>
+        {{ range .Sections.ByTitle }}
+          <a href="{{ .RelPermalink }}" class="filter-btn">{{ .Title }}</a>
         {{ end }}
-      {{ end }}
+      </div>
     </div>
+  </div>
+
+  <div class="skills-grid">
+    {{ range (.Paginate .RegularPagesRecursive).Pages.ByTitle }}
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
+        </div>
+        <div class="skill-author">{{ .Params.author }}</div>
+        <a class="skill-cat-badge" href="/skills/{{ .Params.category }}/">{{ .Params.category }}</a>
+        {{ with .Params.description }}
+          <p class="skill-desc">{{ . | markdownify }}</p>
+        {{ end }}
+        {{ if .Params.tags }}
+          <div class="skill-tags">
+            {{ range .Params.tags }}
+              <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+
+  {{ partial "pagination.html" . }}
+
+{{ else }}
+  {{/* ── Category Sub-Page (/skills/general/ etc.) ── */}}
+  {{ $category := .Params.category_filter | default "" }}
+  {{ $filtered := where .Parent.RegularPagesRecursive "Params.category" $category }}
+
+  <div class="section-header">
+    <h1>{{ .Title }}</h1>
+  </div>
+  {{ with .Content }}
+    <div class="index-content">{{ . }}</div>
   {{ end }}
-</div>
 
-<script>
-(function() {
-  var grid = document.getElementById('skills-grid');
-  if (!grid) return;
-  var cards = grid.querySelectorAll('.filter-card');
+  <div class="filter-bar">
+    <div class="filter-group">
+      <span class="filter-group-label">Category</span>
+      <div class="filter-buttons">
+        <a href="{{ .Parent.RelPermalink }}" class="filter-btn">All</a>
+        {{ range .Parent.Sections.ByTitle }}
+          <a href="{{ .RelPermalink }}" class="filter-btn{{ if eq .Params.category_filter $category }} active{{ end }}">{{ .Title }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
 
-  var filters = {
-    category: 'all',
-    tag: 'all'
-  };
+  <div class="skills-grid">
+    {{ range (.Paginate $filtered).Pages.ByTitle }}
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
+        </div>
+        <div class="skill-author">{{ .Params.author }}</div>
+        <a class="skill-cat-badge" href="/skills/{{ .Params.category }}/">{{ .Params.category }}</a>
+        {{ with .Params.description }}
+          <p class="skill-desc">{{ . | markdownify }}</p>
+        {{ end }}
+        {{ if .Params.tags }}
+          <div class="skill-tags">
+            {{ range .Params.tags }}
+              <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
 
-  function applyFilters() {
-    var cat = filters.category;
-    var tag = filters.tag;
+  {{ partial "pagination.html" . }}
+{{ end }}
 
-    cards.forEach(function(card) {
-      var cardCat = card.getAttribute('data-category') || '';
-      var cardTags = JSON.parse(card.getAttribute('data-tags') || '[]');
-      var catMatch = cat === 'all' || cardCat === cat;
-      var tagMatch = tag === 'all' || cardTags.indexOf(tag) !== -1;
-      card.style.display = (catMatch && tagMatch) ? '' : 'none';
-    });
-  }
-
-  var btnGroups = document.querySelectorAll('.filter-buttons');
-  btnGroups.forEach(function(group) {
-    var type = group.getAttribute('data-filter-type');
-    group.addEventListener('click', function(e) {
-      var btn = e.target.closest('.filter-btn');
-      if (!btn) return;
-      var value = btn.getAttribute('data-value');
-      if (filters[type] === value) return;
-
-      group.querySelectorAll('.filter-btn').forEach(function(b) {
-        b.classList.remove('active');
-      });
-      btn.classList.add('active');
-      filters[type] = value;
-      applyFilters();
-    });
-  });
-})();
-</script>
 {{ end }}
