@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Allow: /skills/index.json
+Sitemap: https://example.com/sitemap.xml
+
+# AI crawlers — explicit permission for structured data access
+User-agent: GPTBot
+Allow: /
+Allow: /skills/index.json
+
+User-agent: Claude-Web
+Allow: /
+Allow: /skills/index.json
+
+User-agent: CCBot
+Allow: /
+Allow: /skills/index.json

@@ -1,0 +1,20 @@
+<script>
+(function() {
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  var current = localStorage.getItem('theme') || 'dark';
+  function setTheme(t) {
+    if (t === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      btn.textContent = '○';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      btn.textContent = '●';
+    }
+    localStorage.setItem('theme', t);
+    current = t;
+  }
+  btn.addEventListener('click', function() { setTheme(current === 'dark' ? 'light' : 'dark'); });
+  setTheme(current);
+})();
+</script>

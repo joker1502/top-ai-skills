@@ -1,0 +1,164 @@
+{{ define "main" }}
+{{ $rating := .Params.rating | default 0 }}
+{{ $aiScore := .Params.ai_friendliness.score | default 0 }}
+
+<article class="post skill-detail">
+  {{/* ── Header: Name + Description + Tags ── */}}
+  <header class="skill-header">
+    <h1 class="skill-title">{{ .Title }}</h1>
+    {{ with .Params.description }}
+      <p class="skill-subtitle">{{ . | markdownify }}</p>
+    {{ end }}
+    {{ if .Params.tags }}
+      <div class="skill-header-tags">
+        {{ range .Params.tags }}
+          <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{/* ── Install Command with Copy Button ── */}}
+    {{ with .Params.install_cmd }}
+      {{ if ne . "" }}
+        <div class="install-block">
+          <code class="install-command" id="install-cmd">$ {{ . }}</code>
+          <button class="copy-btn" onclick="copyInstallCmd()" title="Copy install command">⎘ Copy</button>
+        </div>
+      {{ end }}
+    {{ end }}
+  </header>
+
+  {{/* ── Two-Column Layout ── */}}
+  <div class="skill-layout">
+    {{/* ── LEFT: Main Content ── */}}
+    <div class="skill-main">
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+    </div>
+
+    {{/* ── RIGHT: Sidebar ── */}}
+    <aside class="skill-sidebar">
+      {{/* Version / Author / Category / Rating */}}
+      <div class="sidebar-card">
+        <h4 class="sidebar-card-title">Info</h4>
+        <div class="sidebar-info-grid">
+          {{ with .Params.version }}
+            <div class="sidebar-info-item">
+              <span class="sidebar-label">Version</span>
+              <span class="sidebar-value">{{ . }}</span>
+            </div>
+          {{ end }}
+          {{ with .Params.author }}
+            <div class="sidebar-info-item">
+              <span class="sidebar-label">Author</span>
+              <span class="sidebar-value">{{ . }}</span>
+            </div>
+          {{ end }}
+          {{ with .Params.category }}
+            <div class="sidebar-info-item">
+              <span class="sidebar-label">Category</span>
+              <span class="sidebar-value">{{ . }}</span>
+            </div>
+          {{ end }}
+          <div class="sidebar-info-item">
+            <span class="sidebar-label">Rating</span>
+            <span class="sidebar-value rating-stars">{{ $rating }}</span>
+          </div>
+        </div>
+      </div>
+
+      {{/* GitHub Stars / Forks */}}
+      {{ if or (gt (.Params.github_stars | default 0) 0) (gt (.Params.github_forks | default 0) 0) }}
+        <div class="sidebar-card">
+          <h4 class="sidebar-card-title">GitHub</h4>
+          <div class="sidebar-gh-stats">
+            {{ with .Params.repo_url }}
+              <a href="{{ . }}" target="_blank" rel="noopener" class="sidebar-gh-link">{{ partial "gh-repo" $ }}</a>
+            {{ end }}
+            <div class="sidebar-gh-numbers">
+              {{ with .Params.github_stars }}{{ if gt . 0 }}
+                <span class="gh-stat"><span class="gh-icon">⭐</span> {{ . }}</span>
+              {{ end }}{{ end }}
+              {{ with .Params.github_forks }}{{ if gt . 0 }}
+                <span class="gh-stat"><span class="gh-icon">⑂</span> {{ . }}</span>
+              {{ end }}{{ end }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+
+      {{/* Compatibility */}}
+      {{ with .Params.compatibility }}
+        <div class="sidebar-card">
+          <h4 class="sidebar-card-title">Compatible with</h4>
+          <div class="compat-list">
+            {{ range . }}
+              <span class="compat-badge">{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+
+      {{/* AI-Friendliness Score */}}
+      {{ if gt $aiScore 0 }}
+        <div class="sidebar-card">
+          <h4 class="sidebar-card-title">AI-Friendliness</h4>
+          <div class="ai-score-main">{{ $aiScore }}</div>
+          <div class="ai-score-details">
+            {{ with .Params.ai_friendliness.documentation }}
+              <div class="ai-score-row">
+                <span class="ai-score-label">Documentation</span>
+                <span class="ai-score-bar"><span class="ai-score-fill" style="width: {{ mul . 20 }}%"></span></span>
+                <span class="ai-score-val">{{ . }}</span>
+              </div>
+            {{ end }}
+            {{ with .Params.ai_friendliness.setup }}
+              <div class="ai-score-row">
+                <span class="ai-score-label">Ease of Setup</span>
+                <span class="ai-score-bar"><span class="ai-score-fill" style="width: {{ mul . 20 }}%"></span></span>
+                <span class="ai-score-val">{{ . }}</span>
+              </div>
+            {{ end }}
+            {{ with .Params.ai_friendliness.config }}
+              <div class="ai-score-row">
+                <span class="ai-score-label">Config Standards</span>
+                <span class="ai-score-bar"><span class="ai-score-fill" style="width: {{ mul . 20 }}%"></span></span>
+                <span class="ai-score-val">{{ . }}</span>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+
+      {{/* Related Reviews */}}
+      {{ $related := where (where $.Site.RegularPages "Section" "tutorials") "Params.related_skills" "intersect" (slice .File.ContentBaseName) }}
+      {{ if $related }}
+        <div class="sidebar-card">
+          <h4 class="sidebar-card-title">Related Reviews</h4>
+          <ul class="sidebar-related">
+            {{ range $related }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </aside>
+  </div>
+</article>
+
+{{/* ── Copy Button Script ── */}}
+<script>
+function copyInstallCmd() {
+  var el = document.getElementById('install-cmd');
+  if (!el) return;
+  var text = el.textContent.replace(/^\$\s*/, '');
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = document.querySelector('.copy-btn');
+    var orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(function() { btn.textContent = orig; }, 2000);
+  });
+}
+</script>
+{{ end }}

@@ -1,0 +1,97 @@
+baseURL: "/"
+locale: "en-us"
+theme: "terminal"
+title: "Top AI Skills"
+defaultContentLanguage: "en"
+
+pagination:
+  pagerSize: 5
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputFormats:
+  SKILLSJSON:
+    baseName: "index"
+    isPlainText: true
+    mediaType: "application/json"
+    notAlternative: true
+
+outputs:
+  home:
+    - HTML
+    - JSON
+
+params:
+  contentTypeName: "tutorials"
+  showMenuItems: 5
+  fullWidthTheme: false
+  centerTheme: true
+  showLanguageSelector: true
+
+  logo:
+    logoText: "Top AI Skills"
+    logoHomeLink: "/"
+
+languages:
+  en:
+    label: "English"
+    title: "Top AI Skills"
+    weight: 1
+    copyright: ""
+    params:
+      subtitle: "Discover & compare the best AI skills, agents, and tools"
+      keywords: ""
+      menuMore: "Show more"
+      readMore: "Read more"
+      readOtherPosts: "Read other posts"
+    menu:
+      main:
+        - identifier: "home"
+          name: "Home"
+          url: "/"
+          weight: 10
+        - identifier: "skills"
+          name: "Skills"
+          url: "/skills/"
+          weight: 20
+        - identifier: "tutorials"
+          name: "Tutorials"
+          url: "/tutorials/"
+          weight: 30
+        - identifier: "about"
+          name: "About"
+          url: "/about/"
+          weight: 40
+
+  zh:
+    label: "中文"
+    title: "Top AI Skills"
+    weight: 2
+    copyright: ""
+    params:
+      subtitle: "发现和对比最佳的 AI 技能、代理和工具"
+      keywords: ""
+      menuMore: "展开更多"
+      readMore: "阅读全文"
+      readOtherPosts: "阅读其他文章"
+    menu:
+      main:
+        - identifier: "home"
+          name: "首页"
+          url: "/"
+          weight: 10
+        - identifier: "skills"
+          name: "技能"
+          url: "/skills/"
+          weight: 20
+        - identifier: "tutorials"
+          name: "教程"
+          url: "/tutorials/"
+          weight: 30
+        - identifier: "about"
+          name: "关于"
+          url: "/about/"
+          weight: 40

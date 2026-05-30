@@ -1,0 +1,101 @@
+# Skills Schema — AI-targeted metadata
+# This file defines the front matter schema for all skill pages.
+# AI agents can parse this to understand the data structure.
+
+schema_version: "1.0"
+content_type: "skill"
+location: "content/skills/*.md"
+
+fields:
+  - name: title
+    type: string
+    required: true
+    description: "Human-readable skill name"
+
+  - name: description
+    type: string
+    required: true
+    description: "One-line summary of what the skill does"
+
+  - name: version
+    type: string
+    required: true
+    description: "Current version tag"
+
+  - name: author
+    type: string
+    required: true
+    description: "Author or organization name"
+
+  - name: repo_url
+    type: string
+    required: false
+    description: "GitHub repository URL"
+
+  - name: install_cmd
+    type: string
+    required: false
+    description: "Shell command to install this skill"
+
+  - name: tags
+    type: list
+    required: true
+    description: "Classification tags for filtering and search"
+
+  - name: category
+    type: string
+    required: true
+    description: "Primary category (coding, image, writing, search, automation, general)"
+
+  - name: compatibility
+    type: list
+    required: false
+    description: "List of compatible AI agents/platforms"
+
+  - name: rating
+    type: float
+    required: true
+    description: "Overall rating from 1.0 to 5.0"
+
+  - name: github_stars
+    type: integer
+    required: false
+    description: "GitHub star count (auto-updated by CI)"
+
+  - name: github_forks
+    type: integer
+    required: false
+    description: "GitHub fork count (auto-updated by CI)"
+
+  - name: installs
+    type: integer
+    required: false
+    description: "Estimated total installs"
+
+  - name: last_updated
+    type: date
+    required: false
+    description: "Last update date (auto-updated by CI)"
+
+  - name: ai_friendliness
+    type: object
+    required: false
+    description: "AI-friendliness scoring breakdown"
+    fields:
+      - name: score
+        type: float
+        description: "Overall AI-friendliness score (1-5)"
+      - name: documentation
+        type: float
+        description: "Documentation clarity score"
+      - name: setup
+        type: float
+        description: "Ease of setup score"
+      - name: config
+        type: float
+        description: "Configuration standardization score"
+
+api_endpoints:
+  - path: "/skills/index.json"
+    description: "All skills as structured JSON array"
+    fields: [name, slug, url, description, version, author, repo_url, install_cmd, category, rating, tags, compatibility, github_stars, github_forks]

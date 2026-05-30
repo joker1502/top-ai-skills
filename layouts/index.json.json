@@ -1,0 +1,54 @@
+{{- $skills := where .Site.RegularPages "Section" "skills" -}}
+{{- $tutorials := where .Site.RegularPages "Section" "tutorials" -}}
+{
+  "meta": {
+    "title": "{{ .Site.Title }}",
+    "description": "{{ .Site.Params.subtitle }}",
+    "language": "{{ .Site.Language.Lang }}",
+    "total_skills": {{ len $skills }},
+    "total_tutorials": {{ len $tutorials }},
+    "generated_at": "{{ now.Format "2006-01-02T15:04:05Z07:00" }}"
+  },
+  "skills": [
+    {{- range $i, $skill := $skills.ByTitle }}
+    {
+      "name": "{{ $skill.Title }}",
+      "slug": "{{ $skill.File.ContentBaseName }}",
+      "url": "{{ $skill.Permalink }}",
+      "description": "{{ $skill.Description }}",
+      "version": "{{ $skill.Params.version }}",
+      "author": "{{ $skill.Params.author }}",
+      "category": "{{ $skill.Params.category }}",
+      "rating": {{ $skill.Params.rating | default 0 }},
+      "tags": [{{- with $skill.Params.tags }}{{ range $j, $t := . }}{{ if $j }}, {{ end }}"{{ $t }}"{{ end }}{{ end }}],
+      "compatibility": [{{- with $skill.Params.compatibility }}{{ range $j, $c := . }}{{ if $j }}, {{ end }}"{{ $c }}"{{ end }}{{ end }}],
+      "install_cmd": "{{ $skill.Params.install_cmd }}",
+      "repo_url": "{{ $skill.Params.repo_url }}",
+      "github_stars": {{ $skill.Params.github_stars | default 0 }},
+      "github_forks": {{ $skill.Params.github_forks | default 0 }},
+      "installs": {{ $skill.Params.installs | default 0 }},
+      "last_updated": "{{ $skill.Params.last_updated }}",
+      "ai_friendliness": {
+        "score": {{ $skill.Params.ai_friendliness.score | default 0 }},
+        "documentation": {{ $skill.Params.ai_friendliness.documentation | default 0 }},
+        "setup": {{ $skill.Params.ai_friendliness.setup | default 0 }},
+        "config": {{ $skill.Params.ai_friendliness.config | default 0 }}
+      }
+    }{{- if lt $i (sub (len $skills) 1) }},{{ end }}
+    {{- end }}
+  ],
+  "tutorials": [
+    {{- range $i, $tut := (sort $tutorials "Date" "desc") }}
+    {
+      "title": "{{ $tut.Title }}",
+      "url": "{{ $tut.Permalink }}",
+      "date": "{{ $tut.Date.Format "2006-01-02" }}",
+      "description": "{{ $tut.Description }}",
+      "category": "{{ $tut.Params.category }}",
+      "rating": {{ $tut.Params.rating | default 0 }},
+      "tags": [{{- with $tut.Params.tags }}{{ range $j, $t := . }}{{ if $j }}, {{ end }}"{{ $t }}"{{ end }}{{ end }}],
+      "related_skills": [{{- with $tut.Params.related_skills }}{{ range $j, $s := . }}{{ if $j }}, {{ end }}"{{ $s }}"{{ end }}{{ end }}]
+    }{{- if lt $i (sub (len $tutorials) 1) }},{{ end }}
+    {{- end }}
+  ]
+}

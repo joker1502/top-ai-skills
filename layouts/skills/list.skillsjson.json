@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "{{ .Title }}",
+    "description": "{{ .Description }}",
+    "total": {{ len .Pages }}
+  },
+  "skills": [
+    {{ range $i, $skill := .Pages.ByTitle }}
+    {
+      "name": "{{ $skill.Title }}",
+      "slug": "{{ $skill.File.ContentBaseName }}",
+      "url": "{{ $skill.Permalink }}",
+      "description": "{{ $skill.Description }}",
+      "version": "{{ $skill.Params.version }}",
+      "author": "{{ $skill.Params.author }}",
+      "repo_url": "{{ $skill.Params.repo_url }}",
+      "install_cmd": "{{ $skill.Params.install_cmd }}",
+      "category": "{{ $skill.Params.category }}",
+      "rating": {{ $skill.Params.rating | default 0 }},
+      "tags": [{{ with $skill.Params.tags }}{{ range $j, $tag := . }}{{ if $j }}, {{ end }}"{{ $tag }}"{{ end }}{{ end }}],
+      "compatibility": [{{ with $skill.Params.compatibility }}{{ range $j, $c := . }}{{ if $j }}, {{ end }}"{{ $c }}"{{ end }}{{ end }}]
+    }{{ if lt $i (sub (len $.Pages) 1) }},{{ end }}
+    {{ end }}
+  ]
+}

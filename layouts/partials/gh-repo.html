@@ -1,0 +1,5 @@
+{{ $url := .Params.repo_url }}
+{{ $parts := split (strings.TrimPrefix "https://github.com/" $url) "/" }}
+{{ $owner := index $parts 0 }}
+{{ $repo := index $parts 1 }}
+{{ if and $owner $repo }}{{ $owner }}/{{ $repo }}{{ else }}{{ $url }}{{ end }}

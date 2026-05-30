@@ -1,0 +1,40 @@
+# Top AI Skills — AI Context File
+# This file helps AI agents understand the site structure and data format.
+
+## Site Overview
+A Hugo static site cataloguing AI agent skills (reusable capabilities for AI coding tools).
+Bilingual: English (default) and Chinese.
+
+## Content Structure
+- /skills/          → Skill library pages (structured front matter)
+- /tutorials/       → Blog posts: reviews, comparisons, tutorials
+- /about/           → About page
+
+## Data Access for AI Agents
+
+### Structured JSON Endpoints
+- GET /skills/index.json
+  Returns: Array of all skills with full metadata (name, version, author, repo_url,
+  install_cmd, tags, compatibility, rating, github_stars, github_forks, category)
+
+### Schema Definition
+- /data/skills-schema.yaml
+  Complete field-by-field schema for skill content type.
+
+### Per-Skill Metadata
+Each skill page at /skills/<slug>/ contains YAML front matter with:
+  title, description, version, author, repo_url, install_cmd, tags, compatibility,
+  category, rating, github_stars, github_forks, installs, last_updated,
+  ai_friendliness (score, documentation, setup, config)
+
+## Cross-References
+- Blog posts reference skills via `related_skills: [slug]` front matter
+- Skill pages automatically display related blog posts
+
+## Automation
+- CI/CD: GitHub Actions at .github/workflows/deploy.yml
+- GitHub Stats: scripts/fetch-github-stats.sh auto-updates stars/forks daily
+- Skill Import: scripts/import-skill.sh generates new skill pages from GitHub URLs
+
+## Contact
+- Repo: https://github.com/ff/top-ai-skills

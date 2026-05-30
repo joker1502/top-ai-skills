@@ -1,0 +1,42 @@
+{{ $rating := .Get "rating" | default 0 | int }}
+{{ $bestFor := .Get "best_for" | default "" }}
+{{ $pros := split (.Get "pros" | default "") "," }}
+{{ $cons := split (.Get "cons" | default "") "," }}
+{{ $stars := strings.Repeat $rating "★" }}
+{{ $empty := sub 5 $rating }}
+<div class="tldr-box">
+  <div class="tldr-header">
+    <span class="tldr-badge">TL;DR</span>
+    <span class="tldr-rating">{{ $stars }}{{ strings.Repeat $empty "☆" }}</span>
+  </div>
+  <div class="tldr-body">
+    {{ .Inner | .Page.RenderString }}
+  </div>
+  {{ if $bestFor }}
+    <div class="tldr-bestfor">
+      <span class="tldr-label">Best for:</span> {{ $bestFor }}
+    </div>
+  {{ end }}
+  <div class="tldr-columns">
+    {{ if $pros }}
+      <div class="tldr-col">
+        <span class="tldr-label tldr-pros">✓ Pros</span>
+        <ul class="tldr-list">
+          {{ range $pros }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+    {{ if $cons }}
+      <div class="tldr-col">
+        <span class="tldr-label tldr-cons">✗ Cons</span>
+        <ul class="tldr-list">
+          {{ range $cons }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </div>
+</div>

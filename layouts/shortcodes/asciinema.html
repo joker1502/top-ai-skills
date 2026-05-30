@@ -1,0 +1,10 @@
+{{ $id := .Get "id" | default "" }}
+{{ $cols := .Get "cols" | default "80" }}
+{{ $rows := .Get "rows" | default "24" }}
+{{ $autoplay := .Get "autoplay" | default "true" }}
+{{ if $id }}
+  <div class="asciinema-wrapper">
+    <script src="https://asciinema.org/a/{{ $id }}.js" id="asciicast-{{ $id }}" async data-cols="{{ $cols }}" data-rows="{{ $rows }}" data-autoplay="{{ $autoplay }}"></script>
+    <noscript><p><a href="https://asciinema.org/a/{{ $id }}" target="_blank">Watch terminal recording on asciinema</a></p></noscript>
+  </div>
+{{ end }}

@@ -1,0 +1,74 @@
+{{ $a := .Site.GetPage (printf "/skills/%s" (index .Params 0)) }}
+{{ $b := .Site.GetPage (printf "/skills/%s" (index .Params 1)) }}
+{{ if or (not $a) (not $b) }}
+  <div class="shortcode-error">Skill not found: "{{ index .Params 0 }}" or "{{ index .Params 1 }}"</div>
+{{ else }}
+  {{ $ratingA := $a.Params.rating | default 0 }}
+  {{ $ratingB := $b.Params.rating | default 0 }}
+  {{ $starsA := strings.Repeat (int $ratingA) "★" }}{{ if gt $ratingA (float (int $ratingA)) }}{{ $starsA = printf "%s½" $starsA }}{{ end }}
+  {{ $starsB := strings.Repeat (int $ratingB) "★" }}{{ if gt $ratingB (float (int $ratingB)) }}{{ $starsB = printf "%s½" $starsB }}{{ end }}
+  <div class="compare-table-wrapper">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="compare-col-a">{{ $a.Title }}</th>
+          <th class="compare-col-b">{{ $b.Title }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="compare-label">Author</td>
+          <td>{{ $a.Params.author | default "-" }}</td>
+          <td>{{ $b.Params.author | default "-" }}</td>
+        </tr>
+        <tr>
+          <td class="compare-label">Version</td>
+          <td>{{ $a.Params.version | default "-" }}</td>
+          <td>{{ $b.Params.version | default "-" }}</td>
+        </tr>
+        <tr>
+          <td class="compare-label">Category</td>
+          <td><span class="compare-cat">{{ $a.Params.category | default "-" }}</span></td>
+          <td><span class="compare-cat">{{ $b.Params.category | default "-" }}</span></td>
+        </tr>
+        <tr>
+          <td class="compare-label">Rating</td>
+          <td class="compare-stars">{{ $starsA }} <span class="compare-rating-num">({{ $ratingA }})</span></td>
+          <td class="compare-stars">{{ $starsB }} <span class="compare-rating-num">({{ $ratingB }})</span></td>
+        </tr>
+        <tr>
+          <td class="compare-label">Description</td>
+          <td>{{ $a.Description | default "-" }}</td>
+          <td>{{ $b.Description | default "-" }}</td>
+        </tr>
+        {{ with $a.Params.compatibility }}
+          <tr>
+            <td class="compare-label">Compatibility</td>
+            <td><div class="compare-badges">{{ range $a.Params.compatibility }}<span class="compare-badge">{{ . }}</span>{{ end }}</div></td>
+            <td><div class="compare-badges">{{ range $b.Params.compatibility }}<span class="compare-badge">{{ . }}</span>{{ end }}</div></td>
+          </tr>
+        {{ end }}
+        {{ if or ($a.Params.github_stars) ($b.Params.github_stars) }}
+          <tr>
+            <td class="compare-label">GitHub Stars</td>
+            <td>{{ if gt ($a.Params.github_stars | default 0) 0 }}⭐ {{ $a.Params.github_stars }}{{ else }}-{{ end }}</td>
+            <td>{{ if gt ($b.Params.github_stars | default 0) 0 }}⭐ {{ $b.Params.github_stars }}{{ else }}-{{ end }}</td>
+          </tr>
+        {{ end }}
+        {{ if or ($a.Params.install_cmd) ($b.Params.install_cmd) }}
+          <tr>
+            <td class="compare-label">Install</td>
+            <td>{{ with $a.Params.install_cmd }}<code class="compare-cmd">{{ . }}</code>{{ else }}-{{ end }}</td>
+            <td>{{ with $b.Params.install_cmd }}<code class="compare-cmd">{{ . }}</code>{{ else }}-{{ end }}</td>
+          </tr>
+        {{ end }}
+        <tr>
+          <td class="compare-label">Tags</td>
+          <td><div class="compare-badges">{{ range $a.Params.tags }}<span class="compare-badge">{{ . }}</span>{{ end }}</div></td>
+          <td><div class="compare-badges">{{ range $b.Params.tags }}<span class="compare-badge">{{ . }}</span>{{ end }}</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{{ end }}
