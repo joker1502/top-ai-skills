@@ -1,0 +1,189 @@
+{{ define "main" }}
+{{ $skills := where .Site.RegularPages "Section" "skills" }}
+{{ $reviews := where .Site.RegularPages "Section" "tutorials" }}
+{{ $skillData := slice }}
+{{ range $skills }}
+  {{ $s := dict
+    "title" .Title
+    "url" .RelPermalink
+    "description" .Description
+    "author" (.Params.author | default "")
+    "category" (.Params.category | default "")
+    "rating" (.Params.rating | default 0)
+    "tags" (.Params.tags | default slice)
+    "installs" (.Params.installs | default 0)
+    "github_stars" (.Params.github_stars | default 0)
+    "version" (.Params.version | default "")
+  }}
+  {{ $skillData = $skillData | append $s }}
+{{ end }}
+{{ $skillJSON := $skillData | jsonify }}
+
+<section class="hero">
+  <h1>Top AI Skills</h1>
+  <p>{{ .Site.Params.subtitle }}</p>
+</section>
+
+{{/* ── Search ── */}}
+<div class="search-section">
+  <div class="search-container">
+    <input type="text" class="search-input" id="skill-search" placeholder="按名称、标签、作者或描述搜索技能…" autocomplete="off">
+    <span class="search-icon">⌕</span>
+  </div>
+  <div class="search-results" id="search-results"></div>
+</div>
+
+{{/* ── Featured Skills ── */}}
+{{ if $skills }}
+      <div class="section-header">
+        <h2>精选技能</h2>
+        <a class="view-all" href="{{ "/skills/" | relLangURL }}">查看全部 →</a>
+      </div>
+  <div class="skills-grid">
+    {{ range first 8 (sort $skills ".Params.installs" "desc") }}
+      {{ $installs := .Params.installs | default 0 }}
+      {{ $lastUp := .Params.last_updated | default "" }}
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
+        </div>
+          <div class="skill-author">{{ .Params.author }}</div>
+          <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ if eq .Params.category "general" }}通用{{ else if eq .Params.category "coding" }}编程{{ else if eq .Params.category "image" }}图像{{ else if eq .Params.category "search" }}搜索{{ else if eq .Params.category "automation" }}自动化{{ else }}{{ .Params.category }}{{ end }}</a>
+          {{ with .Params.description }}
+            <p class="skill-desc">{{ . | markdownify }}</p>
+          {{ end }}
+          <div class="skill-card-footer">
+            {{ if gt $installs 0 }}
+              <span class="skill-stat">
+                <span class="skill-stat-icon">⬇</span>
+                {{ if ge $installs 1000000 }}
+                  {{ div $installs 1000000 }}M
+                {{ else if ge $installs 1000 }}
+                  {{ div $installs 1000 }}K
+                {{ else }}
+                  {{ $installs }}
+                {{ end }}
+              </span>
+            {{ end }}
+            {{ if $lastUp }}
+              <span class="skill-stat">
+                <span class="skill-stat-icon">↻</span>
+                {{ $lastUp }}
+              </span>
+            {{ end }}
+          </div>
+          {{ if .Params.tags }}
+            <div class="skill-tags" style="margin-top: 12px;">
+              {{ range first 3 .Params.tags }}
+                <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+    {{ end }}
+  </div>
+{{ end }}
+
+{{/* ── Latest Reviews ── */}}
+{{ if $reviews }}
+  <div class="section-header" style="margin-top: 50px;">
+    <h2>最新教程</h2>
+     <a class="view-all" href="{{ "/tutorials/" | relLangURL }}">查看全部 →</a>
+  </div>
+  <div class="review-list">
+    {{ range first 5 $reviews.ByDate.Reverse }}
+      <div class="review-item">
+        <a href="{{ .Permalink }}" class="review-title">{{ .Title | markdownify }}</a>
+        <span class="review-meta">
+          {{ with .Params.category }}<a class="review-cat" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ . }}</a>{{ end }}
+          {{ with .Date }}<time class="review-date">{{ .Format "2006-01-02" }}</time>{{ end }}
+        </span>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+<script>
+var skillsData = {{ $skillJSON | safeJS }};
+var fuse = new Fuse(skillsData, {
+  keys: [
+    { name: "title", weight: 2 },
+    { name: "tags", weight: 1.5 },
+    { name: "author", weight: 1.2 },
+    { name: "description", weight: 1 },
+    { name: "category", weight: 1 }
+  ],
+  threshold: 0.4,
+  includeScore: true,
+  minMatchCharLength: 2
+});
+
+var input = document.getElementById("skill-search");
+var results = document.getElementById("search-results");
+var hideTimeout;
+
+function renderResults(items) {
+  if (!items || items.length === 0) {
+    results.innerHTML = "";
+    results.classList.remove("visible");
+    return;
+  }
+  var html = "";
+  var maxResults = Math.min(items.length, 8);
+  for (var i = 0; i < maxResults; i++) {
+    var item = items[i].item;
+    var installs = "";
+    if (item.installs > 0) {
+      if (item.installs >= 1000000) installs = (item.installs / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
+      else if (item.installs >= 1000) installs = (item.installs / 1000).toFixed(1).replace(/\.0$/, "") + "K";
+      else installs = item.installs;
+    }
+    html += '<a href="' + item.url + '" class="search-result-item">';
+    html += '  <div class="search-result-title">' + item.title + '</div>';
+    html += '  <div class="search-result-meta">';
+    html += '    <span>' + item.author + '</span>';
+    if (installs) html += '    <span>⬇ ' + installs + '</span>';
+    html += '    <span class="search-result-rating">' + item.rating + '</span>';
+    html += '  </div>';
+    html += '</a>';
+  }
+  if (items.length > maxResults) {
+    html += '<div class="search-result-more">+' + (items.length - maxResults) + ' more results</div>';
+  }
+  results.innerHTML = html;
+  results.classList.add("visible");
+}
+
+input.addEventListener("input", function() {
+  var query = this.value.trim();
+  clearTimeout(hideTimeout);
+  if (query.length < 2) {
+    renderResults([]);
+    results.classList.remove("visible");
+    return;
+  }
+  var res = fuse.search(query);
+  renderResults(res);
+});
+
+input.addEventListener("focus", function() {
+  if (results.children.length > 0) {
+    results.classList.add("visible");
+  }
+});
+
+input.addEventListener("blur", function() {
+  hideTimeout = setTimeout(function() {
+    results.classList.remove("visible");
+  }, 200);
+});
+
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".search-container") && !e.target.closest(".search-results")) {
+    results.classList.remove("visible");
+  }
+});
+</script>
+{{ end }}
