@@ -21,7 +21,6 @@
 .hero {
   text-align: center;
   padding: 60px 0 40px;
-  border-bottom: 2px solid var(--card-border);
   margin-bottom: 40px;
 }
 .hero h1 {
