@@ -27,7 +27,7 @@
 {{/* ── Search ── */}}
 <div class="search-section">
   <div class="search-container">
-    <input type="text" class="search-input" id="skill-search" placeholder="Search skills by name, tag, author, or description..." autocomplete="off">
+    <input type="text" class="search-input" id="skill-search" placeholder="{{ if eq .Site.Language.Lang "zh" }}按名称、标签、作者或描述搜索技能…{{ else }}Search skills by name, tag, author, or description...{{ end }}" autocomplete="off">
     <span class="search-icon">⌕</span>
   </div>
   <div class="search-results" id="search-results"></div>
@@ -36,8 +36,8 @@
 {{/* ── Featured Skills ── */}}
 {{ if $skills }}
       <div class="section-header">
-        <h2>Featured Skills</h2>
-        <a class="view-all" href="{{ "/skills/" | relLangURL }}">View All →</a>
+        <h2>{{ if eq .Site.Language.Lang "zh" }}精选技能{{ else }}Featured Skills{{ end }}</h2>
+        <a class="view-all" href="{{ "/skills/" | relLangURL }}">{{ if eq .Site.Language.Lang "zh" }}查看全部 →{{ else }}View All →{{ end }}</a>
       </div>
   <div class="skills-grid">
     {{ range first 8 (sort $skills ".Params.installs" "desc") }}
@@ -49,7 +49,7 @@
           <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
         </div>
           <div class="skill-author">{{ .Params.author }}</div>
-          <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ .Params.category }}</a>
+          <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ if eq $.Site.Language.Lang "zh" }}{{ if eq .Params.category "general" }}通用{{ else if eq .Params.category "coding" }}编程{{ else if eq .Params.category "image" }}图像{{ else if eq .Params.category "search" }}搜索{{ else if eq .Params.category "automation" }}自动化{{ else }}{{ .Params.category }}{{ end }}{{ else }}{{ .Params.category }}{{ end }}</a>
           {{ with .Params.description }}
             <p class="skill-desc">{{ . | markdownify }}</p>
           {{ end }}
@@ -88,8 +88,8 @@
 {{/* ── Latest Reviews ── */}}
 {{ if $reviews }}
   <div class="section-header" style="margin-top: 50px;">
-    <h2>Latest Tutorials</h2>
-     <a class="view-all" href="{{ "/tutorials/" | relLangURL }}">View All →</a>
+    <h2>{{ if eq .Site.Language.Lang "zh" }}最新教程{{ else }}Latest Tutorials{{ end }}</h2>
+     <a class="view-all" href="{{ "/tutorials/" | relLangURL }}">{{ if eq .Site.Language.Lang "zh" }}查看全部 →{{ else }}View All →{{ end }}</a>
   </div>
   <div class="review-list">
     {{ range first 5 $reviews.ByDate.Reverse }}
