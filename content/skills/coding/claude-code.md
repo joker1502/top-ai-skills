@@ -17,7 +17,7 @@ compatibility:
   - VS Code
 category: "coding"
 rating: 4.8
-github_stars: 128544
+github_stars: 128546
 github_forks: 20955
 installs: 185000
 last_updated: "2026-05-30"
