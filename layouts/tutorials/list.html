@@ -30,7 +30,7 @@
             <time class="post-date">{{ partial "post-date" $ }}</time>
           {{ end }}
           {{ with .Params.category }}
-            <a class="post-category" href="/tutorials/{{ . }}/">{{ . }}</a>
+            <a class="post-category" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ . }}</a>
           {{ end }}
         </div>
         {{ if .Params.tags }}
@@ -92,7 +92,7 @@
             <time class="post-date">{{ partial "post-date" $ }}</time>
           {{ end }}
           {{ with .Params.category }}
-            <a class="post-category" href="/tutorials/{{ . }}/">{{ . }}</a>
+            <a class="post-category" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ . }}</a>
           {{ end }}
         </div>
         {{ if .Params.tags }}

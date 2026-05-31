@@ -29,7 +29,7 @@
           <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
         </div>
         <div class="skill-author">{{ .Params.author }}</div>
-        <a class="skill-cat-badge" href="/skills/{{ .Params.category }}/">{{ .Params.category }}</a>
+        <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ .Params.category }}</a>
         {{ with .Params.description }}
           <p class="skill-desc">{{ . | markdownify }}</p>
         {{ end }}
@@ -78,7 +78,7 @@
           <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
         </div>
         <div class="skill-author">{{ .Params.author }}</div>
-        <a class="skill-cat-badge" href="/skills/{{ .Params.category }}/">{{ .Params.category }}</a>
+        <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ .Params.category }}</a>
         {{ with .Params.description }}
           <p class="skill-desc">{{ . | markdownify }}</p>
         {{ end }}
