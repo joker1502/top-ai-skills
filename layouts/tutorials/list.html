@@ -9,9 +9,9 @@
 
   <div class="filter-bar">
     <div class="filter-group">
-      <span class="filter-group-label">Category</span>
+      <span class="filter-group-label">{{ $.Site.Params.category }}</span>
       <div class="filter-buttons">
-        <a href="{{ .RelPermalink }}" class="filter-btn active">All</a>
+        <a href="{{ .RelPermalink }}" class="filter-btn active">{{ $.Site.Params.all }}</a>
         {{ range .Sections.ByTitle }}
           <a href="{{ .RelPermalink }}" class="filter-btn">{{ .Title }}</a>
         {{ end }}
@@ -71,9 +71,9 @@
 
   <div class="filter-bar">
     <div class="filter-group">
-      <span class="filter-group-label">Category</span>
+      <span class="filter-group-label">{{ $.Site.Params.category }}</span>
       <div class="filter-buttons">
-        <a href="{{ .Parent.RelPermalink }}" class="filter-btn">All</a>
+        <a href="{{ .Parent.RelPermalink }}" class="filter-btn">{{ $.Site.Params.all }}</a>
         {{ range .Parent.Sections.ByTitle }}
           <a href="{{ .RelPermalink }}" class="filter-btn{{ if eq .Params.category_filter $category }} active{{ end }}">{{ .Title }}</a>
         {{ end }}

@@ -19,7 +19,7 @@
 {{ end }}
 
 {{ if $skills }}
-  <h2 class="section-subtitle">Skills</h2>
+  <h2 class="section-subtitle">{{ $.Site.Params.skillsSection }}</h2>
   <div class="skills-grid">
     {{ range $skills.ByTitle }}
       <div class="skill-card">
@@ -45,7 +45,7 @@
 {{ end }}
 
 {{ if $tutorials }}
-  <h2 class="section-subtitle">Tutorials</h2>
+  <h2 class="section-subtitle">{{ $.Site.Params.tutorialsSection }}</h2>
   {{ range $tutorials.ByDate.Reverse }}
     <article class="post on-list">
       <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
@@ -65,6 +65,6 @@
 {{ end }}
 
 {{ if not $skills }}{{ if not $tutorials }}
-  <p>No content found for this tag.</p>
+  <p>{{ $.Site.Params.noContent }}</p>
 {{ end }}{{ end }}
 {{ end }}
