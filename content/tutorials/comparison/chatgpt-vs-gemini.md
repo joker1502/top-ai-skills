@@ -4,7 +4,6 @@ date: 2026-05-31
 draft: false
 tags:
   - AI Writing
-  - Comparison
   - ChatGPT
   - Gemini
 description: "Compare ChatGPT vs Gemini across features, pricing, and real-world use. Honest verdict for developers, writers, and everyday users."
