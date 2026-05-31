@@ -28,7 +28,7 @@
           <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
         </div>
         <div class="skill-author">{{ .Params.author }}</div>
-        <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ .Params.category }}</a>
+        <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ with $.Site.GetPage (printf "/skills/%s" .Params.category) }}{{ .Title }}{{ end }}</a>
         {{ with .Params.description }}
           <p class="skill-desc">{{ . | markdownify }}</p>
         {{ end }}

@@ -49,7 +49,7 @@
           <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
         </div>
           <div class="skill-author">{{ .Params.author }}</div>
-          <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ if eq $.Site.Language.Lang "zh" }}{{ if eq .Params.category "general" }}通用{{ else if eq .Params.category "coding" }}编程{{ else if eq .Params.category "image" }}图像{{ else if eq .Params.category "search" }}搜索{{ else if eq .Params.category "automation" }}自动化{{ else }}{{ .Params.category }}{{ end }}{{ else }}{{ .Params.category }}{{ end }}</a>
+          <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ with $.Site.GetPage (printf "/skills/%s" .Params.category) }}{{ .Title }}{{ end }}</a>
           {{ with .Params.description }}
             <p class="skill-desc">{{ . | markdownify }}</p>
           {{ end }}
