@@ -2,7 +2,9 @@
 # This file helps AI agents understand the site structure and data format.
 
 ## Site Overview
-A Hugo static site cataloguing AI agent skills (reusable capabilities for AI coding tools).
+A curated AI skills directory and resource hub — discover and compare the best AI skills,
+AI agents, and AI tools including AI coding assistants, AI writing tools, AI image generation
+platforms, AI search engines, and AI automation solutions.
 Bilingual: English (default) and Chinese.
 
 ## Content Structure
@@ -38,3 +40,4 @@ Each skill page at /skills/<slug>/ contains YAML front matter with:
 
 ## Contact
 - Repo: https://github.com/ff/top-ai-skills
+- Site: https://topaiskills.com

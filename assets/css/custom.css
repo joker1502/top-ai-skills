@@ -604,6 +604,12 @@
   color: var(--background);
   font-weight: bold;
 }
+.pagination-btn.dots {
+  border: none;
+  color: color-mix(in srgb, var(--foreground) 35%, transparent);
+  min-width: 24px;
+  cursor: default;
+}
 
 /* ── Responsive ── */
 @media (max-width: 684px) {

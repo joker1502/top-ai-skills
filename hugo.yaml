@@ -1,5 +1,5 @@
-baseURL: "/"
-locale: "en-us"
+baseURL: "https://topaiskills.com"
+googleAnalytics: "G-V27BZ7GENQ"
 theme: "terminal"
 title: "Top AI Skills"
 defaultContentLanguage: "en"
@@ -11,6 +11,11 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+sitemap:
+  changefreq: daily
+  filename: sitemap.xml
+  priority: 0.8
 
 outputFormats:
   SKILLSJSON:
@@ -30,6 +35,9 @@ params:
   fullWidthTheme: false
   centerTheme: true
   showLanguageSelector: true
+  twitter:
+    site: "@topaiskills"
+    creator: "@topaiskills"
 
   logo:
     logoText: "Top AI Skills"
@@ -42,8 +50,8 @@ languages:
     weight: 1
     copyright: ""
     params:
-      subtitle: "Discover & compare the best AI skills, agents, and tools"
-      keywords: ""
+      subtitle: "Discover & compare the best AI skills, AI agents, and AI tools — a curated AI skills directory covering AI coding, AI writing, AI image generation, AI search, and AI automation"
+      keywords: "AI skills, AI agents, AI tools, AI coding, AI writing, AI image generation, AI automation, AI directory, AI resources"
       menuMore: "Show more"
       readMore: "Read more"
       readOtherPosts: "Read other posts"
@@ -72,8 +80,8 @@ languages:
     weight: 2
     copyright: ""
     params:
-      subtitle: "发现和对比最佳的 AI 技能、代理和工具"
-      keywords: ""
+      subtitle: "发现和对比最佳的 AI 技能、AI 代理和 AI 工具 — 精选 AI 技能目录，涵盖 AI 编程、AI 写作、AI 图像生成、AI 搜索和 AI 自动化"
+      keywords: "AI 技能, AI 代理, AI 工具, AI 编程, AI 写作, AI 图像生成, AI 自动化, AI 目录"
       menuMore: "展开更多"
       readMore: "阅读全文"
       readOtherPosts: "阅读其他文章"
@@ -81,17 +89,17 @@ languages:
       main:
         - identifier: "home"
           name: "首页"
-          url: "/"
+          url: "/zh/"
           weight: 10
         - identifier: "skills"
           name: "技能"
-          url: "/skills/"
+          url: "/zh/skills/"
           weight: 20
         - identifier: "tutorials"
           name: "教程"
-          url: "/tutorials/"
+          url: "/zh/tutorials/"
           weight: 30
         - identifier: "about"
           name: "关于"
-          url: "/about/"
+          url: "/zh/about/"
           weight: 40

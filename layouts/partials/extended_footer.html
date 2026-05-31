@@ -6,10 +6,10 @@
   function setTheme(t) {
     if (t === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
-      btn.textContent = '○';
+      btn.textContent = '☀';
     } else {
       document.documentElement.removeAttribute('data-theme');
-      btn.textContent = '●';
+      btn.textContent = '☾';
     }
     localStorage.setItem('theme', t);
     current = t;
