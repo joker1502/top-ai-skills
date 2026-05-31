@@ -39,4 +39,26 @@ DALL·E 是 OpenAI 的图像生成模型，能从文本描述创建惊艳的视�
 
 ## 使用方法
 
-通过 [ChatGPT](https://chatgpt.com) 或 OpenAI API 生成图像。
+通过 [ChatGPT](https://chatgpt.com) 或 OpenAI API 生成图像：
+
+```bash
+curl -X POST https://api.openai.com/v1/images/generations \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "dall-e-3",
+    "prompt": "夕阳下的宁静山湖",
+    "n": 1,
+    "size": "1024x1024"
+  }'
+```
+
+## 参数
+
+```yaml
+prompt: "夕阳下的宁静山湖"
+model: "dall-e-3"
+size: "1024x1024"
+quality: "hd"
+style: "natural"
+```

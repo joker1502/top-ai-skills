@@ -43,3 +43,13 @@ Cursor 是一款 AI 优先的代码编辑器，将强大的 AI 能力直接融�
 ```bash
 cursor my-project
 ```
+
+## 配置
+
+```json
+{
+  "cursor.chat.context": "full",
+  "cursor.generatedCode.enabled": true,
+  "cursor.cpp.enabled": true
+}
+```
