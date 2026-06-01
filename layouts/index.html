@@ -21,13 +21,12 @@
 
 <section class="hero">
   <h1>Top AI Skills</h1>
-  <p>{{ .Site.Params.subtitle }}</p>
 </section>
 
 {{/* ── Search ── */}}
 <div class="search-section">
   <div class="search-container">
-    <input type="text" class="search-input" id="skill-search" placeholder="Search skills by name, tag, author, or description..." autocomplete="off">
+    <input type="text" class="search-input" id="skill-search" placeholder="{{ $.Site.Params.searchPlaceholder }}" autocomplete="off">
     <span class="search-icon">⌕</span>
   </div>
   <div class="search-results" id="search-results"></div>
@@ -35,21 +34,21 @@
 
 {{/* ── Featured Skills ── */}}
 {{ if $skills }}
-  <div class="section-header">
-    <h2>Featured Skills</h2>
-    <a class="view-all" href="/skills/">View All →</a>
-  </div>
+      <div class="section-header">
+        <h2>{{ $.Site.Params.featuredSkills }}</h2>
+        <a class="view-all" href="{{ "/skills/" | relLangURL }}">{{ $.Site.Params.viewAll }}</a>
+      </div>
   <div class="skills-grid">
-    {{ range sort $skills ".Params.installs" "desc" }}
+    {{ range first 8 (sort $skills ".Params.installs" "desc") }}
       {{ $installs := .Params.installs | default 0 }}
       {{ $lastUp := .Params.last_updated | default "" }}
-      <a href="{{ .RelPermalink }}" class="skill-card-link">
-        <div class="skill-card">
-          <div class="skill-card-header">
-            <h3>{{ .Title }}</h3>
-            <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
-          </div>
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
+        </div>
           <div class="skill-author">{{ .Params.author }}</div>
+          <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ with $.Site.GetPage (printf "/skills/%s" .Params.category) }}{{ .Title }}{{ end }}</a>
           {{ with .Params.description }}
             <p class="skill-desc">{{ . | markdownify }}</p>
           {{ end }}
@@ -76,12 +75,11 @@
           {{ if .Params.tags }}
             <div class="skill-tags" style="margin-top: 12px;">
               {{ range first 3 .Params.tags }}
-                <span class="skill-tag">{{ . }}</span>
+                <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
               {{ end }}
             </div>
           {{ end }}
         </div>
-      </a>
     {{ end }}
   </div>
 {{ end }}
@@ -89,18 +87,18 @@
 {{/* ── Latest Reviews ── */}}
 {{ if $reviews }}
   <div class="section-header" style="margin-top: 50px;">
-    <h2>Latest Reviews</h2>
-    <a class="view-all" href="/tutorials/">View All →</a>
+    <h2>{{ $.Site.Params.latestTutorials }}</h2>
+     <a class="view-all" href="{{ "/tutorials/" | relLangURL }}">{{ $.Site.Params.viewAll }}</a>
   </div>
   <div class="review-list">
-    {{ range first 5 $reviews.ByDate.Reverse }}
-      <a href="{{ .Permalink }}" class="review-item">
-        <span class="review-title">{{ .Title | markdownify }}</span>
+    {{ range first 6 $reviews.ByTitle }}
+      <div class="review-item">
+        <a href="{{ .Permalink }}" class="review-title">{{ .Title | markdownify }}</a>
         <span class="review-meta">
-          {{ with .Params.category }}<span class="review-cat">{{ . }}</span>{{ end }}
+          {{ with .Params.category }}<a class="review-cat" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ . }}</a>{{ end }}
           {{ with .Date }}<time class="review-date">{{ .Format "2006-01-02" }}</time>{{ end }}
         </span>
-      </a>
+      </div>
     {{ end }}
   </div>
 {{ end }}

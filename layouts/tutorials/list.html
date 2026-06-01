@@ -1,12 +1,26 @@
 {{ define "main" }}
+{{ if .Parent.IsHome }}
   <div class="section-header">
     <h1>{{ .Title }}</h1>
   </div>
   {{ with .Content }}
     <div class="index-content">{{ . }}</div>
   {{ end }}
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <span class="filter-group-label">{{ $.Site.Params.category }}</span>
+      <div class="filter-buttons">
+        <a href="{{ .RelPermalink }}" class="filter-btn active">{{ $.Site.Params.all }}</a>
+        {{ range .Sections.ByTitle }}
+          <a href="{{ .RelPermalink }}" class="filter-btn">{{ .Title }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+
   <div class="posts">
-    {{ range .Paginator.Pages }}
+    {{ range (.Paginate .RegularPagesRecursive).Pages }}
       <article class="post on-list">
         <h2 class="post-title">
           <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
@@ -16,10 +30,8 @@
             <time class="post-date">{{ partial "post-date" $ }}</time>
           {{ end }}
           {{ with .Params.category }}
-            <span class="post-category">{{ . }}</span>
-          {{ end }}
-          {{ if .Params.rating }}
-            <span class="post-rating">{{ .Params.rating }}</span>
+            {{ $catPage := $.Site.GetPage (printf "/tutorials/%s" .) }}
+            <a class="post-category" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ with $catPage }}{{ .Title }}{{ else }}{{ . }}{{ end }}</a>
           {{ end }}
         </div>
         {{ if .Params.tags }}
@@ -46,4 +58,68 @@
     {{ end }}
     {{ partial "pagination.html" . }}
   </div>
+
+{{ else }}
+  {{ $category := .Params.category_filter | default "" }}
+  {{ $filtered := where .Parent.RegularPagesRecursive "Params.category" $category }}
+
+  <div class="section-header">
+    <h1>{{ .Title }}</h1>
+  </div>
+  {{ with .Content }}
+    <div class="index-content">{{ . }}</div>
+  {{ end }}
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <span class="filter-group-label">{{ $.Site.Params.category }}</span>
+      <div class="filter-buttons">
+        <a href="{{ .Parent.RelPermalink }}" class="filter-btn">{{ $.Site.Params.all }}</a>
+        {{ range .Parent.Sections.ByTitle }}
+          <a href="{{ .RelPermalink }}" class="filter-btn{{ if eq .Params.category_filter $category }} active{{ end }}">{{ .Title }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+
+  <div class="posts">
+    {{ range (.Paginate $filtered).Pages }}
+      <article class="post on-list">
+        <h2 class="post-title">
+          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+        </h2>
+        <div class="post-meta">
+          {{ with .Date }}
+            <time class="post-date">{{ partial "post-date" $ }}</time>
+          {{ end }}
+          {{ with .Params.category }}
+            {{ $catPage := $.Site.GetPage (printf "/tutorials/%s" .) }}
+            <a class="post-category" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ with $catPage }}{{ .Title }}{{ else }}{{ . }}{{ end }}</a>
+          {{ end }}
+        </div>
+        {{ if .Params.tags }}
+          <span class="post-tags">
+            {{ range .Params.tags }}
+              #<a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
+            {{ end }}
+          </span>
+        {{ end }}
+        {{ partial "cover.html" . }}
+        <div class="post-content">
+          {{ if .Description }}
+            <p>{{ .Description | markdownify }}</p>
+          {{ else }}
+            {{ .Summary }}
+          {{ end }}
+        </div>
+        {{ if not .Params.showFullContent }}
+          <div>
+            <a class="read-more button inline" href="{{ .RelPermalink }}">[{{ $.Site.Params.readMore | default "Read more" }}]</a>
+          </div>
+        {{ end }}
+      </article>
+    {{ end }}
+    {{ partial "pagination.html" . }}
+  </div>
+{{ end }}
 {{ end }}

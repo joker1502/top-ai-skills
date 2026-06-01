@@ -1,16 +1,21 @@
-baseURL: "/"
-locale: "en-us"
+baseURL: "https://topaiskills.com"
+googleAnalytics: "G-V27BZ7GENQ"
 theme: "terminal"
-title: "Top AI Skills"
+title: "Top AI Skills - AI Agent Skills Directory"
 defaultContentLanguage: "en"
 
 pagination:
-  pagerSize: 5
+  pagerSize: 8
 
 markup:
   goldmark:
     renderer:
       unsafe: true
+
+sitemap:
+  changefreq: daily
+  filename: sitemap.xml
+  priority: 0.8
 
 outputFormats:
   SKILLSJSON:
@@ -30,6 +35,9 @@ params:
   fullWidthTheme: false
   centerTheme: true
   showLanguageSelector: true
+  twitter:
+    site: "@topaiskills"
+    creator: "@topaiskills"
 
   logo:
     logoText: "Top AI Skills"
@@ -38,15 +46,40 @@ params:
 languages:
   en:
     label: "English"
-    title: "Top AI Skills"
+    title: "Top AI Skills - AI Agent Skills Directory"
     weight: 1
     copyright: ""
     params:
-      subtitle: "Discover & compare the best AI skills, agents, and tools"
-      keywords: ""
+      subtitle: "Discover & compare the best AI skills, AI agents, and AI tools — a curated AI skills directory covering AI coding, AI writing, AI image generation, AI search, and AI automation"
+      keywords: "AI skills, AI agents, AI tools, AI coding, AI writing, AI image generation, AI automation, AI directory, AI resources"
       menuMore: "Show more"
       readMore: "Read more"
       readOtherPosts: "Read other posts"
+      featuredSkills: "Featured Skills"
+      latestTutorials: "Latest Tutorials"
+      viewAll: "View All →"
+      category: "Category"
+      all: "All"
+      searchPlaceholder: "Search skills by name, tag, author, or description..."
+      info: "Info"
+      author: "Author"
+      version: "Version"
+      rating: "Rating"
+      github: "GitHub"
+      compatibleWith: "Compatible with"
+      aiFriendliness: "AI-Friendliness"
+      documentation: "Documentation"
+      easeOfSetup: "Ease of Setup"
+      configStandards: "Config Standards"
+      relatedReviews: "Related Reviews"
+      copy: "Copy"
+      copyInstall: "Copy install command"
+      copied: "✓ Copied!"
+      skillsSection: "Skills"
+      tutorialsSection: "Tutorials"
+      noContent: "No content found for this tag."
+      home: "Home"
+      footerTheme: "Theme: Terminal"
     menu:
       main:
         - identifier: "home"
@@ -68,30 +101,55 @@ languages:
 
   zh:
     label: "中文"
-    title: "Top AI Skills"
+    title: "Top AI Skills - AI 技能目录|AI 技能导航"
     weight: 2
     copyright: ""
     params:
-      subtitle: "发现和对比最佳的 AI 技能、代理和工具"
-      keywords: ""
+      subtitle: "发现和对比最佳的 AI 技能、AI 代理和 AI 工具 — 精选 AI 技能目录，涵盖 AI 编程、AI 写作、AI 图像生成、AI 搜索和 AI 自动化"
+      keywords: "AI 技能, AI 代理, AI 工具, AI 编程, AI 写作, AI 图像生成, AI 自动化, AI 目录"
       menuMore: "展开更多"
       readMore: "阅读全文"
       readOtherPosts: "阅读其他文章"
+      featuredSkills: "精选技能"
+      latestTutorials: "最新教程"
+      viewAll: "查看全部 →"
+      category: "分类"
+      all: "全部"
+      searchPlaceholder: "按名称、标签、作者或描述搜索技能..."
+      info: "信息"
+      author: "开发者"
+      version: "版本"
+      rating: "评分"
+      github: "GitHub"
+      compatibleWith: "兼容平台"
+      aiFriendliness: "AI 友好度"
+      documentation: "文档"
+      easeOfSetup: "安装便利"
+      configStandards: "配置规范"
+      relatedReviews: "相关教程"
+      copy: "复制"
+      copyInstall: "复制安装命令"
+      copied: "✓ 已复制！"
+      skillsSection: "技能"
+      tutorialsSection: "教程"
+      noContent: "此标签下暂无内容。"
+      home: "首页"
+      footerTheme: "主题: Terminal"
     menu:
       main:
         - identifier: "home"
           name: "首页"
-          url: "/"
+          url: "/zh/"
           weight: 10
         - identifier: "skills"
           name: "技能"
-          url: "/skills/"
+          url: "/zh/skills/"
           weight: 20
         - identifier: "tutorials"
           name: "教程"
-          url: "/tutorials/"
+          url: "/zh/tutorials/"
           weight: 30
         - identifier: "about"
           name: "关于"
-          url: "/about/"
+          url: "/zh/about/"
           weight: 40

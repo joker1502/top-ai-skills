@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="post">
+  <h1 class="post-title">404</h1>
+  <p style="text-align:center;font-size:1.2em;margin-bottom:2rem">{{ $.Site.Params.missingContentMessage | default "Page not found..." }}</p>
+
+  <div class="post-content">
+    <section style="text-align:center;margin-bottom:2rem">
+      <div class="search-container" style="max-width:500px;margin:0 auto">
+        <input type="text" class="search-input" id="skill-search" placeholder="Search skills by name, tag, author, or description..." autocomplete="off" style="width:100%;padding:12px;font-size:1rem">
+      </div>
+    </section>
+
+    <nav style="text-align:center">
+      <p><a href="{{ "" | absLangURL }}">← Home</a></p>
+      <p><a href="{{ "skills/" | absLangURL }}">Skills →</a></p>
+      <p><a href="{{ "tutorials/" | absLangURL }}">Tutorials →</a></p>
+    </nav>
+  </div>
+</div>
+{{ end }}

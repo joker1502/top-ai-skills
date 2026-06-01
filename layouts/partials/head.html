@@ -1,7 +1,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>(function(){var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})()</script>
+<script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})()</script>
 <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}" />
 {{ if .Params.noindex }}
@@ -19,13 +19,26 @@
   {{ end }}
   <link rel="alternate" hreflang="{{ $.Site.Language.Lang }}" href="{{ $.Permalink }}" />
 {{ end }}
+<link rel="alternate" hreflang="x-default" href="{{ .Site.BaseURL }}" />
 
-{{ with .Translations }}
-  {{ range . }}
-    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
-  {{ end }}
-  <link rel="alternate" hreflang="{{ $.Site.Language.Lang }}" href="{{ $.Permalink }}" />
-{{ end }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ $.Site.Title }}",
+  "url": "{{ $.Site.BaseURL }}",
+  "description": "{{ if $.IsHome }}{{ $.Site.Params.Subtitle }}{{ else }}{{ .Description }}{{ end }}",
+  "inLanguage": "{{ $.Site.Language.Lang }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ $.Site.BaseURL }}search/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
 {{ template "_internal/google_analytics.html" . }}
 
@@ -44,8 +57,10 @@
 {{- end }}
 
 <!-- Icons -->
-<link rel="shortcut icon" href="{{ "favicon.png" | absURL }}">
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | absURL }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ "favicon-96x96.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+<link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary" />
@@ -57,7 +72,7 @@
 {{ end }}
 
 <!-- OG data -->
-<meta property="og:locale" content="{{ $.Site.Language.Lang }}" />
+<meta property="og:locale" content="{{ if eq $.Site.Language.Lang "zh" }}zh_CN{{ else }}en_US{{ end }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />

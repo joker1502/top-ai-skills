@@ -1,5 +1,5 @@
-{{ $a := .Site.GetPage (printf "/skills/%s" (index .Params 0)) }}
-{{ $b := .Site.GetPage (printf "/skills/%s" (index .Params 1)) }}
+{{ $a := index (where (where .Site.RegularPages "Section" "skills") "File.BaseFileName" (index .Params 0)) 0 }}
+{{ $b := index (where (where .Site.RegularPages "Section" "skills") "File.BaseFileName" (index .Params 1)) 0 }}
 {{ if or (not $a) (not $b) }}
   <div class="shortcode-error">Skill not found: "{{ index .Params 0 }}" or "{{ index .Params 1 }}"</div>
 {{ else }}
