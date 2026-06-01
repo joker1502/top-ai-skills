@@ -1,7 +1,7 @@
 baseURL: "https://topaiskills.com"
 googleAnalytics: "G-V27BZ7GENQ"
 theme: "terminal"
-title: "Top AI Skills - AI Agent Skills Directory"
+title: "Top AI Skills"
 defaultContentLanguage: "en"
 
 pagination:
@@ -46,10 +46,11 @@ params:
 languages:
   en:
     label: "English"
-    title: "Top AI Skills - AI Agent Skills Directory"
+    title: "Top AI Skills"
     weight: 1
     copyright: ""
     params:
+      homepageSuffix: " - AI Agent Skills Directory"
       subtitle: "Discover & compare the best AI skills, AI agents, and AI tools — a curated AI skills directory covering AI coding, AI writing, AI image generation, AI search, and AI automation"
       keywords: "AI skills, AI agents, AI tools, AI coding, AI writing, AI image generation, AI automation, AI directory, AI resources"
       menuMore: "Show more"
