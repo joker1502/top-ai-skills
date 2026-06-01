@@ -26,7 +26,7 @@
       <div class="skill-card">
         <div class="skill-card-header">
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
+          <span class="skill-rating">{{ $s := .Params.github_stars | default 0 | int }}{{ if ge $s 1000 }}{{ div $s 1000 }}K{{ else }}{{ $s }}{{ end }}</span>
         </div>
         <div class="skill-author">{{ .Params.author }}</div>
         <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ with $.Site.GetPage (printf "/skills/%s" .Params.category) }}{{ .Title }}{{ end }}</a>
@@ -75,7 +75,7 @@
       <div class="skill-card">
         <div class="skill-card-header">
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <span class="skill-rating">{{ .Params.rating | default "—" }}</span>
+          <span class="skill-rating">{{ $s := .Params.github_stars | default 0 | int }}{{ if ge $s 1000 }}{{ div $s 1000 }}K{{ else }}{{ $s }}{{ end }}</span>
         </div>
         <div class="skill-author">{{ .Params.author }}</div>
         <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ with $.Site.GetPage (printf "/skills/%s" .Params.category) }}{{ .Title }}{{ end }}</a>
