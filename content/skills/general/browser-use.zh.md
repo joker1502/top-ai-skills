@@ -16,7 +16,7 @@ compatibility:
   - Codex
 category: "general"
 rating: 4.0
-github_stars: 96504
+github_stars: 96510
 github_forks: 10818
 installs: 0
 last_updated: "2026-06-01"
