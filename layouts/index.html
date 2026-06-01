@@ -95,7 +95,7 @@
       <div class="review-item">
         <a href="{{ .Permalink }}" class="review-title">{{ .Title | markdownify }}</a>
         <span class="review-meta">
-          {{ with .Params.category }}<a class="review-cat" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ . }}</a>{{ end }}
+          {{ with .Params.category }}{{ $catPage := $.Site.GetPage (printf "/tutorials/%s" .) }}<a class="review-cat" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ with $catPage }}{{ .Title }}{{ else }}{{ . }}{{ end }}</a>{{ end }}
           {{ with .Date }}<time class="review-date">{{ .Format "2006-01-02" }}</time>{{ end }}
         </span>
       </div>
