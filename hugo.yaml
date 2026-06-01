@@ -101,10 +101,11 @@ languages:
 
   zh:
     label: "中文"
-    title: "Top AI Skills - AI 技能目录|AI 技能导航"
+    title: "Top AI Skills"
     weight: 2
     copyright: ""
     params:
+      homepageSuffix: " - AI 技能目录|AI 技能导航"
       subtitle: "发现和对比最佳的 AI 技能、AI 代理和 AI 工具 — 精选 AI 技能目录，涵盖 AI 编程、AI 写作、AI 图像生成、AI 搜索和 AI 自动化"
       keywords: "AI 技能, AI 代理, AI 工具, AI 编程, AI 写作, AI 图像生成, AI 自动化, AI 目录"
       menuMore: "展开更多"
