@@ -1,5 +1,5 @@
 ---
-title: "Caveman：让 AI 少说废话的必备技能"
+title: "Caveman 使用教程，让 AI 少说废话的必备技能"
 date: 2026-06-03
 toc: true
 draft: true

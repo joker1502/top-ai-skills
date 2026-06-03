@@ -1,5 +1,5 @@
 ---
-title: "Vercel React Best Practices"
+title: "Vercel React Best Practices 使用教程，让 AI 写出高性能 Next.js 代码"
 date: 2026-06-03
 toc: true
 draft: true

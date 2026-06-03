@@ -1,5 +1,5 @@
 ---
-title: "用 Remotion Skill 让 AI 帮你用 React 写视频"
+title: "让 AI 用 React 帮你写视频？Remotion 上手教程"
 date: 2026-06-03
 toc: true
 draft: true

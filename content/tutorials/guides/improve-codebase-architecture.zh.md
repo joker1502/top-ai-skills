@@ -1,5 +1,5 @@
 ---
-title: "用 Improve Codebase Architecture 让 AI 帮你找出架构问题"
+title: "Improve Codebase Architecture 使用教程，让 AI 帮你找出架构问题"
 date: 2026-06-03
 toc: true
 draft: true
