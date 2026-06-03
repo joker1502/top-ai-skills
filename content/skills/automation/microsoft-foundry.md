@@ -1,7 +1,7 @@
 ---
 title: "Microsoft Foundry"
 date: 2026-06-03
-draft: true
+draft: false
 tags:
   - Azure
   - AI Models
