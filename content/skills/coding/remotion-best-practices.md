@@ -19,10 +19,10 @@ compatibility:
   - Codex
 category: "coding"
 rating: 5.0
-github_stars: 48800
-github_forks: 3400
+github_stars: 3422
+github_forks: 389
 installs: 346000
-last_updated: "2026-06-03"
+last_updated: "2026-05-07"
 ai_friendliness:
   score: 5.0
   documentation: 5.0
