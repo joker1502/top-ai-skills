@@ -4,7 +4,7 @@ date: 2026-06-01
 draft: false
 tags:
   - Frontend
-  - AI Coding
+  - Coding
   - Design
 description: "Vercel 官方 Web 设计最佳实践，涵盖响应式布局、无障碍访问、性能优化和组件架构的前端工程标准"
 version: "1.0.0"
@@ -19,7 +19,7 @@ category: "coding"
 rating: 4.0
 github_stars: 27497
 github_forks: 2495
-installs: 0
+installs: 363700
 last_updated: "2026-06-01"
 ai_friendliness:
   score: 4.0

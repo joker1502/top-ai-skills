@@ -7,12 +7,10 @@ tags:
   - Architecture
   - Code Quality
   - Refactoring
-  - Tutorial
 description: "Matt Pocock's architecture review skill — AI finds deep improvement opportunities based on your domain language and ADRs"
 category: "guides"
 rating: 5
 related_skills:
-  - grill-me
 ---
 
 ## What It Discovers

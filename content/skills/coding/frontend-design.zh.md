@@ -6,7 +6,7 @@ aliases:
   - /zh/skills/coding/cursor/
 tags:
   - Frontend
-  - AI Coding
+  - Coding
   - Design
   - UI
 description: "让 Claude Code 生成真正独特的前端界面，告别千篇一律的 AI 设计。拒绝通用字体和配色，为每个项目选择明确的创意方向"
@@ -22,7 +22,7 @@ category: "coding"
 rating: 4.0
 github_stars: 145915
 github_forks: 17194
-installs: 0
+installs: 497800
 last_updated: "2026-05-29"
 ai_friendliness:
   score: 4.0

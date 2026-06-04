@@ -4,9 +4,8 @@ date: 2026-06-03
 draft: true
 tags:
   - Azure
-  - AI 模型
-  - 部署
-  - 自动化
+  - AI Models
+  - Deployment
 description: "微软官方 Azure Skills 插件中的 Foundry 技能，让 AI 助手通过 MCP 直接操作你的 Azure Foundry，查模型、部署模型、配置 Agent 工作流"
 version: "1.1.64"
 author: "Microsoft"

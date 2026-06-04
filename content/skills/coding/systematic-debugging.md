@@ -3,7 +3,8 @@ title: "Systematic Debugging"
 date: 2026-06-01
 draft: false
 tags:
-  - AI Coding
+  - Coding
+  - Debugging
 description: "A methodical debugging framework that isolates root causes through hypothesis-driven investigation and targeted fixes for complex software issues"
 version: "1.0.0"
 author: "Obra"
@@ -17,7 +18,7 @@ category: "coding"
 rating: 4.0
 github_stars: 216487
 github_forks: 19270
-installs: 0
+installs: 126500
 last_updated: "2026-06-03"
 ai_friendliness:
   score: 4.0

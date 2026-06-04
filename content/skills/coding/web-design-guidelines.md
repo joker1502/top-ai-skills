@@ -4,7 +4,8 @@ date: 2026-06-01
 draft: false
 tags:
   - Frontend
-  - AI Coding
+  - Coding
+  - Design
 description: "Vercel's official web design best practices covering responsive layouts, accessibility, performance, and component architecture"
 version: "1.0.0"
 author: "Vercel"
@@ -18,7 +19,7 @@ category: "coding"
 rating: 4.0
 github_stars: 27497
 github_forks: 2495
-installs: 0
+installs: 363700
 last_updated: "2026-06-01"
 ai_friendliness:
   score: 4.0

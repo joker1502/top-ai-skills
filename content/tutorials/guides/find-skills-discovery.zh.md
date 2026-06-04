@@ -7,12 +7,10 @@ tags:
   - AI Search
   - Discovery
   - Skills
-  - Tutorial
 description: "find-skills 让你在终端里直接搜索 skills.sh 注册表，不用切窗口不用开浏览器"
 category: "guides"
 rating: 4
 related_skills:
-  - find-skills
 ---
 
 ## 为什么我会去折腾这个

@@ -5,8 +5,8 @@ draft: true
 tags:
   - React
   - Next.js
-  - 性能优化
-  - 编程
+  - Performance
+  - Coding
 description: "Vercel 官方出品的 React/Next.js 性能优化技能，64 条规则覆盖 8 个类别，装进 AI 助手后代码自动符合 Vercel 最佳实践"
 version: "0.27.1"
 author: "Vercel Labs"

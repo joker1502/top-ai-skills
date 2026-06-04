@@ -7,13 +7,10 @@ tags:
   - Azure
   - AI Models
   - Deployment
-  - Automation
-  - Tutorial
 description: "Microsoft's official Azure skill for AI model management — browse, deploy, and configure models through your AI assistant using MCP"
 category: "guides"
 rating: 4
 related_skills:
-  - vercel-react-best-practices
 ---
 
 ## What Microsoft Foundry Does

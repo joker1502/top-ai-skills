@@ -3,6 +3,8 @@ title: "Pdf"
 date: 2026-06-01
 draft: false
 tags:
+  - Documentation
+  - PDF
 description: "Creates, reads, and manipulates PDF documents programmatically in Claude Code, supporting text extraction, generation, and editing"
 version: "1.0.0"
 author: "Anthropic"
@@ -16,7 +18,7 @@ category: "general"
 rating: 4.0
 github_stars: 145915
 github_forks: 17194
-installs: 0
+installs: 126100
 last_updated: "2026-05-29"
 ai_friendliness:
   score: 4.0

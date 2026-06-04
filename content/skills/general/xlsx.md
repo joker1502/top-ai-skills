@@ -3,6 +3,8 @@ title: "Xlsx"
 date: 2026-06-01
 draft: false
 tags:
+  - Documentation
+  - Excel
 description: "Creates and edits Excel spreadsheets with formulas, formatting, multiple sheets, and data analysis capabilities in Claude Code"
 version: "1.0.0"
 author: "Anthropic"
@@ -16,7 +18,7 @@ category: "general"
 rating: 4.0
 github_stars: 145915
 github_forks: 17194
-installs: 0
+installs: 100900
 last_updated: "2026-05-29"
 ai_friendliness:
   score: 4.0

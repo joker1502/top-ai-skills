@@ -3,6 +3,8 @@ title: "Seo Audit"
 date: 2026-06-01
 draft: false
 tags:
+  - SEO
+  - Marketing
 description: "Analyzes website SEO performance across technical, on-page, and content dimensions, producing actionable optimization recommendations"
 version: "1.0.0"
 author: "Corey Haines"
@@ -16,7 +18,7 @@ category: "general"
 rating: 4.0
 github_stars: 31704
 github_forks: 5225
-installs: 0
+installs: 127300
 last_updated: "2026-05-29"
 ai_friendliness:
   score: 4.0

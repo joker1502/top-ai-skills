@@ -3,7 +3,7 @@ title: "Systematic Debugging"
 date: 2026-06-01
 draft: false
 tags:
-  - AI Coding
+  - Coding
   - Debugging
 description: "用假设驱动的方法系统化排查软件问题，通过最小化实验设计逐步缩小排查范围，找到根本原因"
 version: "1.0.0"
@@ -18,7 +18,7 @@ category: "coding"
 rating: 4.0
 github_stars: 216487
 github_forks: 19270
-installs: 0
+installs: 126500
 last_updated: "2026-06-03"
 ai_friendliness:
   score: 4.0

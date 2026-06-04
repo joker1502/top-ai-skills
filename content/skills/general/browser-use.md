@@ -3,6 +3,8 @@ title: "Browser Use"
 date: 2026-06-01
 draft: false
 tags:
+  - Browser Automation
+  - Automation
 description: "Automates browser interactions for web testing, form filling, screenshots, and data extraction through AI-driven browser control"
 version: "1.0.0"
 author: "Browser Use"
@@ -16,7 +18,7 @@ category: "general"
 rating: 4.0
 github_stars: 96902
 github_forks: 10847
-installs: 0
+installs: 77900
 last_updated: "2026-06-01"
 ai_friendliness:
   score: 4.0

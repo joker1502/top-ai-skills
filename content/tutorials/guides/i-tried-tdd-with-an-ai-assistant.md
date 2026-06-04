@@ -4,7 +4,7 @@ date: 2026-05-31
 toc: true
 draft: false
 tags:
-  - AI Coding
+  - Coding
   - TDD
   - Testing
 description: "Test-driven development with AI sounds like extra work. I spent a weekend building an auth module test-first and found a security bug my normal workflow missed."

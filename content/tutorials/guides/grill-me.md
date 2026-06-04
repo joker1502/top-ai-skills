@@ -7,12 +7,10 @@ tags:
   - Plan Review
   - AI Agent
   - Productivity
-  - Tutorial
 description: "Grill Me is part of Matt Pocock's Skills suite — it makes your AI interrogate your plan before coding, catching flaws early"
 category: "guides"
 rating: 5
 related_skills:
-  - caveman
 ---
 
 ## What Problem It Solves

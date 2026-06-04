@@ -6,12 +6,10 @@ draft: true
 tags:
   - Browser Automation
   - AI Agent
-  - Tutorial
 description: "Agent Browser 是 Vercel Labs 用 Rust 写的浏览器控制 CLI，专为 AI 代理设计，装好后你的 AI 助手就能通过命令行直接操控浏览器"
 category: "guides"
 rating: 4
 related_skills:
-  - browser-use
 ---
 
 ## Agent Browser 有什么用

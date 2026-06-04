@@ -20,7 +20,7 @@ category: "image"
 rating: 4.0
 github_stars: 0
 github_forks: 0
-installs: 0
+installs: 173500
 last_updated: "2026-06-01"
 ai_friendliness:
   score: 4.0

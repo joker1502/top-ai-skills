@@ -3,6 +3,8 @@ title: "Tdd"
 date: 2026-06-01
 draft: false
 tags:
+  - Testing
+  - Development
 description: "Test-driven development workflow using red-green-refactor cycles focused on behavior verification through public interfaces"
 version: "1.0.0"
 author: "Matt Pocock"
@@ -16,7 +18,7 @@ category: "general"
 rating: 4.0
 github_stars: 115766
 github_forks: 10154
-installs: 0
+installs: 197400
 last_updated: "2026-06-02"
 ai_friendliness:
   score: 4.0

@@ -4,7 +4,7 @@ date: 2026-05-31
 toc: true
 draft: false
 tags:
-  - AI Coding
+  - Coding
   - Debugging
   - Best Practices
 description: "AI-generated code can hide bugs in unexpected places. I used a systematic debugging methodology to find a root cause that had stumped me for hours."

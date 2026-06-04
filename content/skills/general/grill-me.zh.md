@@ -3,9 +3,9 @@ title: "Grill Me"
 date: 2026-06-03
 draft: true
 tags:
-  - 计划审查
-  - AI 代理
-  - 生产力
+  - Plan Review
+  - AI Agent
+  - Productivity
 description: "Matt Pocock 出品的盘问式计划审查 Skill，在动手之前让 AI 反复质疑你的方案，直到每个分支都覆盖到"
 version: "1.0.0"
 author: "Matt Pocock"

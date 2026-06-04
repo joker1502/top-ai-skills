@@ -4,7 +4,6 @@ date: 2026-06-01
 draft: false
 tags:
   - Development
-  - Development
 description: "创建、修改和发布自定义 AI 技能的完整工作流程指南，涵盖技能格式、初始化、打包和迭代的最佳实践"
 version: "1.0.0"
 author: "Anthropic"
@@ -18,7 +17,7 @@ category: "general"
 rating: 4.0
 github_stars: 145915
 github_forks: 17194
-installs: 0
+installs: 250700
 last_updated: "2026-05-29"
 ai_friendliness:
   score: 4.0

@@ -4,7 +4,7 @@ date: 2026-05-31
 toc: true
 draft: false
 tags:
-  - AI Coding
+  - Coding
   - Skills
   - Agents
 description: "Create, test, and publish your own AI agent skills. Step-by-step guide covering skill structure, triggers, quality checks, and installation."

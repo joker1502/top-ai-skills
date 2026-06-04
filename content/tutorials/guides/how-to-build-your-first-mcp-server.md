@@ -4,7 +4,7 @@ date: 2026-05-31
 toc: true
 draft: false
 tags:
-  - AI Coding
+  - Coding
   - MCP
   - Claude Code
   - Cursor

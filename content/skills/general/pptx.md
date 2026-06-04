@@ -3,6 +3,8 @@ title: "Pptx"
 date: 2026-06-01
 draft: false
 tags:
+  - Documentation
+  - Presentation
 description: "Generates professional PowerPoint presentations with properly formatted slides, images, and layouts directly from Claude Code"
 version: "1.0.0"
 author: "Anthropic"
@@ -16,7 +18,7 @@ category: "general"
 rating: 4.0
 github_stars: 145915
 github_forks: 17194
-installs: 0
+installs: 132800
 last_updated: "2026-05-29"
 ai_friendliness:
   score: 4.0

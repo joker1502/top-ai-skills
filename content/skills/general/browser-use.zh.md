@@ -4,7 +4,7 @@ date: 2026-06-01
 draft: false
 tags:
   - Automation
-  - Browser
+  - Browser Automation
 description: "让 Claude 控制真实浏览器执行网页测试、表单填写、截图和数据提取，处理 JavaScript 渲染内容和登录会话"
 version: "1.0.0"
 author: "Browser Use"
@@ -18,7 +18,7 @@ category: "general"
 rating: 4.0
 github_stars: 96902
 github_forks: 10847
-installs: 0
+installs: 77900
 last_updated: "2026-06-01"
 ai_friendliness:
   score: 4.0

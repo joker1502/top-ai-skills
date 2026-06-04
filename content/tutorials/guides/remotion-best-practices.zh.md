@@ -8,12 +8,10 @@ tags:
   - React
   - Video
   - Animation
-  - Tutorial
 description: "Remotion 官方的 Agent Skill，装进 Claude Code 后 AI 直接帮你写动画、处理字幕、加音效、做转场，不用记 Remotion 的 API"
 category: "guides"
 rating: 5
 related_skills:
-  - agent-browser
 ---
 
 ## Remotion 是什么

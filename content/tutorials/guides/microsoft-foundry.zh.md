@@ -7,12 +7,10 @@ tags:
   - Azure
   - AI Models
   - Deployment
-  - Tutorial
 description: "微软官方 Azure Skills 插件里的 Foundry 技能，让 AI 助手直接帮你发现模型、部署模型、管理 AI Agent 工作流"
 category: "guides"
 rating: 4
 related_skills:
-  - ai-image-generation
 ---
 
 ## Microsoft Foundry 是什么

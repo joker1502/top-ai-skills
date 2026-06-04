@@ -6,12 +6,10 @@ draft: false
 tags:
   - Browser Automation
   - AI Agent
-  - Tutorial
 description: "10 分钟装好 Browser Use，让 Claude Code 或 Cursor 里的 AI 代理像人一样操控浏览器，自动完成网页测试、表单填写和数据采集"
 category: "guides"
 rating: 4
 related_skills:
-  - browser-use
 ---
 
 ## Browser Use 有什么用？

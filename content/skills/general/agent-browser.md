@@ -19,7 +19,7 @@ category: "general"
 rating: 4.0
 github_stars: 35100
 github_forks: 2200
-installs: 0
+installs: 338000
 last_updated: "2026-06-03"
 ai_friendliness:
   score: 4.0

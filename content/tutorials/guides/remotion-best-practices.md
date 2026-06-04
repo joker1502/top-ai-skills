@@ -8,12 +8,10 @@ tags:
   - React
   - Video
   - Animation
-  - Tutorial
 description: "Remotion's official Agent Skill teaches your AI assistant to write video code with React — from animation and subtitles to 3D and transitions"
 category: "guides"
 rating: 5
 related_skills:
-  - agent-browser
 ---
 
 ## What Remotion Is

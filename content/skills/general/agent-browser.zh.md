@@ -3,9 +3,9 @@ title: "Agent Browser"
 date: 2026-06-03
 draft: true
 tags:
-  - 浏览器自动化
+  - Browser Automation
   - CLI
-  - AI 代理
+  - AI Agent
 description: "Vercel Labs 用 Rust 写的浏览器控制 CLI，专为 AI 代理设计，装好后你的 AI 助手就能通过命令行直接操控浏览器"
 version: "0.27.1"
 author: "Vercel Labs"
@@ -19,7 +19,7 @@ category: "general"
 rating: 4.0
 github_stars: 35100
 github_forks: 2200
-installs: 0
+installs: 338000
 last_updated: "2026-06-03"
 ai_friendliness:
   score: 4.0

@@ -3,10 +3,10 @@ title: "Improve Codebase Architecture"
 date: 2026-06-03
 draft: true
 tags:
-  - 架构
-  - 代码质量
-  - 重构
-  - 编程
+  - Architecture
+  - Code Quality
+  - Refactoring
+  - Coding
 description: "Matt Pocock 出品的代码架构改进 Skill，让 AI 从领域语言和 ADR 中发现深层改进机会，不只是表面重构"
 version: "1.0.0"
 author: "Matt Pocock"

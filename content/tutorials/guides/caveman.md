@@ -7,12 +7,10 @@ tags:
   - Productivity
   - Token
   - AI Agent
-  - Tutorial
 description: "Caveman makes Claude Code and other AI assistants respond with 75% fewer tokens while maintaining full technical accuracy. Setup in 30 seconds."
 category: "guides"
 rating: 5
 related_skills:
-  - vercel-react-best-practices
 ---
 
 ## What Caveman Does

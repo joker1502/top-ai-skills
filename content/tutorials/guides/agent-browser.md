@@ -6,12 +6,10 @@ draft: true
 tags:
   - Browser Automation
   - AI Agent
-  - Tutorial
 description: "Agent Browser is a Rust-based browser control CLI built by Vercel Labs. Once installed, your AI assistant can control browsers directly from the terminal."
 category: "guides"
 rating: 4
 related_skills:
-  - browser-use
 ---
 
 ## What You Get After Installing

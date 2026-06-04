@@ -3,10 +3,10 @@ title: "Caveman"
 date: 2026-06-03
 draft: true
 tags:
-  - 效率
+  - Productivity
   - Token
-  - AI 代理
-  - 编程
+  - AI Agent
+  - Coding
 description: "Claude Code 等编程助手的超压缩回复模式，平均减少 75% 的输出 token，技术精度不变，速度提升约 3 倍"
 version: "1.8.2"
 author: "JuliusBrussee"

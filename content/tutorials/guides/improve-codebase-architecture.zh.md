@@ -4,15 +4,13 @@ date: 2026-06-03
 toc: true
 draft: true
 tags:
-  - 架构
-  - 代码质量
-  - 重构
-  - Tutorial
+  - Architecture
+  - Code Quality
+  - Refactoring
 description: "Matt Pocock 套件里的架构审查 Skill，让 AI 从领域语言和 ADR 出发发现深层改进机会"
 category: "guides"
 rating: 5
 related_skills:
-  - grill-me
 ---
 
 ## 它能帮你发现什么

@@ -4,7 +4,6 @@ date: 2026-06-01
 draft: false
 tags:
   - Planning
-  - Planning
 description: "在编码之前先思考——系统化探索用户意图、需求与设计方案，确保每次开发都从正确的方向开始"
 version: "1.0.0"
 author: "Obra"
@@ -18,7 +17,7 @@ category: "general"
 rating: 4.0
 github_stars: 216487
 github_forks: 19270
-installs: 0
+installs: 199500
 last_updated: "2026-06-03"
 ai_friendliness:
   score: 4.0

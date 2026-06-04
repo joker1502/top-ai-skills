@@ -4,7 +4,7 @@ date: 2026-05-31
 toc: true
 draft: false
 tags:
-  - AI Coding
+  - Coding
   - Skills
   - CLI
 description: "Search the open agent skill registry with find-skills, discover new capabilities, and install them — all from your terminal. No browser needed."

@@ -7,7 +7,7 @@ tags:
   - React
   - Video
   - Animation
-  - 编程
+  - Coding
 description: "Remotion 官方的 Agent Skill，把用 React 写视频的最佳实践全部教给 AI 助手，从动画、字幕、音效到转场、3D、GIF 同步，30 多个子规则文件覆盖完整工作流"
 version: "4.0.471"
 author: "Remotion"

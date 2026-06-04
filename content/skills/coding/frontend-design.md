@@ -4,7 +4,7 @@ date: 2026-06-01
 draft: false
 tags:
   - Frontend
-  - AI Coding
+  - Coding
   - Design
   - UI
 description: "Makes Claude Code produce distinctive frontend interfaces by rejecting generic AI aesthetics and demanding a clear creative direction for every project"
@@ -20,7 +20,7 @@ category: "coding"
 rating: 4.0
 github_stars: 145915
 github_forks: 17194
-installs: 0
+installs: 497800
 last_updated: "2026-05-29"
 ai_friendliness:
   score: 4.0

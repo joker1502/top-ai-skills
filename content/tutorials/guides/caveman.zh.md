@@ -4,15 +4,13 @@ date: 2026-06-03
 toc: true
 draft: true
 tags:
-  - 效率
+  - Productivity
   - Token
-  - AI 代理
-  - Tutorial
+  - AI Agent
 description: "Caveman 装进 Claude Code 后，AI 的回复直接砍掉 75% 废话，技术精度不变，速度还快了 3 倍。附详细安装和配置方法"
 category: "guides"
 rating: 5
 related_skills:
-  - vercel-react-best-practices
 ---
 
 ## Caveman 是什么

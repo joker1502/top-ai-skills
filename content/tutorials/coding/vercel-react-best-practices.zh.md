@@ -7,12 +7,10 @@ tags:
   - React
   - Next.js
   - Performance
-  - Tutorial
 description: "Vercel 官方出的 React/Next.js 性能优化技能，64 条规则覆盖 8 个类别，装进 Claude Code 后 AI 写的代码直接符合 Vercel 的最佳实践"
 category: "coding"
 rating: 5
 related_skills:
-  - frontend-design
 ---
 
 ## 这个技能干什么用的

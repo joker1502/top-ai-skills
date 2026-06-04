@@ -4,15 +4,13 @@ date: 2026-06-03
 toc: true
 draft: true
 tags:
-  - 计划审查
-  - AI 代理
-  - 生产力
-  - Tutorial
+  - Plan Review
+  - AI Agent
+  - Productivity
 description: "Grill Me 是 Matt Pocock 的 Skills 套件之一，装进 Claude Code 后在动手前让 AI 反复质疑你的方案，提前暴露问题"
 category: "guides"
 rating: 5
 related_skills:
-  - caveman
 ---
 
 ## Grill Me 能解决什么问题
