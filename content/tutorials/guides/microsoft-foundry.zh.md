@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Foundry"
+title: "不打开 Azure Portal 就部署好模型？Microsoft Foundry 使用教程"
 date: 2026-06-03
 toc: true
-draft: true
+draft: false
 tags:
   - Azure
   - AI Models

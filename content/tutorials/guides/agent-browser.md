@@ -2,7 +2,7 @@
 title: "Agent Browser Setup Guide: Vercel's CLI for AI-Powered Browser Automation"
 date: 2026-06-03
 toc: true
-draft: true
+draft: false
 tags:
   - Browser Automation
   - AI Agent

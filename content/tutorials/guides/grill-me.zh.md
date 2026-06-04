@@ -1,5 +1,5 @@
 ---
-title: "用 Grill Me 让 AI 盘问你的方案，避免写到一半才发现方向错了"
+title: "Grill Me 使用教程，动手前先让 AI 盘问你的方案"
 date: 2026-06-03
 toc: true
 draft: true
