@@ -2,7 +2,7 @@
 title: "Agent Browser 安装指南，Vercel 出品的浏览器自动化 CLI"
 date: 2026-06-03
 toc: true
-draft: true
+draft: false
 tags:
   - Browser Automation
   - AI Agent
