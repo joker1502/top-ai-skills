@@ -1,9 +1,22 @@
+# ⚠️ Cloudflare Managed robots.txt CONFLICT — FIX REQUIRED
+# Cloudflare CDN injects a managed block at the TOP of this file that
+# disallows GPTBot, CCBot, ClaudeBot, Bytespider, etc.
+# This overrides the Allow rules below because robots.txt uses first-match
+# for equally-specific User-agent groups.
+#
+# FIX: Cloudflare Dashboard → Scrape Shield → turn OFF "Managed Robots.txt"
+# or configure a Cloudflare Rule to remove the managed block.
+# Once disabled, the rules below take effect correctly.
+#
+# Verification: after fixing, visit https://topaiskills.com/robots.txt
+# and confirm the Cloudflare managed block is gone.
+
 User-agent: *
 Allow: /
 Allow: /skills/index.json
 Sitemap: https://topaiskills.com/sitemap.xml
 
-# AI crawlers — explicit permission for structured data access
+# AI crawlers — explicit permission for search/discovery access
 User-agent: GPTBot
 Allow: /
 Allow: /skills/index.json
