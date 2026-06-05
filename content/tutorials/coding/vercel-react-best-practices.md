@@ -2,7 +2,7 @@
 title: "Vercel React Best Practices: 64 Rules for Faster Next.js Apps"
 date: 2026-06-03
 toc: true
-draft: true
+draft: false
 tags:
   - React
   - Next.js

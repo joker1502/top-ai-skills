@@ -1,7 +1,7 @@
 ---
 title: "Improve Codebase Architecture"
 date: 2026-06-03
-draft: true
+draft: false
 tags:
   - Architecture
   - Code Quality
