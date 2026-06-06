@@ -2,7 +2,7 @@
 title: "Grill Me: Have AI Challenge Your Plan Before You Write a Single Line"
 date: 2026-06-03
 toc: true
-draft: true
+draft: false
 tags:
   - Plan Review
   - AI Agent
