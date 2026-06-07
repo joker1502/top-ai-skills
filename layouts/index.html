@@ -88,7 +88,7 @@
      <a class="view-all" href="{{ "/tutorials/" | relLangURL }}">{{ $.Site.Params.viewAll }}</a>
   </div>
   <div class="review-list">
-    {{ range first 6 $reviews.ByDate.Reverse }}
+    {{ range first 8 $reviews.ByDate.Reverse }}
       <div class="review-item">
         <a href="{{ .Permalink }}" class="review-title">{{ .Title | markdownify }}</a>
         <span class="review-meta">
