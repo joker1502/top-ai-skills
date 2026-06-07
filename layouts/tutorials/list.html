@@ -26,9 +26,7 @@
           <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
         </h2>
         <div class="post-meta">
-          {{ with .Date }}
-            <time class="post-date">{{ partial "post-date" $ }}</time>
-          {{ end }}
+          <time class="post-date">{{ partial "post-date" . }}</time>
           {{ with .Params.category }}
             {{ $catPage := $.Site.GetPage (printf "/tutorials/%s" .) }}
             <a class="post-category" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ with $catPage }}{{ .Title }}{{ else }}{{ . }}{{ end }}</a>
@@ -89,9 +87,7 @@
           <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
         </h2>
         <div class="post-meta">
-          {{ with .Date }}
-            <time class="post-date">{{ partial "post-date" $ }}</time>
-          {{ end }}
+          <time class="post-date">{{ partial "post-date" . }}</time>
           {{ with .Params.category }}
             {{ $catPage := $.Site.GetPage (printf "/tutorials/%s" .) }}
             <a class="post-category" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ with $catPage }}{{ .Title }}{{ else }}{{ . }}{{ end }}</a>
