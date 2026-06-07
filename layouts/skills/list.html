@@ -22,7 +22,9 @@
   </div>
 
   <div class="skills-grid">
-    {{ range (.Paginate .RegularPagesRecursive).Pages.ByTitle }}
+    {{ $sorted := sort .RegularPagesRecursive "Params.last_updated" "desc" }}
+    {{ range (.Paginate $sorted).Pages }}
+      {{ $installs := .Params.installs | default 0 }}
       <div class="skill-card">
         <div class="skill-card-header">
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
@@ -34,13 +36,25 @@
           <p class="skill-desc">{{ . | markdownify }}</p>
         {{ end }}
         {{ if .Params.tags }}
-          <div class="skill-tags">
-            {{ range .Params.tags }}
+          <div class="skill-tags" style="margin-top: 12px;">
+            {{ range first 3 .Params.tags }}
               <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
             {{ end }}
           </div>
         {{ end }}
         <div class="skill-card-footer">
+          {{ if gt $installs 0 }}
+            <span class="skill-stat">
+              <span class="skill-stat-icon">⬇</span>
+              {{ if ge $installs 1000000 }}
+                {{ div $installs 1000000 }}M
+              {{ else if ge $installs 1000 }}
+                {{ div $installs 1000 }}K
+              {{ else }}
+                {{ $installs }}
+              {{ end }}
+            </span>
+          {{ end }}
           {{ with .Params.last_updated }}
             <span class="skill-stat">
               <span class="skill-stat-icon">↻</span>
@@ -78,7 +92,9 @@
   </div>
 
   <div class="skills-grid">
-    {{ range (.Paginate $filtered).Pages.ByTitle }}
+    {{ $sorted := sort $filtered "Params.last_updated" "desc" }}
+    {{ range (.Paginate $sorted).Pages }}
+      {{ $installs := .Params.installs | default 0 }}
       <div class="skill-card">
         <div class="skill-card-header">
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
@@ -90,13 +106,25 @@
           <p class="skill-desc">{{ . | markdownify }}</p>
         {{ end }}
         {{ if .Params.tags }}
-          <div class="skill-tags">
-            {{ range .Params.tags }}
+          <div class="skill-tags" style="margin-top: 12px;">
+            {{ range first 3 .Params.tags }}
               <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
             {{ end }}
           </div>
         {{ end }}
         <div class="skill-card-footer">
+          {{ if gt $installs 0 }}
+            <span class="skill-stat">
+              <span class="skill-stat-icon">⬇</span>
+              {{ if ge $installs 1000000 }}
+                {{ div $installs 1000000 }}M
+              {{ else if ge $installs 1000 }}
+                {{ div $installs 1000 }}K
+              {{ else }}
+                {{ $installs }}
+              {{ end }}
+            </span>
+          {{ end }}
           {{ with .Params.last_updated }}
             <span class="skill-stat">
               <span class="skill-stat-icon">↻</span>
