@@ -33,13 +33,14 @@
         {{ with .Params.description }}
           <p class="skill-desc">{{ . | markdownify }}</p>
         {{ end }}
-        {{ if .Params.tags }}
-          <div class="skill-tags">
-            {{ range .Params.tags }}
-              <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
-            {{ end }}
-          </div>
-        {{ end }}
+        <div class="skill-card-footer">
+          {{ with .Params.last_updated }}
+            <span class="skill-stat">
+              <span class="skill-stat-icon">↻</span>
+              {{ . }}
+            </span>
+          {{ end }}
+        </div>
       </div>
     {{ end }}
   </div>
@@ -47,7 +48,6 @@
   {{ partial "pagination.html" . }}
 
 {{ else }}
-  {{/* ── Category Sub-Page (/skills/general/ etc.) ── */}}
   {{ $category := .Params.category_filter | default "" }}
   {{ $filtered := where .Parent.RegularPagesRecursive "Params.category" $category }}
 
@@ -82,13 +82,14 @@
         {{ with .Params.description }}
           <p class="skill-desc">{{ . | markdownify }}</p>
         {{ end }}
-        {{ if .Params.tags }}
-          <div class="skill-tags">
-            {{ range .Params.tags }}
-              <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
-            {{ end }}
-          </div>
-        {{ end }}
+        <div class="skill-card-footer">
+          {{ with .Params.last_updated }}
+            <span class="skill-stat">
+              <span class="skill-stat-icon">↻</span>
+              {{ . }}
+            </span>
+          {{ end }}
+        </div>
       </div>
     {{ end }}
   </div>
