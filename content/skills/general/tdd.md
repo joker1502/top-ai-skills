@@ -16,10 +16,10 @@ compatibility:
   - Codex
 category: "general"
 rating: 4.0
-github_stars: 118954
-github_forks: 10426
+github_stars: 119504
+github_forks: 10473
 installs: 197400
-last_updated: "2026-06-03"
+last_updated: "2026-06-06"
 ai_friendliness:
   score: 4.0
   documentation: 4.0
