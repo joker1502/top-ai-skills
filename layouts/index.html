@@ -39,9 +39,8 @@
         <a class="view-all" href="{{ "/skills/" | relLangURL }}">{{ $.Site.Params.viewAll }}</a>
       </div>
   <div class="skills-grid">
-    {{ range first 8 (sort $skills ".Params.last_updated" "desc") }}
+    {{ range first 8 (sort $skills ".Date" "desc") }}
       {{ $installs := .Params.installs | default 0 }}
-      {{ $lastUp := .Params.last_updated | default "" }}
       <div class="skill-card">
         <div class="skill-card-header">
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
@@ -65,12 +64,10 @@
                 {{ end }}
               </span>
             {{ end }}
-            {{ if $lastUp }}
-              <span class="skill-stat">
-                <span class="skill-stat-icon">↻</span>
-                {{ $lastUp }}
-              </span>
-            {{ end }}
+            <span class="skill-stat">
+              <span class="skill-stat-icon">↻</span>
+              {{ .Date.Format "2006-01-02" }}
+            </span>
           </div>
           {{ if .Params.tags }}
             <div class="skill-tags" style="margin-top: 12px;">

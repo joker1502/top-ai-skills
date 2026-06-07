@@ -78,12 +78,10 @@
             <span class="sidebar-label">{{ $.Site.Params.rating }}</span>
             <span class="sidebar-value rating-stars">{{ $rating }}</span>
           </div>
-          {{ with .Params.last_updated }}
             <div class="sidebar-info-item">
               <span class="sidebar-label">{{ $.Site.Params.lastUpdated }}</span>
-              <span class="sidebar-value">{{ . }}</span>
+              <span class="sidebar-value">{{ .Date.Format "2006-01-02" }}</span>
             </div>
-          {{ end }}
         </div>
       </div>
 
