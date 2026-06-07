@@ -19,7 +19,7 @@ compatibility:
 category: "automation"
 rating: 4.0
 github_stars: 1166
-github_forks: 179
+github_forks: 180
 installs: 365000
 last_updated: "2026-06-04"
 ai_friendliness:
