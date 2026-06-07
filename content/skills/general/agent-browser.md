@@ -1,7 +1,7 @@
 ---
 title: "Agent Browser"
-date: 2026-06-03
-draft: true
+date: 2026-06-07
+draft: false
 tags:
   - Browser Automation
   - CLI

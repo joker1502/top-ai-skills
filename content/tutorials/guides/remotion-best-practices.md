@@ -1,8 +1,8 @@
 ---
 title: "Writing Videos with React: A Guide to the Remotion Agent Skill"
-date: 2026-06-03
+date: 2026-06-07
 toc: true
-draft: true
+draft: false
 tags:
   - Remotion
   - React

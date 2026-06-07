@@ -1,8 +1,8 @@
 ---
 title: "Caveman 使用教程，让 AI 少说废话的必备技能"
-date: 2026-06-03
+date: 2026-06-07
 toc: true
-draft: true
+draft: false
 tags:
   - Productivity
   - Token
