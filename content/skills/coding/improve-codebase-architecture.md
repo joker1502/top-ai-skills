@@ -1,6 +1,6 @@
 ---
 title: "Improve Codebase Architecture"
-date: 2026-06-03
+date: 2026-06-05
 draft: false
 tags:
   - Architecture

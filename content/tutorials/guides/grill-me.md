@@ -1,6 +1,6 @@
 ---
 title: "Grill Me: Have AI Challenge Your Plan Before You Write a Single Line"
-date: 2026-06-03
+date: 2026-06-06
 toc: true
 draft: false
 tags:

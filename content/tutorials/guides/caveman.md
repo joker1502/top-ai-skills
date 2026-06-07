@@ -1,6 +1,6 @@
 ---
 title: "Caveman: Cut AI Response Tokens by 75% Without Losing Accuracy"
-date: 2026-06-03
+date: 2026-06-05
 toc: true
 draft: false
 tags:

@@ -1,6 +1,6 @@
 ---
 title: "Grill Me 使用教程，动手前先让 AI 盘问你的方案"
-date: 2026-06-03
+date: 2026-06-06
 toc: true
 draft: false
 tags:

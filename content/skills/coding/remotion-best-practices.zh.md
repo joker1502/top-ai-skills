@@ -1,6 +1,6 @@
 ---
 title: "Remotion Best Practices"
-date: 2026-06-03
+date: 2026-06-06
 draft: false
 tags:
   - Remotion
