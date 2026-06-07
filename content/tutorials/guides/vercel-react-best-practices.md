@@ -8,7 +8,7 @@ tags:
   - Next.js
   - Performance
 description: "Vercel's official React/Next.js performance skill — 64 rules across 8 categories that your AI assistant follows automatically when writing code"
-category: "coding"
+category: "guides"
 rating: 5
 related_skills:
 ---
