@@ -1,7 +1,7 @@
 ---
 title: "Caveman"
-date: 2026-06-03
-draft: true
+date: 2026-06-09
+draft: false
 tags:
   - Productivity
   - Token

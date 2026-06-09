@@ -1,8 +1,8 @@
 ---
 title: "Using Microsoft Foundry Skill to Deploy AI Models via CLI"
-date: 2026-06-03
+date: 2026-06-09
 toc: true
-draft: true
+draft: false
 tags:
   - Azure
   - AI Models

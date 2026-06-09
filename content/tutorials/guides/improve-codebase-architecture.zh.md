@@ -1,8 +1,8 @@
 ---
 title: "Improve Codebase Architecture 使用教程，让 AI 帮你找出架构问题"
-date: 2026-06-03
+date: 2026-06-09
 toc: true
-draft: true
+draft: false
 tags:
   - Architecture
   - Code Quality
