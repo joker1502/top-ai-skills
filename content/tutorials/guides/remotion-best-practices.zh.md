@@ -1,8 +1,8 @@
 ---
 title: "让 AI 用 React 帮你写视频？Remotion 上手教程"
-date: 2026-06-03
+date: 2026-06-09
 toc: true
-draft: true
+draft: false
 tags:
   - Remotion
   - React

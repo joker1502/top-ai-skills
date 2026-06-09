@@ -1,8 +1,8 @@
 ---
 title: "Finding Architecture Problems with Improve Codebase Architecture"
-date: 2026-06-03
+date: 2026-06-09
 toc: true
-draft: true
+draft: false
 tags:
   - Architecture
   - Code Quality
