@@ -5,6 +5,6 @@
 {{ if $id }}
   <div class="asciinema-wrapper">
     <script src="https://asciinema.org/a/{{ $id }}.js" id="asciicast-{{ $id }}" async data-cols="{{ $cols }}" data-rows="{{ $rows }}" data-autoplay="{{ $autoplay }}"></script>
-    <noscript><p><a href="https://asciinema.org/a/{{ $id }}" target="_blank">Watch terminal recording on asciinema</a></p></noscript>
+    <noscript><p><a href="https://asciinema.org/a/{{ $id }}" target="_blank" rel="nofollow">Watch terminal recording on asciinema</a></p></noscript>
   </div>
 {{ end }}

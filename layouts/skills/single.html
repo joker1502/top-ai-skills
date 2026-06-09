@@ -91,7 +91,7 @@
           <h4 class="sidebar-card-title">{{ $.Site.Params.github }}</h4>
           <div class="sidebar-gh-stats">
             {{ with .Params.repo_url }}
-              <a href="{{ . }}" target="_blank" rel="noopener" class="sidebar-gh-link">{{ partial "gh-repo" $ }}</a>
+              <a href="{{ . }}" target="_blank" rel="noopener nofollow" class="sidebar-gh-link">{{ partial "gh-repo" $ }}</a>
             {{ end }}
             <div class="sidebar-gh-numbers">
               {{ with .Params.github_stars }}{{ if gt . 0 }}
