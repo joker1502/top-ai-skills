@@ -1,6 +1,35 @@
 {{ define "main" }}
 {{ $rating := .Params.rating | default 0 }}
 {{ $aiScore := .Params.ai_friendliness.score | default 0 }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ .Title }}",
+  "description": "{{ .Params.description }}",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux, macOS, Windows",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Params.author }}"
+  },
+  "version": "{{ .Params.version }}",
+  "datePublished": "{{ .Date.Format "2006-01-02" }}"
+  {{- with .Params.repo_url }},
+  "url": "{{ . }}"
+  {{- end }}
+  {{- with .Params.install_cmd }},
+  "installUrl": "{{ . }}"
+  {{- end }}
+  {{- with .Params.github_stars }},
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": "https://schema.org/LikeAction",
+    "userInteractionCount": {{ . }}
+  }
+  {{- end }}
+}
+</script>
 
 <nav class="breadcrumb">
   <a href="{{ .Site.Home.RelPermalink }}">{{ $.Site.Params.home | default "Home" }}</a>
@@ -163,6 +192,48 @@
     </aside>
   </div>
 </article>
+
+{{/* ── FAQ Section ── */}}
+{{ $faqItems := slice }}
+{{ $faqItems = $faqItems | append (dict "question" (printf "What is %s?" .Title) "answer" .Params.description) }}
+{{ with .Params.install_cmd }}{{ $faqItems = $faqItems | append (dict "question" (printf "How to install %s?" $.Title) "answer" (printf "Run: %s" .)) }}{{ end }}
+{{ with .Params.compatibility }}{{ if gt (len .) 0 }}{{ $faqItems = $faqItems | append (dict "question" (printf "Which AI tools is %s compatible with?" $.Title) "answer" (delimit . ", ")) }}{{ end }}{{ end }}
+{{ with .Params.author }}{{ $faqItems = $faqItems | append (dict "question" (printf "Who created %s?" $.Title) "answer" .) }}{{ end }}
+{{ $catTitle := "" }}
+{{ with .Params.category }}{{ $catPage := $.Site.GetPage (printf "/skills/%s" .) }}{{ if $catPage }}{{ $catTitle = $catPage.Title }}{{ else }}{{ $catTitle = . }}{{ end }}{{ end }}
+{{ if $catTitle }}{{ $faqItems = $faqItems | append (dict "question" (printf "What category is %s?" .Title) "answer" $catTitle) }}{{ end }}
+{{ range .Params.faq }}{{ $faqItems = $faqItems | append (dict "question" .question "answer" .answer) }}{{ end }}
+{{ if gt (len $faqItems) 0 }}
+<section class="faq-section" style="margin-top: 50px;">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-list">
+    {{ range $faqItems }}
+      <details class="faq-item">
+        <summary class="faq-question">{{ .question }}</summary>
+        <div class="faq-answer">{{ .answer | markdownify }}</div>
+      </details>
+    {{ end }}
+  </div>
+</section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{ range $i, $item := $faqItems }}
+    {
+      "@type": "Question",
+      "name": {{ $item.question | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ $item.answer | jsonify }}
+      }
+    }{{ if lt (add $i 1) (len $faqItems) }},{{ end }}
+    {{ end }}
+  ]
+}
+</script>
+{{ end }}
 
 {{/* ── Copy Button Script ── */}}
 <script>

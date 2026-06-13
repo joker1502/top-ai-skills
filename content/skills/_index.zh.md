@@ -6,4 +6,5 @@ outputs:
   - SKILLSJSON
 aliases:
   - /zh/skills
+  - /skills/coding/github-copilot/
 ---

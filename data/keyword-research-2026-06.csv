@@ -1,0 +1,122 @@
+Industry,Keyword,Intent,Priority,Est.Volume
+Core,AI agent skills,Commercial,P0,1500
+Core,AI coding assistant skills,Commercial,P0,1000
+Core,AI skills directory,Commercial,P0,400
+Core,install AI skills,Commercial,P0,300
+Core,Claude Code skills,Commercial,P0,2500
+Core,Cursor AI skills,Commercial,P0,2000
+Core,AI assistant skills,Commercial,P0,800
+Core,AI coding tools 2026,Commercial,P1,1200
+Core,AI agent marketplace,Commercial,P1,500
+Core,AI prompts for developers,Informational,P1,3000
+Coding,React AI coding skills,Commercial,P1,600
+Coding,AI code review skills,Commercial,P1,500
+Coding,Next.js AI optimization,Commercial,P1,400
+Coding,AI debugging tools,Informational,P1,2500
+Coding,AI architecture review,Commercial,P1,350
+Coding,TDD AI assistant,Commercial,P1,400
+Coding,frontend AI design skills,Commercial,P2,300
+Coding,AI code generation best practices,Informational,P1,1500
+Coding,Vercel React best practices,Commercial,P1,500
+Coding,Remotion AI video generation,Informational,P2,300
+Writing,AI document generation,Informational,P2,4000
+Writing,AI write Word documents,Commercial,P2,600
+Writing,AI create PowerPoint presentations,Commercial,P2,500
+Writing,AI generate PDF files,Commercial,P2,500
+Writing,AI Excel spreadsheet creation,Commercial,P2,300
+Image,AI UI component generation,Commercial,P1,600
+Image,shadcn AI components,Commercial,P1,500
+Image,AI generated UI design,Informational,P2,2000
+Image,Tailwind AI components,Commercial,P2,800
+Image,Radix UI AI generation,Commercial,P2,200
+Automation,AI agent automation,Informational,P1,2500
+Automation,Microsoft Foundry AI,Commercial,P1,600
+Automation,AI model deployment,Informational,P2,2000
+Automation,Azure AI agent skills,Commercial,P2,1000
+Automation,MCP automation tools,Informational,P1,800
+Search,AI skill discovery,Informational,P1,350
+Search,find AI skills,Commercial,P0,500
+Search,AI package manager,Informational,P2,2000
+Search,Claude Code skill search,Commercial,P1,250
+Search,discover AI agent skills,Informational,P2,200
+Browser,AI browser automation,Commercial,P1,2500
+Browser,browser control AI agent,Commercial,P1,400
+Browser,AI web scraping CLI,Commercial,P1,350
+Browser,headless browser AI,Informational,P2,1500
+Browser,AI form filling automation,Informational,P2,600
+Browser,Agent Browser Vercel,Commercial,P1,500
+Database,PostgreSQL AI optimization,Commercial,P1,400
+Database,AI database query optimization,Informational,P2,350
+Database,Supabase AI best practices,Commercial,P1,500
+Database,AI schema design,Informational,P2,600
+Database,AI SQL optimization,Informational,P2,800
+Commercial,download Claude Code skills,Commercial,P0,300
+Commercial,install AI agent skills,Commercial,P0,250
+Commercial,get AI coding skills,Commercial,P0,200
+Commercial,buy AI agent prompts,Commercial,P1,150
+Commercial,AI skills for Claude Code,Commercial,P0,600
+Commercial,install Cursor AI rules,Commercial,P0,500
+Commercial,download AI agent rules,Commercial,P1,200
+Commercial,get AI code assistant skills,Commercial,P1,150
+Commercial,AI skills installation guide,Informational,P1,250
+Commercial,best AI skills for developers,Commercial,P0,400
+Commercial,premium AI coding skills,Commercial,P2,100
+Commercial,top AI agent skills,Commercial,P0,350
+Commercial,AI skills for coding,Commercial,P0,600
+Commercial,must-have AI coding skills,Commercial,P1,200
+Commercial,AI skills bundle download,Commercial,P2,80
+Tool,Claude Code skills (tool),Commercial,P0,2500
+Tool,Cursor AI rules (tool),Commercial,P0,4000
+Tool,OpenCode skills,Commercial,P0,200
+Tool,skills.sh CLI,Commercial,P0,300
+Tool,MCP server skills,Commercial,P1,1500
+Tool,Codex CLI skills,Commercial,P1,400
+Tool,Claude Code agent skills,Commercial,P0,600
+Tool,Cursor rules directory,Commercial,P1,800
+Tool,AI agent MCP skills,Commercial,P1,500
+Tool,Claude Code custom rules,Informational,P1,2000
+Informational,what are AI agent skills,Informational,P1,400
+Informational,how to install AI skills in Claude Code,Informational,P1,350
+Informational,AI agent skills explained,Informational,P1,200
+Informational,what is Claude Code,Informational,P1,5000
+Informational,how to use AI coding assistants,Informational,P2,3000
+Informational,best practices for AI coding,Informational,P1,1500
+Informational,how to improve AI code quality,Informational,P2,700
+Informational,AI coding assistant comparison,Informational,P1,1200
+Informational,benefits of AI agent skills,Informational,P2,150
+Informational,AI coding tools overview,Informational,P1,800
+Informational,how AI agent skills work,Informational,P1,250
+Informational,guide to AI agent skills,Informational,P1,200
+Informational,AI programming assistant guide,Informational,P2,1000
+Informational,what are Cursor AI rules,Informational,P1,1200
+Informational,how to create AI agent skills,Informational,P1,400
+Informational,AI skills for software development,Informational,P2,500
+Informational,using AI for code review,Informational,P2,2000
+Informational,AI agent framework comparison,Informational,P1,600
+Informational,reducing AI token usage,Informational,P1,300
+Comparison,Claude Code vs Cursor,Commercial,P0,2500
+Comparison,Claude Code vs GitHub Copilot,Commercial,P1,5000
+Comparison,Cursor vs Copilot,Commercial,P1,8000
+Comparison,best AI coding tools 2026,Commercial,P1,3000
+Comparison,top AI coding assistants,Commercial,P1,2000
+Comparison,AI agent skills vs MCP server,Informational,P1,200
+Comparison,Claude Code alternatives,Commercial,P1,2000
+Comparison,Cursor alternatives,Commercial,P2,1500
+Comparison,best AI code assistants,Commercial,P1,4000
+Comparison,AI coding tool comparison,Informational,P2,1000
+Comparison,top AI agent skills 2026,Commercial,P1,300
+Question,how to install skills in Claude Code,Informational,P1,500
+Question,how to use AI coding tools effectively,Informational,P2,2000
+Question,what skills should I install for Claude Code,Informational,P1,300
+Question,how to create AI agent skills,Informational,P1,400
+Question,where to find AI agent skills,Informational,P1,250
+Question,how to reduce AI token usage,Informational,P1,400
+Question,what is skills.sh,Informational,P1,200
+Question,how to use MCP with Claude Code,Informational,P1,1500
+Question,how to improve AI code output,Informational,P2,400
+Question,what are the best AI coding tools,Informational,P1,700
+Question,how to automate browser with AI,Informational,P2,500
+Question,how to use Cursor AI effectively,Informational,P2,1200
+Question,how to install Cursor rules,Informational,P1,600
+Question,what is OpenCode AI,Informational,P1,300
+Question,how to create custom AI agent skills,Informational,P1,250

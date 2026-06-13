@@ -1,0 +1,89 @@
+Keyword,Target Page,Action,Priority
+AI agent skills,/skills/,优化现有页面,P0
+AI coding assistant skills,/skills/coding/,优化现有页面,P0
+AI skills directory,/,优化现有页面,P0
+install AI skills,/tutorials/,创建教程页面,P0
+Claude Code skills,/skills/,优化现有页面,P0
+Cursor AI skills,/skills/,优化现有页面,P0
+AI assistant skills,/skills/,优化现有页面,P0
+find AI skills,/skills/search/find-skills/,优化现有页面,P0
+download Claude Code skills,/skills/,添加到首页 Skill Cards,P0
+install AI agent skills,/tutorials/guides/,创建教程页面,P0
+get AI coding skills,/skills/,添加到首页,P0
+AI skills for Claude Code,/skills/,优化现有页面,P0
+install Cursor AI rules,/tutorials/guides/,创建教程页面,P0
+best AI skills for developers,/skills/,优化现有页面,P0
+top AI agent skills,/skills/,优化现有页面,P0
+AI skills for coding,/skills/coding/,优化现有页面,P0
+Claude Code agent skills,/skills/,添加到现有页面,P0
+OpenCode skills,/skills/,创建新技能页面或教程,P0
+skills.sh CLI,/tutorials/guides/,创建教程页面,P0
+Cursor AI rules,/skills/,优化现有页面,P0
+what is Claude Code,/tutorials/,创建教程页面,P1
+what are Cursor AI rules,/tutorials/,创建教程页面,P1
+how to install skills in Claude Code,/tutorials/guides/,创建教程页面,P1
+guide to AI agent skills,/tutorials/,创建教程页面,P1
+how to create AI agent skills,/tutorials/guides/,创建教程页面,P1
+Claude Code vs Cursor,/tutorials/comparison/,创建对比页面,P0
+Claude Code vs GitHub Copilot,/tutorials/comparison/,创建对比页面,P1
+Cursor vs Copilot,/tutorials/comparison/,创建对比页面,P1
+best AI coding tools 2026,/tutorials/comparison/,创建合集页面,P1
+top AI coding assistants,/tutorials/comparison/,创建合集页面,P1
+best AI code assistants,/tutorials/comparison/,创建合集页面,P1
+top AI agent skills 2026,/tutorials/comparison/,创建合集页面,P1
+Claude Code alternatives,/tutorials/comparison/,创建对比页面,P1
+Cursor alternatives,/tutorials/comparison/,创建对比页面,P2
+AI agent skills vs MCP server,/tutorials/comparison/,创建对比页面,P1
+AI coding assistant comparison,/tutorials/comparison/,创建对比页面,P1
+how to use MCP with Claude Code,/tutorials/guides/,创建教程页面,P1
+what is OpenCode AI,/tutorials/,创建教程页面,P1
+how to install Cursor rules,/tutorials/guides/,创建教程页面,P1
+how to create custom AI agent skills,/tutorials/guides/,创建教程页面,P1
+AI skills installation guide,/tutorials/guides/,创建教程页面,P1
+MCP server skills,/skills/,创建新技能分类页面,P1
+Claude Code custom rules,/tutorials/guides/,创建教程页面,P1
+Codex CLI skills,/skills/,创建新技能页面,P1
+Cursor rules directory,/skills/,创建新技能页面,P1
+AI agent MCP skills,/skills/,创建新技能分类页面,P1
+AI debugging tools,/skills/coding/systematic-debugging/,添加到现有页面,P1
+AI architecture review,/skills/coding/improve-codebase-architecture/,添加到现有页面,P1
+AI code review skills,/skills/coding/,创建新技能页面,P1
+React AI coding skills,/skills/coding/vercel-react-best-practices/,添加到现有页面,P1
+Next.js AI optimization,/skills/coding/vercel-react-best-practices/,添加到现有页面,P1
+Vercel React best practices,/skills/coding/vercel-react-best-practices/,优化现有页面,P1
+TDD AI assistant,/skills/general/tdd/,添加到现有页面,P1
+AI code generation best practices,/tutorials/,创建教程页面,P1
+AI UI component generation,/skills/image/shadcn/,添加到现有页面,P1
+shadcn AI components,/skills/image/shadcn/,优化现有页面,P1
+AI browser automation,/skills/general/agent-browser/,添加到现有页面,P1
+browser control AI agent,/skills/general/agent-browser/,优化现有页面,P1
+Agent Browser Vercel,/skills/general/agent-browser/,优化现有页面,P1
+AI agent automation,/skills/automation/,优化现有页面,P1
+Microsoft Foundry AI,/skills/automation/microsoft-foundry/,优化现有页面,P1
+MCP automation tools,/skills/automation/microsoft-foundry/,添加到现有页面,P1
+PostgreSQL AI optimization,/skills/general/supabase-postgres-best-practices/,添加到现有页面,P1
+Supabase AI best practices,/skills/general/supabase-postgres-best-practices/,优化现有页面,P1
+AI skill discovery,/skills/search/find-skills/,添加到现有页面,P1
+Claude Code skill search,/skills/search/find-skills/,添加到现有页面,P1
+reducing AI token usage,/skills/general/caveman/,添加到现有页面,P1
+what is skills.sh,/tutorials/guides/,创建教程页面,P1
+what are the best AI coding tools,/tutorials/comparison/,创建合集页面,P1
+what skills should I install for Claude Code,/tutorials/,创建教程页面,P1
+where to find AI agent skills,/tutorials/,创建教程页面,P1
+AI agent framework comparison,/tutorials/comparison/,创建对比页面,P1
+buy AI agent prompts,/skills/,添加到现有页面,P1
+get AI code assistant skills,/skills/,添加到现有页面,P1
+must-have AI coding skills,/skills/,添加到现有页面,P1
+AI skills for Claude Code (commercial),/skills/,添加到现有页面,P1
+AI coding tools overview,/tutorials/,优化现有页面,P1
+best practices for AI coding,/tutorials/,创建教程页面,P1
+what are AI agent skills,/about/,优化现有页面,P1
+how AI agent skills work,/about/,添加到现有页面,P1
+AI agent skills explained,/about/,优化现有页面,P1
+frontend AI design skills,/skills/coding/frontend-design/,添加到现有页面,P2
+Remotion AI video generation,/skills/coding/remotion-best-practices/,添加到现有页面,P2
+AI document generation,/skills/general/docx/,添加到现有页面,P2
+AI write Word documents,/skills/general/docx/,添加到现有页面,P2
+AI create PowerPoint presentations,/skills/general/pptx/,添加到现有页面,P2
+AI generate PDF files,/skills/general/pdf/,添加到现有页面,P2
+AI Excel spreadsheet creation,/skills/general/xlsx/,添加到现有页面,P2

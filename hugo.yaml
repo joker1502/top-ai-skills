@@ -23,11 +23,17 @@ outputFormats:
     isPlainText: true
     mediaType: "application/json"
     notAlternative: true
+  LLMS:
+    baseName: "llms"
+    isPlainText: true
+    mediaType: "text/plain"
+    notAlternative: true
 
 outputs:
   home:
     - HTML
     - JSON
+    - LLMS
 
 params:
   contentTypeName: "tutorials"
@@ -52,7 +58,7 @@ languages:
     params:
       tocTitle: "Table of Contents"
       homepageSuffix: " - AI Agent Skills Directory"
-      subtitle: "Discover & compare the best AI skills, AI agents, and AI tools — a curated AI skills directory covering AI coding, AI writing, AI image generation, AI search, and AI automation"
+      subtitle: "Discover the best AI agent skills for Claude Code, Cursor, and more — a curated directory of installable AI skills for coding, writing, image generation, browser automation, and SEO"
       keywords: "AI skills, AI agents, AI tools, AI coding, AI writing, AI image generation, AI automation, AI directory, AI resources, AI content creation"
       menuMore: "Show more"
       readMore: "Read more"
@@ -110,7 +116,7 @@ languages:
     params:
       tocTitle: "目录"
       homepageSuffix: " - AI 技能目录|AI 技能导航"
-      subtitle: "发现和对比最佳的 AI 技能、AI 代理和 AI 工具 — 精选 AI 技能目录，涵盖 AI 编程、AI 写作、AI 图像生成、AI 搜索和 AI 自动化"
+      subtitle: "发现 Claude Code、Cursor 等 AI 编程工具的最佳 AI 技能 — 精选 AI 技能目录，涵盖 AI 编程、AI 写作、AI 图像生成、AI 浏览器自动化和 SEO"
       keywords: "AI 技能, AI 代理, AI 工具, AI 编程, AI 写作, AI 图像生成, AI 自动化, AI 目录"
       menuMore: "展开更多"
       readMore: "阅读全文"

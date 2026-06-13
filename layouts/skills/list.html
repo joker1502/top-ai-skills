@@ -1,3 +1,5 @@
+{{ define "head_meta" }}{{ if .Parent.IsHome }}{{ with .Paginate (sort .RegularPagesRecursive "Date" "desc") }}{{ if gt .PageNumber 1 }}<meta name="robots" content="noindex" />{{ end }}{{ end }}{{ else }}{{ $category := .Params.category_filter | default "" }}{{ $filtered := where .Parent.RegularPagesRecursive "Params.category" $category }}{{ with .Paginate (sort $filtered "Date" "desc") }}{{ if gt .PageNumber 1 }}<meta name="robots" content="noindex" />{{ end }}{{ end }}{{ end }}{{ end }}
+
 {{ define "main" }}
 
 {{ if .Parent.IsHome }}

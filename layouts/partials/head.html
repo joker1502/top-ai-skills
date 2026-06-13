@@ -4,13 +4,7 @@
 <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})()</script>
 <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}" />
-{{ if .Params.noindex }}
-  {{ if or (eq (.Param "noindex") true) (eq (.Param "noindex") "true") }}
-    <meta name="robots" content="noindex" />
-  {{ end }}
-{{ else }}
-  <meta name="robots" content="noodp" />
-{{ end }}
+{{- if .Params.noindex }}{{ if or (eq (.Param "noindex") true) (eq (.Param "noindex") "true") }}<meta name="robots" content="noindex" />{{ end }}{{ end }}
 <link rel="canonical" href="{{ .Permalink }}" />
 
 {{ with .Translations }}

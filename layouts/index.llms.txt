@@ -1,0 +1,19 @@
+# Top AI Skills
+
+Top AI Skills is a curated directory of AI agent skills — installable rules/prompts for AI coding tools like Cursor, Claude Code, Codex, and OpenCode.
+
+## Skills
+{{- range .Site.RegularPages }}
+{{- if eq .Section "skills" }}
+- {{ .Permalink }}: {{ .Title }} — {{ .Params.description }}
+{{- end }}
+{{- end }}
+
+## Tutorials
+{{- range first 10 (where .Site.RegularPages "Section" "tutorials").ByDate.Reverse }}
+- {{ .Permalink }}: {{ .Title }}
+{{- end }}
+
+## About
+
+- {{ "/about/" | absURL }}: About Top AI Skills

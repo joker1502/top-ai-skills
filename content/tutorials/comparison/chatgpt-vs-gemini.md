@@ -8,6 +8,9 @@ tags:
   - ChatGPT
   - Gemini
 description: "Compare ChatGPT vs Gemini across features, pricing, and real-world use. Honest verdict for developers, writers, and everyday users."
+aliases:
+  - /skills/general/gemini/
+  - /skills/general/chatgpt/
 related_skills: []
 category: "comparison"
 rating: 5
