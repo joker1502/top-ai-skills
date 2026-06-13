@@ -36,8 +36,8 @@
 | lark-doc | 🔄 | 🔄 | 🔄 | 🔄 |
 | lark-base | 🔄 | 🔄 | 🔄 | 🔄 |
 | video-edit | 🔄 | 🔄 | 🔄 | 🔄 |
-| to-prd | 🔄 | 🔄 | ✅ | 🔄 |
-| gpt-image-2 | 🔄 | 🔄 | 🔄 | 🔄 |
+| to-prd | ✅ | 🔄 | ✅ | 🔄 |
+| gpt-image-2 | 🔄 | 🔄 | ✅ | 🔄 |
 | kling-3-0 | 🔄 | 🔄 | 🔄 | 🔄 |
 | copywriting | 🔄 | 🔄 | 🔄 | 🔄 |
 | just-scrape | 🔄 | 🔄 | 🔄 | 🔄 |
