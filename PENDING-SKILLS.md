@@ -33,7 +33,7 @@
 | ai-image-generation | ✅ | 🔄 | 🔄 | 🔄 |
 | caveman | ✅ | ✅ | ✅ | ✅ |
 | improve-codebase-architecture | ✅ | ✅ | ✅ | ✅ |
-| lark-doc | 🔄 | 🔄 | 🔄 | 🔄 |
+| lark-doc | ✅ | 🔄 | 🔄 | 🔄 |
 | lark-base | 🔄 | 🔄 | 🔄 | 🔄 |
 | video-edit | 🔄 | 🔄 | 🔄 | 🔄 |
 | to-prd | ✅ | 🔄 | ✅ | 🔄 |
