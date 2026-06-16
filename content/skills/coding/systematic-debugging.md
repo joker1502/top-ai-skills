@@ -16,10 +16,10 @@ compatibility:
   - Codex
 category: "coding"
 rating: 4.0
-github_stars: 228624
-github_forks: 20340
+github_stars: 229377
+github_forks: 20399
 installs: 126500
-last_updated: "2026-06-13"
+last_updated: "2026-06-16"
 ai_friendliness:
   score: 4.0
   documentation: 4.0
