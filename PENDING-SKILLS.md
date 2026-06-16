@@ -35,7 +35,7 @@
 | improve-codebase-architecture | ✅ | ✅ | ✅ | ✅ |
 | lark-doc | ✅ | 🔄 | 🔄 | 🔄 |
 | lark-base | 🔄 | 🔄 | 🔄 | 🔄 |
-| video-edit | 🔄 | 🔄 | 🔄 | 🔄 |
+| video-edit | ✅ | 🔄 | 🔄 | 🔄 |
 | to-prd | ✅ | 🔄 | ✅ | 🔄 |
 | gpt-image-2 | 🔄 | 🔄 | ✅ | 🔄 |
 | kling-3-0 | 🔄 | 🔄 | 🔄 | 🔄 |
@@ -64,6 +64,22 @@
 | 8 | html-anything | 5.8k | writing | nexu-io/html-anything |
 | 9 | guizang-social-card-skill | 2.3k | image | op7418/guizang-social-card-skill |
 | 10 | ian-xiaohei-illustrations | 1.6k | image | helloianneo/ian-xiaohei-illustrations |
+
+---
+
+# 📊 关键词调研 — 内容选题参考
+
+基于 kw-research 工具自动分析，标记 SERP 竞争状况。
+
+| 赛道 | 种子词 | 关键词数 | SERP 结论 | 建议 |
+|------|--------|---------|----------|------|
+| AI Writing | ai writing tool, ai content generator, ai writing assistant | 289 | 🟡 中等竞争，无巨头独占，工具雷达站能排进 top3 | ✅ 可做，适合"best tools"和"free alternative"类内容 |
+| AI Writing sub: paraphrasing | ai paraphrasing tool | — | 🟡 quillbot, ahrefs, scribbr 占 top3，均为工具类 | ✅ 可做，对比类文章有机会 |
+| AI Image | ai image generator, ai art generator | — | — | 待调研 |
+| AI Coding | ai coding tool, ai code generator | — | — | 待调研 |
+| AI Automation | ai automation tool, ai workflow | — | — | 待调研 |
+
+生成时间：2026-06-16 | 工具：kw-research v0.2.0 | SERP 来源：DuckDuckGo Lite
 
 ## 状态跟踪
 
