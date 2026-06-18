@@ -18,10 +18,10 @@ compatibility:
   - Cursor
 category: "general"
 rating: 4.5
-github_stars: 132657
-github_forks: 11533
+github_stars: 134571
+github_forks: 11668
 installs: 176000
-last_updated: "2026-06-12"
+last_updated: "2026-06-18"
 ai_friendliness:
   score: 4.5
   documentation: 5.0

@@ -20,7 +20,7 @@ rating: 4.0
 github_stars: 4
 github_forks: 2
 installs: 171000
-last_updated: "2026-06-17"
+last_updated: "2026-04-29"
 ai_friendliness:
   score: 4.0
   documentation: 4.5
