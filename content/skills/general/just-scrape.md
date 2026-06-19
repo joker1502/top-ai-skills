@@ -21,7 +21,7 @@ compatibility:
 category: "general"
 rating: 4.0
 github_stars: 28
-github_forks: 4
+github_forks: 5
 installs: 151226
 last_updated: "2026-06-15"
 ai_friendliness:
