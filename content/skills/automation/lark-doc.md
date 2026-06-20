@@ -18,10 +18,10 @@ compatibility:
   - Codex
 category: "automation"
 rating: 4.5
-github_stars: 14388
-github_forks: 991
+github_stars: 14418
+github_forks: 993
 installs: 236820
-last_updated: "2026-06-18"
+last_updated: "2026-06-20"
 ai_friendliness:
   score: 4.5
   documentation: 5.0
