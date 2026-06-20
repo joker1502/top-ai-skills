@@ -30,7 +30,7 @@ ai_friendliness:
 
 Kling 3.0 is a RunComfy skill that wraps Kuaishou's third-generation video model into six endpoints — Standard, Pro, and 4K tiers, each available as text-to-video or image-to-video. Instead of navigating Kling's API docs and constructing JSON bodies for each rendering tier, you describe what you want and the skill routes your request to the right endpoint with appropriate parameters.
 
-The skill lives in the `agentspace-so/runcomfy-agent-skills` monorepo alongside siblings like kling-2-6 and lucy-edit. You install it with a single `npx skills add` command and call it through the RunComfy CLI.
+The skill lives in the `agentspace-so/runcomfy-agent-skills` monorepo alongside siblings like kling-2-6 and lucy-edit. You install it with a single `npx skills add` command and call it through the RunComfy CLI. It complements the other video skills in the same ecosystem, such as [Video Edit](/skills/image/video-edit/).
 
 ## What's Actually Different
 

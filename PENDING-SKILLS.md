@@ -32,15 +32,15 @@
 | grill-me | ✅ | ✅ | ✅ | ✅ |
 | ai-image-generation | ✅ | 🔄 | 🔄 | 🔄 |
 | caveman | ✅ | ✅ | ✅ | ✅ |
-|| improve-codebase-architecture | ✅ | ✅ | ✅ | ✅ |
-|| lark-doc | ✅ | 🔄 | ✅ | 🔄 |
-|| lark-base | 🔄 | 🔄 | 🔄 | 🔄 |
-|| video-edit | ✅ | 🔄 | 🔄 | 🔄 |
-|| to-prd | ✅ | 🔄 | ✅ | 🔄 |
-|| gpt-image-2 | ✅ | 🔄 | ✅ | 🔄 |
-|| kling-3-0 | ✅ | 🔄 | 🔄 | 🔄 |
-|| copywriting | ✅ | 🔄 | 🔄 | 🔄 |
-|| just-scrape | 🔄 | 🔄 | 🔄 | 🔄 |
+| improve-codebase-architecture | ✅ | ✅ | ✅ | ✅ |
+| lark-doc | ✅ | 🔄 | ✅ | 🔄 |
+| lark-base | 🔄 | 🔄 | 🔄 | 🔄 |
+| video-edit | ✅ | 🔄 | 🔄 | 🔄 |
+| to-prd | ✅ | 🔄 | ✅ | 🔄 |
+| gpt-image-2 | ✅ | 🔄 | ✅ | 🔄 |
+| kling-3-0 | ✅ | 🔄 | 🔄 | 🔄 |
+| copywriting | 🔄 | 🔄 | 🔄 | 🔄 |
+| just-scrape | 🔄 | 🔄 | 🔄 | 🔄 |
 
 ---
 生成时间：2026-06-03
