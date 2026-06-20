@@ -17,9 +17,9 @@ compatibility:
 category: "image"
 rating: 4.0
 github_stars: 22
-github_forks: 5
+github_forks: 9
 installs: 240000
-last_updated: "2026-06-20"
+last_updated: "2026-05-15"
 ai_friendliness:
   score: 4.0
   documentation: 4.5
