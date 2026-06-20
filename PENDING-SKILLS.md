@@ -30,10 +30,11 @@
 | microsoft-foundry | ✅ | ✅ | ✅ | ✅ |
 | remotion-best-practices | ✅ | ✅ | ✅ | ✅ |
 | grill-me | ✅ | ✅ | ✅ | ✅ |
-| ai-image-generation | ✅ | 🔄 | 🔄 | 🔄 |
+| ai-image-generation | ✅ | 🔄 | ✅ | 🔄 |
 | caveman | ✅ | ✅ | ✅ | ✅ |
 | improve-codebase-architecture | ✅ | ✅ | ✅ | ✅ |
 | lark-doc | ✅ | 🔄 | ✅ | 🔄 |
+| lark-wiki | ✅ | 🔄 | 🔄 | 🔄 |
 | lark-base | 🔄 | 🔄 | 🔄 | 🔄 |
 | video-edit | ✅ | 🔄 | 🔄 | 🔄 |
 | to-prd | ✅ | 🔄 | ✅ | 🔄 |
