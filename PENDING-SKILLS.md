@@ -34,8 +34,8 @@
 | caveman | ✅ | ✅ | ✅ | ✅ |
 | improve-codebase-architecture | ✅ | ✅ | ✅ | ✅ |
 | lark-doc | ✅ | 🔄 | ✅ | 🔄 |
-| lark-wiki | ✅ | 🔄 | 🔄 | 🔄 |
-| lark-base | 🔄 | 🔄 | 🔄 | 🔄 |
+| lark-wiki | ✅ | 🔄 | ✅ | 🔄 |
+| lark-base | ✅ | 🔄 | 🔄 | 🔄 |
 | video-edit | ✅ | 🔄 | 🔄 | 🔄 |
 | to-prd | ✅ | 🔄 | ✅ | 🔄 |
 | gpt-image-2 | ✅ | 🔄 | ✅ | 🔄 |
