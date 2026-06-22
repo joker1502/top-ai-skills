@@ -36,7 +36,7 @@
 | lark-doc | ✅ | 🔄 | ✅ | 🔄 |
 | lark-wiki | ✅ | 🔄 | ✅ | 🔄 |
 | lark-base | ✅ | 🔄 | 🔄 | 🔄 |
-| video-edit | ✅ | 🔄 | 🔄 | 🔄 |
+| video-edit | ✅ | 🔄 | ✅ | 🔄 |
 | to-prd | ✅ | 🔄 | ✅ | 🔄 |
 | gpt-image-2 | ✅ | 🔄 | ✅ | 🔄 |
 || kling-3-0 | ✅ | 🔄 | 🔄 | 🔄 |
