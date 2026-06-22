@@ -18,7 +18,7 @@ compatibility:
   - Cursor
 category: "coding"
 rating: 5.0
-github_stars: 141083
+github_stars: 141088
 github_forks: 12220
 installs: 205000
 last_updated: "2026-06-18"
