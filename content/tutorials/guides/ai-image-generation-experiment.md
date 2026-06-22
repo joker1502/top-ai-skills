@@ -10,6 +10,7 @@ tags:
   - Gemini
   - Narrative
 description: "I tried generating AI images directly inside Claude Code using the ai-image-generation skill. 50 models, one terminal, and a few surprises along the way."
+category: "guides"
 related_skills:
   - ai-image-generation
   - gpt-image-2

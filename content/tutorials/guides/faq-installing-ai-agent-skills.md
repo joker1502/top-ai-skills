@@ -10,6 +10,7 @@ tags:
   - skills.sh
   - Tutorial
 toc: true
+category: "guides"
 description: "Answers to the most common questions about installing AI agent skills — from skills.sh CLI to Claude Code and Cursor setup, prerequisites, and troubleshooting."
 ---
 
