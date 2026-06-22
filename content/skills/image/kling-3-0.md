@@ -16,7 +16,7 @@ compatibility:
   - skills.sh
 category: "image"
 rating: 4.0
-github_stars: 22
+github_stars: 23
 github_forks: 9
 installs: 240000
 last_updated: "2026-05-15"
