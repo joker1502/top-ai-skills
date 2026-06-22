@@ -13,8 +13,6 @@ toc: true
 description: "Answers to the most common questions about installing AI agent skills — from skills.sh CLI to Claude Code and Cursor setup, prerequisites, and troubleshooting."
 ---
 
-{{< toc >}}
-
 ## What This FAQ Covers
 
 AI agent skills extend what your coding assistant can do — image generation, web scraping, database queries, browser automation, and dozens of other tasks. But the installation process varies by tool, and the documentation is scattered across GitHub repos, skills.sh, and individual README files. This FAQ collects the practical questions that come up when you actually sit down to install one.
