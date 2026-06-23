@@ -39,9 +39,9 @@
 | video-edit | ✅ | 🔄 | ✅ | 🔄 |
 | to-prd | ✅ | 🔄 | ✅ | 🔄 |
 | gpt-image-2 | ✅ | 🔄 | ✅ | 🔄 |
-|| kling-3-0 | ✅ | 🔄 | 🔄 | 🔄 |
+|| kling-3-0 | ✅ | 🔄 | ✅ | 🔄 |
 || copywriting | ✅ | 🔄 | 🔄 | 🔄 |
-|| just-scrape | 🔄 | 🔄 | 🔄 | 🔄 |
+|| just-scrape | ✅ | 🔄 | ✅ | 🔄 |
 
 ---
 生成时间：2026-06-03
