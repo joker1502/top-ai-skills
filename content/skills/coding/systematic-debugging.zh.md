@@ -16,8 +16,8 @@ compatibility:
   - Codex
 category: "coding"
 rating: 4.0
-github_stars: 238200
-github_forks: 21128
+github_stars: 238530
+github_forks: 21156
 installs: 126500
 last_updated: "2026-06-25"
 ai_friendliness:

@@ -18,8 +18,8 @@ compatibility:
   - Perplexity
 category: "search"
 rating: 4.0
-github_stars: 23476
-github_forks: 1897
+github_stars: 23522
+github_forks: 1902
 installs: 1800000
 last_updated: "2026-06-23"
 ai_friendliness:

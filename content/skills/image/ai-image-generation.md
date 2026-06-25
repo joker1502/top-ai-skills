@@ -18,7 +18,7 @@ compatibility:
   - Codex
 category: "image"
 rating: 4.0
-github_stars: 562
+github_stars: 565
 github_forks: 88
 installs: 212000
 last_updated: "2026-06-09"
