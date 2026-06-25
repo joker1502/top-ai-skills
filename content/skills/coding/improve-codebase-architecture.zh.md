@@ -18,10 +18,10 @@ compatibility:
   - Cursor
 category: "coding"
 rating: 5.0
-github_stars: 144033
-github_forks: 12455
+github_stars: 145462
+github_forks: 12583
 installs: 205000
-last_updated: "2026-06-18"
+last_updated: "2026-06-24"
 ai_friendliness:
   score: 5.0
   documentation: 5.0

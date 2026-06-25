@@ -18,8 +18,8 @@ compatibility:
   - GitHub Copilot
 category: "automation"
 rating: 4.0
-github_stars: 1231
-github_forks: 190
+github_stars: 1236
+github_forks: 193
 installs: 365000
 last_updated: "2026-06-23"
 ai_friendliness:
