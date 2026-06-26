@@ -19,8 +19,8 @@ compatibility:
   - Codex
 category: "automation"
 rating: 4.0
-github_stars: 14736
-github_forks: 1012
+github_stars: 14745
+github_forks: 1015
 installs: 192000
 last_updated: "2026-06-26"
 ai_friendliness:
