@@ -39,11 +39,10 @@
 | video-edit | ✅ | 🔄 | ✅ | 🔄 |
 | to-prd | ✅ | 🔄 | ✅ | 🔄 |
 | gpt-image-2 | ✅ | 🔄 | ✅ | 🔄 |
-|| kling-3-0 | ✅ | 🔄 | ✅ | 🔄 |
-|| copywriting | ✅ | 🔄 | 🔄 | 🔄 |
-|| just-scrape | ✅ | 🔄 | ✅ | 🔄 |
-
----
+||| kling-3-0 | ✅ | 🔄 | ✅ | 🔄 |
+||| copywriting | ✅ | 🔄 | ✅ | 🔄 |
+||| just-scrape | ✅ | 🔄 | ✅ | 🔄 |
+||| azure-ai | ✅ | 🔄 | 🔄 | 🔄 |
 生成时间：2026-06-03
 
 ---
@@ -96,3 +95,22 @@
 | html-anything | ⬜ | ⬜ | ⬜ | ⬜ |
 | guizang-social-card-skill | ⬜ | ⬜ | ⬜ | ⬜ |
 | ian-xiaohei-illustrations | ⬜ | ⬜ | ⬜ | ⬜ |
+
+## 📊 GSC Data Signals
+
+Auto-generated from Google Search Console analysis.
+Updated: 2026-06-26 15:48 UTC
+
+| Priority | Query | Impressions | Position | Suggested Content Type |
+|----------|-------|------------|----------|----------------------|
+| 1 | ai video generator | 4,409 | 14.2 | Comparison |
+| 2 | ai workflow automation | 4,059 | 27.0 | Comparison |
+| 3 | free ai tools list | 3,298 | 19.5 | List |
+| 4 | cloudflare workers tutorial | 2,477 | 11.6 | Comparison |
+| 5 | ai note taking app | 3,353 | 35.5 | Guide |
+| 6 | best ai for students | 2,418 | 16.9 | Comparison |
+| 7 | llm api pricing 2026 | 1,638 | 21.7 | Guide |
+| 8 | ai agent comparison | 288 | 15.8 | Comparison |
+| 9 | agent browser | 64 | 87.7 | Guide |
+| 10 | frontend design | 26 | 38.3 | Guide |
+
