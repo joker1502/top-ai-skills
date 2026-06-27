@@ -21,8 +21,8 @@ compatibility:
   - Copilot
 category: "general"
 rating: 5.0
-github_stars: 77171
-github_forks: 4367
+github_stars: 77296
+github_forks: 4374
 installs: 205000
 last_updated: "2026-06-12"
 ai_friendliness:
