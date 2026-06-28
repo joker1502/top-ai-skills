@@ -3,7 +3,7 @@
 
 <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
 <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
-<meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}" />
+<meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $tags := .Params.tags }}{{ if $tags }}{{ delimit $tags ", " }}, {{ end }}{{ .Title }}, {{ $.Site.Params.Keywords }}{{ end }}" />
 {{- if .Params.noindex }}{{ if or (eq (.Param "noindex") true) (eq (.Param "noindex") "true") }}<meta name="robots" content="noindex" />{{ end }}{{ end }}
 <link rel="canonical" href="{{ .Permalink }}" />
 
