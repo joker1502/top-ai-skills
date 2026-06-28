@@ -20,10 +20,10 @@ compatibility:
   - OpenCode
 category: "general"
 rating: 4.0
-github_stars: 26
-github_forks: 4
+github_stars: 30
+github_forks: 5
 installs: 151226
-last_updated: "2026-06-08"
+last_updated: "2026-06-24"
 ai_friendliness:
   score: 4.0
   documentation: 4.0

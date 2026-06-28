@@ -30,19 +30,19 @@
 | microsoft-foundry | ✅ | ✅ | ✅ | ✅ |
 | remotion-best-practices | ✅ | ✅ | ✅ | ✅ |
 | grill-me | ✅ | ✅ | ✅ | ✅ |
-| ai-image-generation | ✅ | 🔄 | 🔄 | 🔄 |
+| ai-image-generation | ✅ | 🔄 | ✅ | 🔄 |
 | caveman | ✅ | ✅ | ✅ | ✅ |
 | improve-codebase-architecture | ✅ | ✅ | ✅ | ✅ |
-| lark-doc | 🔄 | 🔄 | 🔄 | 🔄 |
-| lark-base | 🔄 | 🔄 | 🔄 | 🔄 |
-| video-edit | 🔄 | 🔄 | 🔄 | 🔄 |
-| to-prd | 🔄 | 🔄 | ✅ | 🔄 |
-| gpt-image-2 | 🔄 | 🔄 | 🔄 | 🔄 |
-| kling-3-0 | 🔄 | 🔄 | 🔄 | 🔄 |
-| copywriting | 🔄 | 🔄 | 🔄 | 🔄 |
-| just-scrape | 🔄 | 🔄 | 🔄 | 🔄 |
-
----
+| lark-doc | ✅ | 🔄 | ✅ | 🔄 |
+| lark-wiki | ✅ | 🔄 | ✅ | 🔄 |
+| lark-base | ✅ | 🔄 | ✅ | 🔄 |
+| video-edit | ✅ | 🔄 | ✅ | 🔄 |
+| to-prd | ✅ | 🔄 | ✅ | 🔄 |
+| gpt-image-2 | ✅ | 🔄 | ✅ | 🔄 |
+||| kling-3-0 | ✅ | 🔄 | ✅ | 🔄 |
+||| copywriting | ✅ | 🔄 | ✅ | 🔄 |
+||| just-scrape | ✅ | 🔄 | ✅ | 🔄 |
+||| azure-ai | ✅ | 🔄 | 🔄 | 🔄 |
 生成时间：2026-06-03
 
 ---
@@ -65,6 +65,22 @@
 | 9 | guizang-social-card-skill | 2.3k | image | op7418/guizang-social-card-skill |
 | 10 | ian-xiaohei-illustrations | 1.6k | image | helloianneo/ian-xiaohei-illustrations |
 
+---
+
+# 📊 关键词调研 — 内容选题参考
+
+基于 kw-research 工具自动分析，标记 SERP 竞争状况。
+
+| 赛道 | 种子词 | 关键词数 | SERP 结论 | 建议 |
+|------|--------|---------|----------|------|
+| AI Writing | ai writing tool, ai content generator, ai writing assistant | 289 | 🟡 中等竞争，无巨头独占，工具雷达站能排进 top3 | ✅ 可做，适合"best tools"和"free alternative"类内容 |
+| AI Writing sub: paraphrasing | ai paraphrasing tool | — | 🟡 quillbot, ahrefs, scribbr 占 top3，均为工具类 | ✅ 可做，对比类文章有机会 |
+| AI Image | ai image generator, ai art generator | — | — | 待调研 |
+| AI Coding | ai coding tool, ai code generator | — | — | 待调研 |
+| AI Automation | ai automation tool, ai workflow | — | — | 待调研 |
+
+生成时间：2026-06-16 | 工具：kw-research v0.2.0 | SERP 来源：DuckDuckGo Lite
+
 ## 状态跟踪
 
 | Skill | EN Intro | ZH Intro | EN Tutorial | ZH Tutorial |
@@ -79,3 +95,22 @@
 | html-anything | ⬜ | ⬜ | ⬜ | ⬜ |
 | guizang-social-card-skill | ⬜ | ⬜ | ⬜ | ⬜ |
 | ian-xiaohei-illustrations | ⬜ | ⬜ | ⬜ | ⬜ |
+
+## 📊 GSC Data Signals
+
+Auto-generated from Google Search Console analysis.
+Updated: 2026-06-26 15:48 UTC
+
+| Priority | Query | Impressions | Position | Suggested Content Type |
+|----------|-------|------------|----------|----------------------|
+| 1 | ai video generator | 4,409 | 14.2 | Comparison |
+| 2 | ai workflow automation | 4,059 | 27.0 | Comparison |
+| 3 | free ai tools list | 3,298 | 19.5 | List |
+| 4 | cloudflare workers tutorial | 2,477 | 11.6 | Comparison |
+| 5 | ai note taking app | 3,353 | 35.5 | Guide |
+| 6 | best ai for students | 2,418 | 16.9 | Comparison |
+| 7 | llm api pricing 2026 | 1,638 | 21.7 | Guide |
+| 8 | ai agent comparison | 288 | 15.8 | Comparison |
+| 9 | agent browser | 64 | 87.7 | Guide |
+| 10 | frontend design | 26 | 38.3 | Guide |
+

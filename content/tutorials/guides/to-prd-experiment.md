@@ -8,6 +8,7 @@ tags:
   - AI Coding
   - Matt Pocock
 description: "A week-long experiment using to-prd to turn vague product ideas into structured PRDs published straight to the issue tracker. The results surprised me."
+toc: true
 category: "guides"
 related_skills:
   - to-prd

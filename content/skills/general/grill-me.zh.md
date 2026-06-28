@@ -17,10 +17,10 @@ compatibility:
   - Cursor
 category: "general"
 rating: 5.0
-github_stars: 126745
-github_forks: 11073
+github_stars: 148658
+github_forks: 12866
 installs: 253000
-last_updated: "2026-06-12"
+last_updated: "2026-06-25"
 ai_friendliness:
   score: 5.0
   documentation: 5.0

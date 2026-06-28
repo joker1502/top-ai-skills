@@ -9,6 +9,7 @@ tags:
   - Automation
   - Data Extraction
 description: "Learn how to scrape websites, extract structured data, search the web, and monitor page changes using the Just Scrape AI-powered CLI tool."
+toc: true
 category: "guides"
 related_skills:
   - just-scrape
