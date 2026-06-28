@@ -1,70 +1,119 @@
 {{ define "main" }}
-<nav class="breadcrumb">
-  <a href="{{ .Site.Home.RelPermalink }}">Home</a>
-  {{ if not .CurrentSection.Parent.IsHome }}
-    <span class="breadcrumb-sep">/</span>
-    <a href="{{ .CurrentSection.Parent.RelPermalink }}">{{ .CurrentSection.Parent.Title }}</a>
-  {{ end }}
-  <span class="breadcrumb-sep">/</span>
-  <a href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>
-  <span class="breadcrumb-sep">/</span>
-  <span class="breadcrumb-current">{{ .Title }}</span>
-</nav>
+{{ $showToc := or .Params.toc .Site.Params.toc }}
+<article class="max-w-5xl mx-auto">
+  <nav class="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
+    <a href="{{ .Site.Home.RelPermalink }}" class="hover:text-primary transition-colors">{{ $.Site.Params.home | default "Home" }}</a>
+    {{ if not .CurrentSection.Parent.IsHome }}
+      <span>/</span>
+      <a href="{{ .CurrentSection.Parent.RelPermalink }}" class="hover:text-primary transition-colors">{{ .CurrentSection.Parent.Title }}</a>
+    {{ end }}
+    <span>/</span>
+    <a href="{{ .CurrentSection.RelPermalink }}" class="hover:text-primary transition-colors">{{ .CurrentSection.Title }}</a>
+    <span>/</span>
+    <span class="text-muted-foreground truncate">{{ .Title }}</span>
+  </nav>
 
-<article class="post">
-  <h1 class="post-title">
-    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-  </h1>
-  <div class="post-meta">
-    {{- if .Date -}}
-      <time class="post-date">
-        {{- partial "post-date" . -}}
+  <header class="mb-10">
+    {{ with .Params.category }}
+      {{ $catPage := $.Site.GetPage (printf "/tutorials/%s" .) }}
+      <span class="inline-block text-xs font-semibold uppercase tracking-wider text-primary bg-accent px-2.5 py-1 rounded-full mb-4">{{ with $catPage }}{{ .Title }}{{ else }}{{ . }}{{ end }}</span>
+    {{ end }}
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight leading-tight">
+      <a href="{{ .Permalink }}" class="hover:text-primary transition-colors">{{ .Title | markdownify }}</a>
+    </h1>
+
+    <div class="flex flex-wrap items-center gap-3 mt-4 text-sm text-muted-foreground">
+      {{- if .Date -}}
+        <time>{{ partial "post-date" . }}</time>
         {{- if and $.Site.Params.showLastUpdated .Lastmod -}}
-          &nbsp;{{- partial "post-lastmod" . -}}
+          <span>({{ partial "post-lastmod" . }})</span>
         {{- end -}}
-      </time>
-    {{- end -}}
-    {{- with .Params.Author -}}
-      <span class="post-author">{{ . }}</span>
-    {{- end -}}
-    {{- if and (.Param "readingTime") (eq (.Param "readingTime") true) -}}
-      <span class="post-reading-time">{{ .ReadingTime }} {{ $.Site.Params.minuteReadingTime | default "min read" }} ({{ .WordCount }} {{ $.Site.Params.words | default "words" }})</span>
-    {{- end -}}
-  </div>
-
-  {{ if .Params.tags }}
-    <span class="post-tags">
-      {{ range .Params.tags }}
-      #<a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
+      {{- end -}}
+      <span class="text-muted-foreground">·</span>
+      <span>{{ .ReadingTime }} min read</span>
+      {{- with .Params.Author -}}
+        <span class="text-muted-foreground">·</span>
+        <span class="font-medium text-muted-foreground">{{ . }}</span>
+      {{- end -}}
+      {{ with .Params.rating }}
+        {{ if gt . 0 }}
+          <span class="text-muted-foreground">·</span>
+          <span class="text-yellow-500 font-medium">{{ strings.Repeat . "★" }}{{ strings.Repeat (sub 5 .) "☆" }}</span>
+        {{ end }}
       {{ end }}
-    </span>
-  {{ end }}
+    </div>
+
+    {{ if .Params.tags }}
+      <div class="flex flex-wrap gap-2 mt-4">
+        {{ range .Params.tags }}
+          <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}" class="text-xs text-muted-foreground bg-muted px-2.5 py-1 rounded-full hover:bg-accent hover:text-primary transition-colors">#{{ . }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </header>
+
   {{ partial "cover.html" . }}
 
-  {{ $showToc := or .Params.toc .Site.Params.toc }}
-  {{ if $showToc }}
-    <div class="table-of-contents">
-      <h2>
-        {{ or .Params.tocTitle .Site.Params.tocTitle "Table of Contents" }}
-      </h2>
-      {{ .TableOfContents }}
-    </div>
-  {{ end }}
-
-  <div class="post-content">
-    {{- with .Content -}}
-      <div>
-        {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" ariaLabel="Anchor">#</a> ${3}` | safeHTML }}
+  <div class="flex flex-col lg:flex-row gap-10">
+    <div class="flex-1 min-w-0 max-w-3xl">
+      <div class="rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm p-6 sm:p-8 prose-content">
+        {{- with .Content -}}
+          {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="ml-2 text-muted-foreground hover:text-primary no-underline text-sm font-normal">#</a> ${3}` | safeHTML }}
+        {{- end -}}
       </div>
-    {{- end -}}
+
+      {{/* Related Articles */}}
+      {{ $related := where $.Site.RegularPages "Section" "tutorials" }}
+      {{ $related = where $related "Permalink" "ne" .Permalink }}
+      {{ $tags := .Params.tags | default slice }}
+      {{ if $tags }}
+        {{ $related = where $related "Params.tags" "intersect" $tags }}
+      {{ else }}
+        {{ $related = $related | first 0 }}
+      {{ end }}
+      {{ if gt (len $related) 0 }}
+        <div class="mt-12">
+          <h2 class="text-lg font-bold text-foreground mb-4">Related Articles</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {{ range first 4 $related.ByDate.Reverse }}
+              <a href="{{ .RelPermalink }}" class="group relative flex flex-col rounded-2xl border border-border/40 bg-card/30 p-4 shadow-sm backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/40 hover:bg-card/50 hover:shadow-lg hover:shadow-primary/5">
+                <div class="flex items-center gap-2 text-[11px] text-muted-foreground mb-1.5">
+                  <time>{{ .Date.Format "2006-01-02" }}</time>
+                  <span>·</span>
+                  <span>{{ .ReadingTime }} min read</span>
+                </div>
+                <h3 class="text-sm font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">{{ .Title }}</h3>
+                {{ with .Description }}
+                  <p class="flex-1 text-xs leading-relaxed text-muted-foreground mt-1 line-clamp-3">{{ . | plainify }}</p>
+                {{ end }}
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+
+      {{ if eq .Type $.Site.Params.contentTypeName }}
+        {{ partial "posts_pagination.html" . }}
+      {{ end }}
+
+      {{ if not (.Params.hideComments | default false) }}
+        {{ partial "comments.html" . }}
+      {{ end }}
+    </div>
+
+    {{ if $showToc }}
+      <aside class="w-full lg:w-64 flex-shrink-0">
+        <div class="lg:sticky lg:top-24 space-y-5">
+          <div class="rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm p-5">
+            <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">{{ or .Params.tocTitle .Site.Params.tocTitle "Table of Contents" }}</h2>
+            <nav class="toc text-sm leading-relaxed space-y-1">
+              {{ .TableOfContents }}
+            </nav>
+          </div>
+        </div>
+      </aside>
+    {{ end }}
   </div>
-
-  {{ if eq .Type $.Site.Params.contentTypeName }}
-    {{ partial "posts_pagination.html" . }}
-  {{ end }}
-
-  {{ if not (.Params.hideComments | default false) }}
-    {{ partial "comments.html" . }}
-  {{ end }}
 </article>
 {{ end }}

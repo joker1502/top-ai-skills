@@ -1,13 +1,11 @@
 {{ define "main" }}
-<div class="section-header">
-  <h1>{{ .Title }}</h1>
-</div>
+<h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">{{ .Title }}</h1>
 {{ with .Content }}
-  <div class="index-content">{{ . }}</div>
+  <div class="prose-content">{{ . }}</div>
 {{ end }}
-<div class="filter-buttons" style="margin-top:20px">
+<div class="flex flex-wrap gap-2">
   {{ range .Data.Terms.Alphabetical }}
-    <a href="{{ .Page.RelPermalink }}" class="filter-btn">{{ .Page.Title }} ({{ .Count }})</a>
+    <a href="{{ .Page.RelPermalink }}" class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium border border-border/40 text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">{{ .Page.Title }} <span class="ml-1.5 text-xs text-muted-foreground">({{ .Count }})</span></a>
   {{ end }}
 </div>
 {{ end }}

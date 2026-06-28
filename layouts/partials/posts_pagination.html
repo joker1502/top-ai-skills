@@ -1,0 +1,22 @@
+{{ if or .NextInSection .PrevInSection }}
+<div class="mt-12 pt-8 border-t border-border/40">
+  <div class="flex items-center justify-between gap-4">
+    {{ if .NextInSection }}
+      <a href="{{ .NextInSection.Permalink }}" class="flex-1 min-w-0 p-4 border border-border/40 rounded-xl hover:border-primary/40 hover:shadow-sm transition-all group">
+        <span class="text-xs text-muted-foreground">&larr; {{ $.Site.Params.ReadOtherPosts }}</span>
+        <span class="block text-sm font-medium text-foreground group-hover:text-primary truncate mt-1">{{ .NextInSection.Title }}</span>
+      </a>
+    {{ else }}
+      <div class="flex-1"></div>
+    {{ end }}
+    {{ if .PrevInSection }}
+      <a href="{{ .PrevInSection.Permalink }}" class="flex-1 min-w-0 p-4 border border-border/40 rounded-xl hover:border-primary/40 hover:shadow-sm transition-all group text-right">
+        <span class="text-xs text-muted-foreground">{{ $.Site.Params.ReadOtherPosts }} &rarr;</span>
+        <span class="block text-sm font-medium text-foreground group-hover:text-primary truncate mt-1">{{ .PrevInSection.Title }}</span>
+      </a>
+    {{ else }}
+      <div class="flex-1"></div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

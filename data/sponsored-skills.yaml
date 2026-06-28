@@ -1,0 +1,18 @@
+# Sponsored Skills
+# When someone pays for placement, add their skill slug here.
+# Templates will auto-show "Sponsored" badge on cards and detail pages.
+#
+# type: featured | badge | sidebar
+#   featured — shows on homepage featured section
+#   badge — small "Sponsored" tag on skill card
+#   sidebar — shows in skill detail sidebar
+
+- slug: "vercel-react-best-practices"
+  sponsor: "Vercel"
+  type: "badge"
+  expires: "2026-12-31"
+
+- slug: "frontend-design"
+  sponsor: "Anthropic"
+  type: "sidebar"
+  expires: "2026-12-31"

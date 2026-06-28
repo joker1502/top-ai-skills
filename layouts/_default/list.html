@@ -1,0 +1,14 @@
+{{ define "main" }}
+<h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">{{ .Title }}</h1>
+{{ with .Content }}
+  <div class="prose-content">{{ . }}</div>
+{{ end }}
+{{ range .Pages }}
+  <article class="py-4 border-b border-border/30 last:border-0">
+    <h2 class="text-lg font-semibold">
+      <a href="{{ .Permalink }}" class="text-foreground hover:text-primary transition-colors">{{ .Title }}</a>
+    </h2>
+    {{ with .Description }}<p class="text-sm text-muted-foreground mt-1">{{ . }}</p>{{ end }}
+  </article>
+{{ end }}
+{{ end }}

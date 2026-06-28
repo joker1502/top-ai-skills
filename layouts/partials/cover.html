@@ -1,0 +1,17 @@
+{{- $cover := false -}}
+{{- if index .Params "cover" -}}
+  {{- if .Resources.GetMatch .Params.Cover }}
+    {{- $cover = (.Resources.GetMatch .Params.Cover).RelPermalink -}}
+  {{- else -}}
+    {{- $cover = absURL .Params.Cover -}}
+  {{- end -}}
+{{- else if $.Site.Params.AutoCover -}}
+  {{- if (not .Params.Cover) -}}
+    {{- if .Resources.GetMatch "cover.*" -}}
+      {{- $cover = (.Resources.GetMatch "cover.*").RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{if $cover -}}
+  <img src="{{ $cover }}" class="w-full rounded-xl border border-border/40 my-6" alt="{{ .Title | plainify | default " " }}" />
+{{- end }}

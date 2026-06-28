@@ -1,20 +1,11 @@
 {{ define "main" }}
-<div class="post">
-  <h1 class="post-title">404</h1>
-  <p style="text-align:center;font-size:1.2em;margin-bottom:2rem">{{ $.Site.Params.missingContentMessage | default "Page not found..." }}</p>
-
-  <div class="post-content">
-    <section style="text-align:center;margin-bottom:2rem">
-      <div class="search-container" style="max-width:500px;margin:0 auto">
-        <input type="text" class="search-input" id="skill-search" placeholder="Search skills by name, tag, author, or description..." autocomplete="off" style="width:100%;padding:12px;font-size:1rem">
-      </div>
-    </section>
-
-    <nav style="text-align:center">
-      <p><a href="{{ "" | absLangURL }}">← Home</a></p>
-      <p><a href="{{ "skills/" | absLangURL }}">Skills →</a></p>
-      <p><a href="{{ "tutorials/" | absLangURL }}">Tutorials →</a></p>
-    </nav>
-  </div>
-</div>
+<article class="text-center py-20">
+  <h1 class="text-6xl font-extrabold text-muted-foreground mb-4">404</h1>
+  <p class="text-lg text-muted-foreground mb-8">{{ $.Site.Params.missingContentMessage | default "Page not found..." }}</p>
+  <nav class="flex items-center justify-center gap-4">
+    <a href="{{ "" | absLangURL }}" class="px-4 py-2 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors">&larr; Home</a>
+    <a href="{{ "skills/" | absLangURL }}" class="px-4 py-2 border border-border/40 rounded-lg text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">Skills</a>
+    <a href="{{ "tutorials/" | absLangURL }}" class="px-4 py-2 border border-border/40 rounded-lg text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">Tutorials</a>
+  </nav>
+</article>
 {{ end }}

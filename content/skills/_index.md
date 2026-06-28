@@ -6,5 +6,4 @@ outputs:
   - SKILLSJSON
 aliases:
   - /skills
-  - /skills/coding/cursor/
 ---

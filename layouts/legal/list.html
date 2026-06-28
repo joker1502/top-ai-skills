@@ -1,0 +1,8 @@
+{{ define "main" }}
+<article>
+  <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-10">{{ .Title }}</h1>
+  <div class="rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm p-6 sm:p-8 prose-content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

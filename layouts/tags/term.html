@@ -1,9 +1,7 @@
 {{ define "main" }}
-<div class="section-header">
-  <h1>#{{ .Title }}</h1>
-</div>
+<h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">#{{ .Title }}</h1>
 {{ with .Content }}
-  <div class="index-content">{{ . }}</div>
+  <div class="prose-content">{{ . }}</div>
 {{ end }}
 
 {{ $skills := slice }}
@@ -19,52 +17,31 @@
 {{ end }}
 
 {{ if $skills }}
-  <h2 class="section-subtitle">{{ $.Site.Params.skillsSection }}</h2>
-  <div class="skills-grid">
+  <h2 class="text-lg font-bold text-foreground mb-4 mt-8">{{ $.Site.Params.skillsSection }}</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
     {{ range $skills.ByTitle }}
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <span class="skill-rating">{{ $s := .Params.github_stars | default 0 | int }}{{ if ge $s 1000 }}{{ div $s 1000 }}K{{ else }}{{ $s }}{{ end }}</span>
-        </div>
-        <div class="skill-author">{{ .Params.author }}</div>
-        <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ with $.Site.GetPage (printf "/skills/%s" .Params.category) }}{{ .Title }}{{ end }}</a>
-        {{ with .Params.description }}
-          <p class="skill-desc">{{ . | markdownify }}</p>
-        {{ end }}
-        {{ if .Params.tags }}
-          <div class="skill-tags">
-            {{ range .Params.tags }}
-              <span class="skill-tag static">{{ . }}</span>
-            {{ end }}
-          </div>
-        {{ end }}
-      </div>
+      {{ partial "skill-card" . }}
     {{ end }}
   </div>
 {{ end }}
 
 {{ if $tutorials }}
-  <h2 class="section-subtitle">{{ $.Site.Params.tutorialsSection }}</h2>
-  {{ range $tutorials.ByDate.Reverse }}
-    <article class="post on-list">
-      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-      <div class="post-meta">
-        {{ with .Date }}
-          <time class="post-date">{{ .Format "2006-01-02" }}</time>
-        {{ end }}
-        {{ with .Params.category }}
-          <span class="skill-cat-badge">{{ . }}</span>
-        {{ end }}
-      </div>
-      {{ with .Params.description }}
-        <p>{{ . | markdownify }}</p>
-      {{ end }}
-    </article>
-  {{ end }}
+  <h2 class="text-lg font-bold text-foreground mb-4 mt-8">{{ $.Site.Params.tutorialsSection }}</h2>
+  <div class="space-y-4">
+    {{ range $tutorials.ByDate.Reverse }}
+      <article class="bg-background border border-border/40 rounded-xl p-5 hover:shadow-sm transition-all">
+        <h3><a href="{{ .RelPermalink }}" class="text-foreground hover:text-primary transition-colors font-semibold">{{ .Title }}</a></h3>
+        <div class="flex items-center gap-3 mt-2 text-sm text-muted-foreground">
+          {{ with .Date }}<time>{{ .Format "2006-01-02" }}</time>{{ end }}
+          {{ with .Params.category }}{{ $catPage := $.Site.GetPage (printf "/tutorials/%s" .) }}<a href="{{ with $catPage }}{{ .RelPermalink }}{{ end }}" class="text-[10px] uppercase tracking-wider text-primary bg-accent px-2 py-0.5 rounded-full hover:bg-accent/80 transition-colors">{{ . }}</a>{{ end }}
+        </div>
+        {{ with .Params.description }}<p class="text-sm text-muted-foreground mt-2">{{ . | markdownify }}</p>{{ end }}
+      </article>
+    {{ end }}
+  </div>
 {{ end }}
 
 {{ if not $skills }}{{ if not $tutorials }}
-  <p>{{ $.Site.Params.noContent }}</p>
+  <p class="text-muted-foreground text-center py-12">{{ $.Site.Params.noContent }}</p>
 {{ end }}{{ end }}
 {{ end }}

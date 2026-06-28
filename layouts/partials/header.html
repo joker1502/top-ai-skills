@@ -1,19 +1,28 @@
-<header class="header">
-  <div class="header__inner">
-    <div class="header__logo">
-      {{ partial "logo.html" . }}
-    </div>
-    {{ if len $.Site.Menus }}
-      {{ partial "mobile-menu.html" . }}
-    {{ end }}
-    <div class="header__actions">
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☾</button>
-      {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
-        {{ partial "language-menu.html" . }}
+<header class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
+  <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    {{ partial "logo.html" . }}
+
+    {{/* Desktop nav */}}
+    <div class="hidden md:flex items-center gap-1">
+      {{ if len $.Site.Menus }}
+        {{ partial "menu.html" . }}
       {{ end }}
+      <div class="flex items-center gap-1 ml-2 pl-2 border-l border-border/40">
+        <button id="theme-toggle" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-8 w-8 rounded-xl opacity-60 hover:opacity-100" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+        {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
+          {{ partial "language-menu.html" . }}
+        {{ end }}
+      </div>
+    </div>
+
+    {{/* Mobile menu trigger */}}
+    <div class="md:hidden flex items-center gap-1">
+      <button id="theme-toggle-mobile" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-8 w-8 rounded-xl opacity-60 hover:opacity-100" aria-label="Toggle theme">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+      </button>
+      {{ partial "mobile-menu.html" . }}
     </div>
   </div>
-  {{ if len $.Site.Menus }}
-    {{ partial "menu.html" . }}
-  {{ end }}
 </header>

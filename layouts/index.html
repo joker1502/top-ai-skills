@@ -1,184 +1,137 @@
 {{ define "main" }}
 {{ $skills := where .Site.RegularPages "Section" "skills" }}
 {{ $reviews := where .Site.RegularPages "Section" "tutorials" }}
-{{ $skillData := slice }}
-{{ range $skills }}
-  {{ $s := dict
-    "title" .Title
-    "url" .RelPermalink
-    "description" .Description
-    "author" (.Params.author | default "")
-    "category" (.Params.category | default "")
-    "rating" (.Params.rating | default 0)
-    "tags" (.Params.tags | default slice)
-    "installs" (.Params.installs | default 0)
-    "github_stars" (.Params.github_stars | default 0)
-    "version" (.Params.version | default "")
-  }}
-  {{ $skillData = $skillData | append $s }}
-{{ end }}
-{{ $skillJSON := $skillData | jsonify }}
 
-<section class="hero">
-  <h1>AI Agent Skills Directory</h1>
+<section aria-labelledby="hero-heading" class="mb-8 rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm shadow-sm">
+  <div class="p-6 sm:p-8 space-y-5">
+    <div class="space-y-2.5">
+      <h1 id="hero-heading" class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">AI Agent Skills Directory</h1>
+      <p class="max-w-xl text-muted-foreground text-sm sm:text-[15px] leading-relaxed">{{ $.Site.Params.subtitle }}</p>
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium bg-background/50 rounded-lg border border-border/40 text-foreground">{{ len $skills }} skills</span>
+    </div>
+    <div class="flex flex-wrap items-center gap-3">
+      <a href="/skills/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 rounded-md px-4 py-2">
+        Browse Skills
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="/tutorials/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background/50 shadow-sm hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-4 py-2">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        Read Tutorials
+      </a>
+    </div>
+    <div class="flex items-center gap-3 pt-1">
+      <span class="text-xs text-muted-foreground">Works with</span>
+      <div class="flex items-center gap-2.5 opacity-60 hover:opacity-90 grayscale hover:grayscale-0 transition-all duration-300">
+        <svg fill="#D97757" fill-rule="evenodd" height="16" width="16" viewBox="0 0 24 24" class="shrink-0" aria-label="Claude" role="img"><title>Claude</title><path d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z" fill="#D97757" fill-rule="nonzero"></path></svg>
+        <svg fill="currentColor" fill-rule="evenodd" height="16" width="16" viewBox="0 0 24 24" class="shrink-0" aria-label="Cursor" role="img"><title>Cursor</title><path d="M22.106 5.68L12.5.135a.998.998 0 00-.998 0L1.893 5.68a.84.84 0 00-.419.726v11.186c0 .3.16.577.42.727l9.607 5.547a.999.999 0 00.998 0l9.608-5.547a.84.84 0 00.42-.727V6.407a.84.84 0 00-.42-.726zm-.603 1.176L12.228 22.92c-.063.108-.228.064-.228-.061V12.34a.59.59 0 00-.295-.51l-9.11-5.26c-.107-.062-.063-.228.062-.228h18.55c.264 0 .428.286.296.514z"></path></svg>
+        <svg fill="currentColor" fill-rule="evenodd" height="16" width="16" viewBox="0 0 24 24" class="shrink-0" aria-label="Windsurf" role="img"><title>Windsurf</title><path clip-rule="evenodd" d="M23.78 5.004h-.228a2.187 2.187 0 00-2.18 2.196v4.912c0 .98-.804 1.775-1.76 1.775a1.818 1.818 0 01-1.472-.773L13.168 5.95a2.197 2.197 0 00-1.81-.95c-1.134 0-2.154.972-2.154 2.173v4.94c0 .98-.797 1.775-1.76 1.775-.57 0-1.136-.289-1.472-.773L.408 5.098C.282 4.918 0 5.007 0 5.228v4.284c0 .216.066.426.188.604l5.475 7.889c.324.466.8.812 1.351.938 1.377.316 2.645-.754 2.645-2.117V11.89c0-.98.787-1.775 1.76-1.775h.002c.586 0 1.135.288 1.472.773l4.972 7.163a2.15 2.15 0 001.81.95c1.158 0 2.151-.973 2.151-2.173v-4.939c0-.98.787-1.775 1.76-1.775h.194c.122 0 .22-.1.22-.222V5.225a.221.221 0 00-.22-.222z" fill-rule="evenodd"></path></svg>
+        <svg fill="currentColor" fill-rule="evenodd" height="16" width="16" viewBox="0 0 24 24" class="shrink-0" aria-label="Cline" role="img"><title>Cline</title><path d="M17.035 3.991c2.75 0 4.98 2.24 4.98 5.003v1.667l1.45 2.896a1.01 1.01 0 01-.002.909l-1.448 2.864v1.668c0 2.762-2.23 5.002-4.98 5.002H7.074c-2.751 0-4.98-2.24-4.98-5.002V17.33l-1.48-2.855a1.01 1.01 0 01-.003-.927l1.482-2.887V8.994c0-2.763 2.23-5.003 4.98-5.003h9.962zM8.265 9.6a2.274 2.274 0 00-2.274 2.274v4.042a2.274 2.274 0 004.547 0v-4.042A2.274 2.274 0 008.265 9.6zm7.326 0a2.274 2.274 0 00-2.274 2.274v4.042a2.274 2.274 0 104.548 0v-4.042A2.274 2.274 0 0015.59 9.6z"></path><path d="M12.054 5.558a2.779 2.779 0 100-5.558 2.779 2.779 0 000 5.558z"></path></svg>
+        <svg fill="currentColor" fill-rule="evenodd" height="16" width="16" viewBox="0 0 24 24" class="shrink-0" aria-label="Amp" role="img"><title>Amp</title><path d="M13.9197 13.61L17.3816 26.566L14.242 27.4049L11.2645 16.2643L0.119926 13.2906L0.957817 10.15L13.9197 13.61Z" fill="#F34E3F"></path><path d="M13.7391 16.0892L4.88169 24.9056L2.58872 22.6019L11.4461 13.7865L13.7391 16.0892Z" fill="#F34E3F"></path><path d="M18.9386 8.58315L22.4005 21.5392L19.2609 22.3781L16.2833 11.2374L5.13879 8.26381L5.97668 5.12318L18.9386 8.58315Z" fill="#F34E3F"></path><path d="M23.9803 3.55632L27.4422 16.5124L24.3025 17.3512L21.325 6.21062L10.1805 3.23698L11.0183 0.0963593L23.9803 3.55632Z" fill="#F34E3F"></path></svg>
+        <svg fill="currentColor" fill-rule="evenodd" height="16" width="16" viewBox="0 0 24 24" class="shrink-0" aria-label="GitHub Copilot" role="img"><title>GitHub Copilot</title><path d="M23.922 16.997C23.061 18.492 18.063 22.02 12 22.02 5.937 22.02.939 18.492.078 16.997A.641.641 0 0 1 0 16.741v-2.869a.883.883 0 0 1 .053-.22c.372-.935 1.347-2.292 2.605-2.656.167-.429.414-1.055.644-1.517a10.098 10.098 0 0 1-.052-1.086c0-1.331.282-2.499 1.132-3.368.397-.406.89-.717 1.474-.952C7.255 2.937 9.248 1.98 11.978 1.98c2.731 0 4.767.957 6.166 2.093.584.235 1.077.546 1.474.952.85.869 1.132 2.037 1.132 3.368 0 .368-.014.733-.052 1.086.23.462.477 1.088.644 1.517 1.258.364 2.233 1.721 2.605 2.656a.841.841 0 0 1 .053.22v2.869a.641.641 0 0 1-.078.256Zm-11.75-5.992h-.344a4.359 4.359 0 0 1-.355.508c-.77.947-1.918 1.492-3.508 1.492-1.725 0-2.989-.359-3.782-1.259a2.137 2.137 0 0 1-.085-.104L4 11.746v6.585c1.435.779 4.514 2.179 8 2.179 3.486 0 6.565-1.4 8-2.179v-6.585l-.098-.104s-.033.045-.085.104c-.793.9-2.057 1.259-3.782 1.259-1.59 0-2.738-.545-3.508-1.492a4.359 4.359 0 0 1-.355-.508Zm2.328 3.25c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm-5 0c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm3.313-6.185c.136 1.057.403 1.913.878 2.497.442.544 1.134.938 2.344.938 1.573 0 2.292-.337 2.657-.751.384-.435.558-1.15.558-2.361 0-1.14-.243-1.847-.705-2.319-.477-.488-1.319-.862-2.824-1.025-1.487-.161-2.192.138-2.533.529-.269.307-.437.808-.438 1.578v.021c0 .265.021.562.063.893Zm-1.626 0c.042-.331.063-.628.063-.894v-.02c-.001-.77-.169-1.271-.438-1.578-.341-.391-1.046-.69-2.533-.529-1.505.163-2.347.537-2.824 1.025-.462.472-.705 1.179-.705 2.319 0 1.211.175 1.926.558 2.361.365.414 1.084.751 2.657.751 1.21 0 1.902-.394 2.344-.938.475-.584.742-1.44.878-2.497Z"></path></svg>
+      </div>
+    </div>
+    <div class="flex items-stretch rounded-xl border border-border/50 bg-background/50 shadow-sm transition-all hover:border-border/80 max-w-md">
+      <form action="{{ "/skills/" | relLangURL }}" method="GET" class="relative flex-1 min-w-0">
+        <svg class="pointer-events-none absolute left-3 top-1/2 w-4 h-4 -translate-y-1/2 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        <input type="text" name="q" placeholder="{{ $.Site.Params.searchPlaceholder }}" aria-label="Search skills" autocomplete="off" inputmode="search" class="h-10 w-full bg-transparent pl-9 pr-12 text-sm placeholder:text-muted-foreground focus:outline-none" style="appearance:none;-webkit-appearance:none">
+        <div class="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:flex items-center pointer-events-none">
+          <kbd class="inline-flex h-5 select-none items-center gap-0.5 rounded border border-border/60 bg-muted/60 px-1.5 font-mono text-[10px] font-medium text-muted-foreground"><span class="text-xs">⌘</span>K</kbd>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
 
-{{/* ── Search ── */}}
-<div class="search-section">
-  <div class="search-container">
-    <input type="text" class="search-input" id="skill-search" placeholder="{{ $.Site.Params.searchPlaceholder }}" autocomplete="off">
-    <span class="search-icon">⌕</span>
-  </div>
-  <div class="search-results" id="search-results"></div>
-</div>
 
-{{/* ── Featured Skills ── */}}
+
+{{/* Featured Skills — Latest */}}
 {{ if $skills }}
-      <div class="section-header">
-        <h2>{{ $.Site.Params.featuredSkills }}</h2>
-        <a class="view-all" href="{{ "/skills/" | relLangURL }}">{{ $.Site.Params.viewAll }}</a>
-      </div>
-  <div class="skills-grid">
-    {{ range first 8 (sort $skills ".Date" "desc") }}
-      {{ $installs := .Params.installs | default 0 }}
-      <div class="skill-card">
-        <div class="skill-card-header">
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <span class="skill-rating">{{ $s := .Params.github_stars | default 0 | int }}{{ if ge $s 1000 }}{{ div $s 1000 }}K{{ else }}{{ $s }}{{ end }}</span>
-        </div>
-          <div class="skill-author">{{ .Params.author }}</div>
-          <a class="skill-cat-badge" href="{{ printf "/skills/%s/" .Params.category | relLangURL }}">{{ with $.Site.GetPage (printf "/skills/%s" .Params.category) }}{{ .Title }}{{ end }}</a>
-          {{ with .Params.description }}
-            <p class="skill-desc">{{ . | markdownify }}</p>
-          {{ end }}
-          <div class="skill-card-footer">
-            {{ if gt $installs 0 }}
-              <span class="skill-stat">
-                <span class="skill-stat-icon">⬇</span>
-                {{ if ge $installs 1000000 }}
-                  {{ div $installs 1000000 }}M
-                {{ else if ge $installs 1000 }}
-                  {{ div $installs 1000 }}K
-                {{ else }}
-                  {{ $installs }}
-                {{ end }}
-              </span>
-            {{ end }}
-            <span class="skill-stat">
-              <span class="skill-stat-icon">↻</span>
-              {{ .Date.Format "2006-01-02" }}
-            </span>
-          </div>
-          {{ if .Params.tags }}
-            <div class="skill-tags" style="margin-top: 12px;">
-              {{ range first 3 .Params.tags }}
-                <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
-              {{ end }}
-            </div>
-          {{ end }}
-        </div>
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-xl font-bold text-foreground">{{ $.Site.Params.featuredSkills }}</h2>
+    <a href="{{ "/skills/" | relLangURL }}" class="text-sm font-medium text-primary hover:text-primary">{{ $.Site.Params.viewAll }}</a>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+    {{ range first 6 (sort $skills ".Date" "desc") }}
+      {{ partial "skill-card" . }}
     {{ end }}
   </div>
 {{ end }}
 
-{{/* ── Latest Reviews ── */}}
+{{/* Most Popular — by GitHub stars */}}
+{{ if $skills }}
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="text-xl font-bold text-foreground">{{ $.Site.Params.popularSkills }}</h2>
+    <a href="{{ "/skills/" | relLangURL }}" class="text-sm font-medium text-primary hover:text-primary">{{ $.Site.Params.viewAll }}</a>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+    {{ $sorted := sort $skills ".Params.github_stars" "desc" }}
+    {{ range first 6 $sorted }}
+      {{ partial "skill-card" . }}
+    {{ end }}
+  </div>
+{{ end }}
+
+{{/* Category sections */}}
+{{ $skillsSection := .Site.GetPage "/skills" }}
+{{ range $skillsSection.Sections }}
+  {{ $catSkills := .RegularPagesRecursive }}
+  {{ if $catSkills }}
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xl font-bold text-foreground">{{ .Title }}</h2>
+      <a href="{{ .RelPermalink }}" class="text-sm font-medium text-primary hover:text-primary">{{ $.Site.Params.viewAll }}</a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      {{ range first 6 $catSkills.ByDate.Reverse }}
+        {{ partial "skill-card" . }}
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
+
+{{/* Latest Tutorials */}}
 {{ if $reviews }}
-  <div class="section-header" style="margin-top: 50px;">
-    <h2>{{ $.Site.Params.latestTutorials }}</h2>
-     <a class="view-all" href="{{ "/tutorials/" | relLangURL }}">{{ $.Site.Params.viewAll }}</a>
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-xl font-bold text-foreground">{{ $.Site.Params.latestTutorials }}</h2>
+    <a href="{{ "/tutorials/" | relLangURL }}" class="text-sm font-medium text-primary hover:text-primary">{{ $.Site.Params.viewAll }}</a>
   </div>
-  <div class="review-list">
-    {{ range first 8 $reviews.ByDate.Reverse }}
-      <div class="review-item">
-        <a href="{{ .Permalink }}" class="review-title">{{ .Title | markdownify }}</a>
-        <span class="review-meta">
-          {{ with .Params.category }}{{ $catPage := $.Site.GetPage (printf "/tutorials/%s" .) }}<a class="review-cat" href="{{ printf "/tutorials/%s/" . | relLangURL }}">{{ with $catPage }}{{ .Title }}{{ else }}{{ . }}{{ end }}</a>{{ end }}
-          {{ with .Date }}<time class="review-date">{{ .Format "2006-01-02" }}</time>{{ end }}
-        </span>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {{ range first 6 $reviews.ByDate.Reverse }}
+      <div class="rounded-xl border border-border/30 p-4 hover:border-border/60 transition-colors h-full flex flex-col">
+        <h3 class="text-sm font-semibold text-foreground hover:text-primary transition-colors leading-snug mb-1.5">
+          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+        </h3>
+        {{ with .Description }}
+          <p class="text-xs text-muted-foreground line-clamp-2 flex-1">{{ . | plainify }}</p>
+        {{ end }}
+        <div class="flex items-center gap-2 text-[11px] text-muted-foreground pt-3 border-t border-border/20">
+          <time>{{ .Date.Format "2006-01-02" }}</time>
+          <span>·</span>
+          <span>{{ .ReadingTime }} min read</span>
+          {{ with .Params.category }}
+            {{ $catPage := $.Site.GetPage (printf "/tutorials/%s" .) }}
+            <a href="{{ with $catPage }}{{ .RelPermalink }}{{ end }}" class="ml-auto text-[10px] font-medium uppercase tracking-wider text-muted-foreground/50 hover:text-primary transition-colors">{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ with .Params.tags }}
+          <div class="flex items-center gap-1.5 mt-2.5 overflow-hidden">
+            {{ range first 3 . }}
+              <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}" class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-primary transition-colors whitespace-nowrap">{{ . }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
       </div>
     {{ end }}
   </div>
 {{ end }}
 
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
 <script>
-var skillsData = {{ $skillJSON | safeJS }};
-var fuse = new Fuse(skillsData, {
-  keys: [
-    { name: "title", weight: 2 },
-    { name: "tags", weight: 1.5 },
-    { name: "author", weight: 1.2 },
-    { name: "description", weight: 1 },
-    { name: "category", weight: 1 }
-  ],
-  threshold: 0.4,
-  includeScore: true,
-  minMatchCharLength: 2
-});
-
-var input = document.getElementById("skill-search");
-var results = document.getElementById("search-results");
-var hideTimeout;
-
-function renderResults(items) {
-  if (!items || items.length === 0) {
-    results.innerHTML = "";
-    results.classList.remove("visible");
-    return;
-  }
-  var html = "";
-  var maxResults = Math.min(items.length, 8);
-  for (var i = 0; i < maxResults; i++) {
-    var item = items[i].item;
-    var installs = "";
-    if (item.installs > 0) {
-      if (item.installs >= 1000000) installs = (item.installs / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
-      else if (item.installs >= 1000) installs = (item.installs / 1000).toFixed(1).replace(/\.0$/, "") + "K";
-      else installs = item.installs;
-    }
-    html += '<a href="' + item.url + '" class="search-result-item">';
-    html += '  <div class="search-result-title">' + item.title + '</div>';
-    html += '  <div class="search-result-meta">';
-    html += '    <span>' + item.author + '</span>';
-    if (installs) html += '    <span>⬇ ' + installs + '</span>';
-    html += '    <span class="search-result-rating">' + item.rating + '</span>';
-    html += '  </div>';
-    html += '</a>';
-  }
-  if (items.length > maxResults) {
-    html += '<div class="search-result-more">+' + (items.length - maxResults) + ' more results</div>';
-  }
-  results.innerHTML = html;
-  results.classList.add("visible");
-}
-
-input.addEventListener("input", function() {
-  var query = this.value.trim();
-  clearTimeout(hideTimeout);
-  if (query.length < 2) {
-    renderResults([]);
-    results.classList.remove("visible");
-    return;
-  }
-  var res = fuse.search(query);
-  renderResults(res);
-});
-
-input.addEventListener("focus", function() {
-  if (results.children.length > 0) {
-    results.classList.add("visible");
-  }
-});
-
-input.addEventListener("blur", function() {
-  hideTimeout = setTimeout(function() {
-    results.classList.remove("visible");
-  }, 200);
-});
-
-document.addEventListener("click", function(e) {
-  if (!e.target.closest(".search-container") && !e.target.closest(".search-results")) {
-    results.classList.remove("visible");
+document.addEventListener('keydown', function(e) {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    var input = document.querySelector('input[name="q"]');
+    if (input) input.focus();
   }
 });
 </script>

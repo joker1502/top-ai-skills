@@ -1,6 +1,10 @@
 {{ define "main" }}
 {{ $rating := .Params.rating | default 0 }}
 {{ $aiScore := .Params.ai_friendliness.score | default 0 }}
+{{ $stars := .Params.github_stars | default 0 }}
+{{ $forks := .Params.github_forks | default 0 }}
+{{ $owner := "" }}
+{{ with .Params.repo_url }}{{ $parts := split (strings.TrimPrefix "https://github.com/" .) "/" }}{{ $owner = index $parts 0 }}{{ end }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -9,243 +13,270 @@
   "description": "{{ .Params.description }}",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Linux, macOS, Windows",
-  "author": {
-    "@type": "Person",
-    "name": "{{ .Params.author }}"
-  },
+  "author": { "@type": "Person", "name": "{{ .Params.author }}" },
   "version": "{{ .Params.version }}",
   "datePublished": "{{ .Date.Format "2006-01-02" }}"
-  {{- with .Params.repo_url }},
-  "url": "{{ . }}"
-  {{- end }}
-  {{- with .Params.install_cmd }},
-  "installUrl": "{{ . }}"
-  {{- end }}
-  {{- with .Params.github_stars }},
-  "interactionStatistic": {
-    "@type": "InteractionCounter",
-    "interactionType": "https://schema.org/LikeAction",
-    "userInteractionCount": {{ . }}
-  }
-  {{- end }}
+  {{- with .Params.repo_url }}, "url": "{{ . }}"{{- end }}
+  {{- with .Params.install_cmd }}, "installUrl": "{{ . }}"{{- end }}
+  {{- with .Params.github_stars }}, "interactionStatistic": { "@type": "InteractionCounter", "interactionType": "https://schema.org/LikeAction", "userInteractionCount": {{ . }} }{{- end }}
 }
 </script>
 
-<nav class="breadcrumb">
-  <a href="{{ .Site.Home.RelPermalink }}">{{ $.Site.Params.home | default "Home" }}</a>
-  {{ if not .CurrentSection.Parent.IsHome }}
-    <span class="breadcrumb-sep">/</span>
-    <a href="{{ .CurrentSection.Parent.RelPermalink }}">{{ .CurrentSection.Parent.Title }}</a>
-  {{ end }}
-  <span class="breadcrumb-sep">/</span>
-  <a href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>
-  <span class="breadcrumb-sep">/</span>
-  <span class="breadcrumb-current">{{ .Title }}</span>
-</nav>
-
-<article class="post skill-detail">
-  {{/* ── Header: Name + Description + Tags ── */}}
-  <header class="skill-header">
-    <h1 class="skill-title">{{ .Title }}</h1>
-    {{ with .Params.description }}
-      <p class="skill-subtitle">{{ . | markdownify }}</p>
+{{/* Breadcrumb */}}
+<section class="py-4">
+  <nav aria-label="Breadcrumb" class="flex items-center gap-1.5 text-xs text-muted-foreground flex-wrap">
+    <a href="{{ .Site.Home.RelPermalink }}" class="hover:text-foreground transition-colors">{{ $.Site.Params.home | default "Home" }}</a>
+    <svg class="size-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+    <a href="{{ "/skills/" | relLangURL }}" class="hover:text-foreground transition-colors">{{ $.Site.Params.skillsSection | default "Skills" }}</a>
+    {{ if not .CurrentSection.Parent.IsHome }}
+      <svg class="size-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+      <a href="{{ .CurrentSection.RelPermalink }}" class="hover:text-foreground transition-colors">{{ .CurrentSection.Title }}</a>
     {{ end }}
-    {{ if .Params.tags }}
-      <div class="skill-header-tags">
-        {{ range .Params.tags }}
-          <a class="skill-tag" href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>
-        {{ end }}
+    <svg class="size-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+    <span class="text-foreground font-medium" aria-current="page">{{ .Title }}</span>
+  </nav>
+</section>
+
+<section class="py-6">
+  <div class="grid gap-8 lg:grid-cols-[1fr_320px]">
+    {{/* Main content */}}
+    <div class="space-y-6 min-w-0">
+      {{/* Header row */}}
+      <div class="flex flex-col md:flex-row md:items-start gap-5">
+        <div class="relative flex items-start sm:items-center gap-4 group flex-1 min-w-0">
+          <div class="min-w-0 flex-1 space-y-1">
+            <div class="flex items-center gap-2">
+              <h1 class="text-xl sm:text-2xl font-bold tracking-tight truncate leading-tight text-balance group-hover:text-primary transition-colors">{{ .Title }}</h1>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+              {{ with .Params.author }}
+                <p class="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-muted-foreground">{{ . }}</p>
+                <span class="hidden sm:inline-block text-muted-foreground/30">•</span>
+              {{ end }}
+              <div class="flex items-center gap-3 text-xs sm:text-sm font-medium text-muted-foreground">
+                {{ if gt $stars 0 }}
+                  <span class="flex items-center gap-1.5" title="Stars">
+                    <svg class="size-3.5 fill-amber-400 text-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    {{ if ge $stars 1000 }}{{ div $stars 1000 }}K{{ else }}{{ $stars }}{{ end }}
+                  </span>
+                {{ end }}
+                {{ if gt $forks 0 }}
+                  <span class="flex items-center gap-1.5" title="Forks">
+                    <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/><path d="M12 12v3"/></svg>
+                    {{ if ge $forks 1000 }}{{ div $forks 1000 }}K{{ else }}{{ $forks }}{{ end }}
+                  </span>
+                {{ end }}
+                <span class="flex items-center gap-1.5" title="Updated">
+                  <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  {{ .Date.Format "2006-01-02" }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          {{ with .Params.repo_url }}
+            <a href="{{ . }}" target="_blank" rel="noopener nofollow" class="flex items-center justify-center gap-1.5 text-xs font-bold px-3.5 py-1.5 h-8 rounded-full border border-border/60 bg-background/50 hover:bg-muted transition-colors text-foreground">
+              <svg class="size-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              Source
+            </a>
+          {{ end }}
+          {{ with .Params.repo_url }}
+            <a href="{{ . }}/raw/HEAD/{{ with $.Params.install_cmd }}SKILL.md{{ end }}" target="_blank" rel="noopener nofollow" class="flex items-center justify-center gap-1.5 text-xs font-bold px-3.5 py-1.5 h-8 rounded-full border border-border/60 bg-background/50 hover:bg-muted transition-colors text-foreground">
+              <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              Raw
+            </a>
+          {{ end }}
+        </div>
       </div>
-    {{ end }}
 
-    {{/* ── Install Command with Copy Button ── */}}
-    {{ with .Params.install_cmd }}
-      {{ if ne . "" }}
-        <div class="install-block">
-          <code class="install-command" id="install-cmd">$ {{ . }}</code>
-          <button class="copy-btn" onclick="copyInstallCmd()" title="{{ $.Site.Params.copyInstall }}">{{ $.Site.Params.copy }}</button>
+      {{/* Description */}}
+      {{ with .Params.description }}
+        <p class="text-[15px] sm:text-base text-muted-foreground/90 leading-relaxed break-words text-pretty font-normal">{{ . | markdownify }}</p>
+      {{ end }}
+
+      {{/* Tags */}}
+      {{ if .Params.tags }}
+        <div class="flex flex-wrap gap-2">
+          {{ range .Params.tags }}
+            <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-primary transition-colors">{{ . }}</a>
+          {{ end }}
         </div>
       {{ end }}
-    {{ end }}
-  </header>
 
-  {{/* ── Two-Column Layout ── */}}
-  <div class="skill-layout">
-    {{/* ── LEFT: Main Content ── */}}
-    <div class="skill-main">
-      <div class="post-content">
-        {{ .Content }}
+      {{/* Quick Install card */}}
+      {{ with .Params.install_cmd }}
+        {{ if ne . "" }}
+          <div class="rounded-2xl border border-border/50 bg-card/30 overflow-hidden shadow-sm backdrop-blur-sm">
+            <div class="flex items-center justify-between px-4 py-3">
+              <div class="flex items-center gap-2.5">
+                <div class="flex items-center justify-center size-6 rounded bg-primary/10 text-primary font-mono text-xs font-bold leading-none">&gt;_</div>
+                <span class="text-[13px] font-bold tracking-tight text-foreground">Quick Install</span>
+              </div>
+              <button onclick="copyInstallCmd()" class="inline-flex items-center justify-center gap-2 rounded-full bg-background/50 h-8 px-3 text-xs font-medium border border-border/60 hover:bg-muted transition-colors" aria-label="Copy to clipboard">
+                <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                {{ $.Site.Params.copy | default "Copy" }}
+              </button>
+            </div>
+            <div class="px-4 pb-4">
+              <div class="relative rounded-xl bg-muted border border-border/40 p-3 shadow-sm flex items-center">
+                <div class="flex items-start gap-3 w-full min-w-0">
+                  <svg class="size-4 mt-[1px] shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                  <pre class="font-mono text-xs leading-relaxed overflow-x-auto scrollbar-none flex-1 min-w-0"><code id="install-cmd" class="flex items-center gap-1.5 whitespace-nowrap"><span class="text-foreground">{{ . }}</span></code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+
+      {{/* Instructions card */}}
+      <div class="rounded-2xl border border-border/50 bg-card/40 overflow-hidden shadow-sm backdrop-blur-sm">
+        <div class="flex items-center gap-2 px-4 py-3 border-b border-border/40 bg-muted/30">
+          <svg class="size-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+          <span class="text-sm font-semibold">Instructions</span>
+        </div>
+        <div class="p-4 sm:p-5 prose-content">
+          {{ .Content }}
+        </div>
       </div>
+
+      {{/* FAQ */}}
+      {{ $faqItems := slice }}
+      {{ $faqItems = $faqItems | append (dict "question" (printf "What is %s?" .Title) "answer" .Params.description) }}
+      {{ with .Params.install_cmd }}{{ $faqItems = $faqItems | append (dict "question" (printf "How to install %s?" $.Title) "answer" (printf "Run: `%s`" .)) }}{{ end }}
+      {{ with .Params.compatibility }}{{ if gt (len .) 0 }}{{ $faqItems = $faqItems | append (dict "question" (printf "Which AI tools is %s compatible with?" $.Title) "answer" (delimit . ", ")) }}{{ end }}{{ end }}
+      {{ with .Params.author }}{{ $faqItems = $faqItems | append (dict "question" (printf "Who created %s?" $.Title) "answer" .) }}{{ end }}
+      {{ $catTitle := "" }}{{ with .Params.category }}{{ $catPage := $.Site.GetPage (printf "/skills/%s" .) }}{{ if $catPage }}{{ $catTitle = $catPage.Title }}{{ else }}{{ $catTitle = . }}{{ end }}{{ end }}
+      {{ if $catTitle }}{{ $faqItems = $faqItems | append (dict "question" (printf "What category is %s?" .Title) "answer" $catTitle) }}{{ end }}
+      {{ range .Params.faq }}{{ $faqItems = $faqItems | append (dict "question" .question "answer" .answer) }}{{ end }}
+      {{ if gt (len $faqItems) 1 }}
+        <section>
+          <h2 class="text-lg font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+          <div class="divide-y divide-border/30 border border-border/40 rounded-xl overflow-hidden">
+            {{ range $faqItems }}
+              <details class="group">
+                <summary class="px-5 py-4 text-sm font-medium text-foreground cursor-pointer hover:text-primary hover:bg-muted transition-colors">{{ .question }}</summary>
+                <div class="px-5 pb-4 text-sm text-muted-foreground leading-relaxed prose-content">{{ .answer | markdownify }}</div>
+              </details>
+            {{ end }}
+          </div>
+        </section>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {{ range $i, $item := $faqItems }}
+            { "@type": "Question", "name": {{ $item.question | jsonify }}, "acceptedAnswer": { "@type": "Answer", "text": {{ $item.answer | jsonify }} } }{{ if lt (add $i 1) (len $faqItems) }},{{ end }}
+            {{ end }}
+          ]
+        }
+        </script>
+      {{ end }}
     </div>
 
-    {{/* ── RIGHT: Sidebar ── */}}
-    <aside class="skill-sidebar">
-      {{/* Version / Author / Category / Rating */}}
-      <div class="sidebar-card">
-        <h4 class="sidebar-card-title">{{ $.Site.Params.info }}</h4>
-        <div class="sidebar-info-grid">
-          {{ with .Params.version }}
-            <div class="sidebar-info-item">
-              <span class="sidebar-label">{{ $.Site.Params.version }}</span>
-              <span class="sidebar-value">{{ . }}</span>
-            </div>
-          {{ end }}
-          {{ with .Params.author }}
-            <div class="sidebar-info-item">
-              <span class="sidebar-label">{{ $.Site.Params.author }}</span>
-              <span class="sidebar-value">{{ . }}</span>
-            </div>
-          {{ end }}
-          {{ with .Params.category }}
-            {{ $catPage := $.Site.GetPage (printf "/skills/%s" .) }}
-            <div class="sidebar-info-item">
-              <span class="sidebar-label">{{ $.Site.Params.category }}</span>
-              <span class="sidebar-value">{{ with $catPage }}{{ .Title }}{{ else }}{{ . }}{{ end }}</span>
-            </div>
-          {{ end }}
-          <div class="sidebar-info-item">
-            <span class="sidebar-label">{{ $.Site.Params.rating }}</span>
-            <span class="sidebar-value rating-stars">{{ $rating }}</span>
+    {{/* Sidebar (unchanged) */}}
+    <aside class="space-y-5 lg:relative">
+      <div class="lg:sticky lg:top-24 space-y-5">
+        {{/* Sponsored badge */}}
+        {{ $sponsored := where ((hugo.Data).sponsored_skills | default slice) "slug" .File.ContentBaseName }}
+        {{ if gt (len $sponsored) 0 }}
+          {{ $s := index $sponsored 0 }}
+          <div class="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4 text-center">
+            <span class="text-[10px] font-semibold uppercase tracking-wider text-amber-600">Sponsored</span>
+            {{ with $s.sponsor }}
+              <p class="text-sm font-medium text-amber-700 mt-1">{{ . }}</p>
+            {{ end }}
           </div>
-            <div class="sidebar-info-item">
-              <span class="sidebar-label">{{ $.Site.Params.lastUpdated }}</span>
-              <span class="sidebar-value">{{ .Date.Format "2006-01-02" }}</span>
-            </div>
+        {{ end }}
+
+        {{/* Info card */}}
+        <div class="rounded-xl border border-border/40 bg-card/30 p-5">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{{ $.Site.Params.info }}</h4>
+          <div class="space-y-3 text-sm">
+            {{ with .Params.version }}
+              <div class="flex justify-between"><span class="text-muted-foreground">{{ $.Site.Params.version }}</span><span class="font-medium text-foreground">{{ . }}</span></div>
+            {{ end }}
+            {{ with .Params.author }}
+              <div class="flex justify-between"><span class="text-muted-foreground">{{ $.Site.Params.author }}</span><span class="font-medium text-foreground">{{ . }}</span></div>
+            {{ end }}
+            {{ with .Params.category }}
+              {{ $catPage := $.Site.GetPage (printf "/skills/%s" .) }}
+              <div class="flex justify-between"><span class="text-muted-foreground">{{ $.Site.Params.category }}</span><span class="font-medium text-primary">{{ with $catPage }}{{ .Title }}{{ else }}{{ . }}{{ end }}</span></div>
+            {{ end }}
+            <div class="flex justify-between"><span class="text-muted-foreground">{{ $.Site.Params.rating }}</span><span class="font-medium text-yellow-600">{{ $rating }}</span></div>
+          </div>
         </div>
+
+        {{/* Compatibility */}}
+        {{ with .Params.compatibility }}
+          <div class="rounded-xl border border-border/40 bg-card/30 p-5">
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">{{ $.Site.Params.compatibleWith }}</h4>
+            <div class="flex flex-wrap gap-1.5">
+              {{ range . }}
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-accent text-primary">{{ . }}</span>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+
+        {{/* AI-Friendliness */}}
+        {{ if gt $aiScore 0 }}
+          <div class="rounded-xl border border-border/40 bg-card/30 p-5">
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{{ $.Site.Params.aiFriendliness }}</h4>
+            <div class="text-2xl font-bold text-primary mb-4">{{ $aiScore }}</div>
+            <div class="space-y-3">
+              {{ with .Params.ai_friendliness.documentation }}
+                <div>
+                  <div class="flex justify-between text-xs text-muted-foreground mb-1"><span>{{ $.Site.Params.documentation }}</span><span>{{ . }}/5</span></div>
+                  <div class="h-1.5 bg-muted rounded-full overflow-hidden"><div class="h-full bg-foreground/60 rounded-full transition-all" style="width: {{ mul . 20 }}%"></div></div>
+                </div>
+              {{ end }}
+              {{ with .Params.ai_friendliness.setup }}
+                <div>
+                  <div class="flex justify-between text-xs text-muted-foreground mb-1"><span>{{ $.Site.Params.easeOfSetup }}</span><span>{{ . }}/5</span></div>
+                  <div class="h-1.5 bg-muted rounded-full overflow-hidden"><div class="h-full bg-foreground/60 rounded-full transition-all" style="width: {{ mul . 20 }}%"></div></div>
+                </div>
+              {{ end }}
+              {{ with .Params.ai_friendliness.config }}
+                <div>
+                  <div class="flex justify-between text-xs text-muted-foreground mb-1"><span>{{ $.Site.Params.configStandards }}</span><span>{{ . }}/5</span></div>
+                  <div class="h-1.5 bg-muted rounded-full overflow-hidden"><div class="h-full bg-foreground/60 rounded-full transition-all" style="width: {{ mul . 20 }}%"></div></div>
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+
+        {{/* Related Reviews */}}
+        {{ $related := where (where $.Site.RegularPages "Section" "tutorials") "Params.related_skills" "intersect" (slice .File.ContentBaseName) }}
+        {{ if $related }}
+          <div class="rounded-xl border border-border/40 bg-card/30 p-5">
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">{{ $.Site.Params.relatedReviews }}</h4>
+            <ul class="space-y-2">
+              {{ range $related }}
+                <li><a href="{{ .RelPermalink }}" class="text-sm text-muted-foreground hover:text-primary transition-colors flex items-start gap-2"><span class="text-primary">&rarr;</span> {{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+        {{ end }}
       </div>
-
-      {{/* GitHub Stars / Forks */}}
-      {{ if or (gt (.Params.github_stars | default 0) 0) (gt (.Params.github_forks | default 0) 0) }}
-        <div class="sidebar-card">
-          <h4 class="sidebar-card-title">{{ $.Site.Params.github }}</h4>
-          <div class="sidebar-gh-stats">
-            {{ with .Params.repo_url }}
-              <a href="{{ . }}" target="_blank" rel="noopener nofollow" class="sidebar-gh-link">{{ partial "gh-repo" $ }}</a>
-            {{ end }}
-            <div class="sidebar-gh-numbers">
-              {{ with .Params.github_stars }}{{ if gt . 0 }}
-                <span class="gh-stat"><span class="gh-icon">⭐</span> {{ . }}</span>
-              {{ end }}{{ end }}
-              {{ with .Params.github_forks }}{{ if gt . 0 }}
-                <span class="gh-stat"><span class="gh-icon">⑂</span> {{ . }}</span>
-              {{ end }}{{ end }}
-            </div>
-          </div>
-        </div>
-      {{ end }}
-
-      {{/* Compatibility */}}
-      {{ with .Params.compatibility }}
-        <div class="sidebar-card">
-          <h4 class="sidebar-card-title">{{ $.Site.Params.compatibleWith }}</h4>
-          <div class="compat-list">
-            {{ range . }}
-              <span class="compat-badge">{{ . }}</span>
-            {{ end }}
-          </div>
-        </div>
-      {{ end }}
-
-      {{/* AI-Friendliness Score */}}
-      {{ if gt $aiScore 0 }}
-        <div class="sidebar-card">
-          <h4 class="sidebar-card-title">{{ $.Site.Params.aiFriendliness }}</h4>
-          <div class="ai-score-main">{{ $aiScore }}</div>
-          <div class="ai-score-details">
-            {{ with .Params.ai_friendliness.documentation }}
-              <div class="ai-score-row">
-                <span class="ai-score-label">{{ $.Site.Params.documentation }}</span>
-                <span class="ai-score-bar"><span class="ai-score-fill" style="width: {{ mul . 20 }}%"></span></span>
-                <span class="ai-score-val">{{ . }}</span>
-              </div>
-            {{ end }}
-            {{ with .Params.ai_friendliness.setup }}
-              <div class="ai-score-row">
-                <span class="ai-score-label">{{ $.Site.Params.easeOfSetup }}</span>
-                <span class="ai-score-bar"><span class="ai-score-fill" style="width: {{ mul . 20 }}%"></span></span>
-                <span class="ai-score-val">{{ . }}</span>
-              </div>
-            {{ end }}
-            {{ with .Params.ai_friendliness.config }}
-              <div class="ai-score-row">
-                <span class="ai-score-label">{{ $.Site.Params.configStandards }}</span>
-                <span class="ai-score-bar"><span class="ai-score-fill" style="width: {{ mul . 20 }}%"></span></span>
-                <span class="ai-score-val">{{ . }}</span>
-              </div>
-            {{ end }}
-          </div>
-        </div>
-      {{ end }}
-
-      {{/* Related Reviews */}}
-      {{ $related := where (where $.Site.RegularPages "Section" "tutorials") "Params.related_skills" "intersect" (slice .File.ContentBaseName) }}
-      {{ if $related }}
-        <div class="sidebar-card">
-          <h4 class="sidebar-card-title">{{ $.Site.Params.relatedReviews }}</h4>
-          <ul class="sidebar-related">
-            {{ range $related }}
-              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-            {{ end }}
-          </ul>
-        </div>
-      {{ end }}
     </aside>
   </div>
-</article>
-
-{{/* ── FAQ Section ── */}}
-{{ $faqItems := slice }}
-{{ $faqItems = $faqItems | append (dict "question" (printf "What is %s?" .Title) "answer" .Params.description) }}
-{{ with .Params.install_cmd }}{{ $faqItems = $faqItems | append (dict "question" (printf "How to install %s?" $.Title) "answer" (printf "Run: %s" .)) }}{{ end }}
-{{ with .Params.compatibility }}{{ if gt (len .) 0 }}{{ $faqItems = $faqItems | append (dict "question" (printf "Which AI tools is %s compatible with?" $.Title) "answer" (delimit . ", ")) }}{{ end }}{{ end }}
-{{ with .Params.author }}{{ $faqItems = $faqItems | append (dict "question" (printf "Who created %s?" $.Title) "answer" .) }}{{ end }}
-{{ $catTitle := "" }}
-{{ with .Params.category }}{{ $catPage := $.Site.GetPage (printf "/skills/%s" .) }}{{ if $catPage }}{{ $catTitle = $catPage.Title }}{{ else }}{{ $catTitle = . }}{{ end }}{{ end }}
-{{ if $catTitle }}{{ $faqItems = $faqItems | append (dict "question" (printf "What category is %s?" .Title) "answer" $catTitle) }}{{ end }}
-{{ range .Params.faq }}{{ $faqItems = $faqItems | append (dict "question" .question "answer" .answer) }}{{ end }}
-{{ if gt (len $faqItems) 0 }}
-<section class="faq-section" style="margin-top: 50px;">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-list">
-    {{ range $faqItems }}
-      <details class="faq-item">
-        <summary class="faq-question">{{ .question }}</summary>
-        <div class="faq-answer">{{ .answer | markdownify }}</div>
-      </details>
-    {{ end }}
-  </div>
 </section>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {{ range $i, $item := $faqItems }}
-    {
-      "@type": "Question",
-      "name": {{ $item.question | jsonify }},
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": {{ $item.answer | jsonify }}
-      }
-    }{{ if lt (add $i 1) (len $faqItems) }},{{ end }}
-    {{ end }}
-  ]
-}
-</script>
-{{ end }}
 
-{{/* ── Copy Button Script ── */}}
 <script>
 function copyInstallCmd() {
   var el = document.getElementById('install-cmd');
   if (!el) return;
-  var text = el.textContent.replace(/^\$\s*/, '');
+  var text = el.textContent;
   navigator.clipboard.writeText(text).then(function() {
-    var btn = document.querySelector('.copy-btn');
-    var orig = btn.textContent;
-    btn.textContent = '{{ $.Site.Params.copied }}';
-    setTimeout(function() { btn.textContent = orig; }, 2000);
+    var btn = document.querySelector('[onclick="copyInstallCmd()"]');
+    if (!btn) return;
+    var orig = btn.innerHTML;
+    btn.innerHTML = '{{ $.Site.Params.copied | default "✓ Copied!" }}';
+    setTimeout(function() { btn.innerHTML = orig; }, 2000);
   });
 }
 </script>
