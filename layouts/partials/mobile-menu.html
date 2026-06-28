@@ -1,22 +1,22 @@
 {{ $menuLabel := "Menu" }}
 {{ if eq $.Site.Language.Lang "zh" }}{{ $menuLabel = "菜单" }}{{ end }}
-<ul class="menu menu--mobile">
-  <li class="menu__trigger">{{ $menuLabel }}&nbsp;▾</li>
-  <li>
-    <ul class="menu__dropdown">
-      {{ range $.Site.Menus.main }}
-        {{ if not .HasChildren }}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
+{{ $currentPage := . }}
+<div class="relative" x-data="{ open: false }">
+  <button @click="open = !open" aria-label="{{ $menuLabel }}" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-8 w-8 rounded-xl">
+    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+  <div x-show="open" @click.away="open = false" x-transition class="absolute right-0 top-full mt-1 w-48 bg-popover border border-border/40 rounded-xl shadow-lg py-1 z-50">
+    {{ range $.Site.Menus.main }}
+      {{ if not .HasChildren }}
+        {{ $active := eq $currentPage.RelPermalink (.URL | relLangURL) }}
+        <a href="{{ .URL }}" class="block px-4 py-2 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground{{ if $active }} bg-accent text-accent-foreground{{ end }}">{{ .Name }}</a>
       {{ end }}
-      {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
-        <hr />
-        {{ range $.Site.Home.AllTranslations }}
-          <li>
-            <a href="{{ .Permalink }}">{{ .Language.Label }}</a>
-          </li>
-        {{ end }}
+    {{ end }}
+    {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
+      <hr class="my-1 border-border/40">
+      {{ range $.Site.Home.AllTranslations }}
+        <a href="{{ .Permalink }}" class="block px-4 py-2 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground">{{ .Language.Label }}</a>
       {{ end }}
-    </ul>
-  </li>
-</ul>
+    {{ end }}
+  </div>
+</div>

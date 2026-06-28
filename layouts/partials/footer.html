@@ -1,14 +1,14 @@
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="copyright">
-      <span>© {{ now.Year }} {{ $.Site.Title }} · Theme: Terminal</span>
-    </div>
+<footer class="border-t border-border/40">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
+    <p class="text-xs text-muted-foreground">&copy; {{ now.Year }} {{ $.Site.Title }}</p>
+    <nav aria-label="Footer navigation" class="flex items-center gap-3 text-xs text-muted-foreground">
+      <a href="{{ "/about/" | relLangURL }}" class="hover:text-foreground transition-colors">{{ $.Site.Params.about | default "About" }}</a>
+      <span class="text-border" aria-hidden="true">·</span>
+      <a href="{{ "/privacy/" | relLangURL }}" class="hover:text-foreground transition-colors">{{ $.Site.Params.privacy | default "Privacy" }}</a>
+      <span class="text-border" aria-hidden="true">·</span>
+      <a href="{{ "/cookies/" | relLangURL }}" class="hover:text-foreground transition-colors">{{ $.Site.Params.cookies | default "Cookies" }}</a>
+      <span class="text-border" aria-hidden="true">·</span>
+      <a href="{{ "/terms/" | relLangURL }}" class="hover:text-foreground transition-colors">{{ $.Site.Params.terms | default "Terms" }}</a>
+    </nav>
   </div>
 </footer>
-
-{{ $menu := resources.Get "js/menu.js" | js.Build }}
-{{ $cp := resources.Get "js/code.js" | js.Build }}
-{{ $bundle := slice $menu $cp | resources.Concat "bundle.js" | resources.Minify }}
-<script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
-
-{{ partial "extended_footer.html" . }}

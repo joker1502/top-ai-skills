@@ -4,3 +4,7 @@
 .DS_Store
 *.swp
 *.swo
+
+# Node
+node_modules/
+assets/css/style.css

@@ -1,6 +1,7 @@
 ---
 title: "About"
-description: "About Top AI Skills — your curated directory for discovering the best AI skills, AI agents, and AI tools"
+noindex: true
+type: "legal"
 ---
 
 Welcome to **Top AI Skills** — your curated directory for discovering the best AI skills, AI agents, and AI tools. We help developers, creators, and businesses find the right AI resources for their needs.

@@ -1,0 +1,34 @@
+{{- $currentPage := . -}}
+<nav>
+  <ul class="flex items-center gap-1">
+    {{ if or $.Site.Params.showMenuItems ( eq .Site.Params.showMenuItems 0 ) }}
+      {{ range first $.Site.Params.showMenuItems $.Site.Menus.main }}
+        {{ if not .HasChildren }}
+          {{ $isSubmit := eq .Identifier "submit" }}
+          <li><a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }} class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-8 px-3 text-sm rounded-xl{{ if $isSubmit }} bg-primary text-primary-foreground shadow-sm hover:bg-primary/90{{ else }} hover:bg-accent hover:text-accent-foreground{{ if eq $currentPage.RelPermalink (.URL | relLangURL) }} bg-accent text-accent-foreground{{ end }}{{ end }}">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+      {{ if gt (len $.Site.Menus.main) $.Site.Params.showMenuItems }}
+        <li class="relative group">
+          <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs rounded-xl">
+            {{ $.Site.Params.menuMore }} <span class="text-[10px]">&#9660;</span>
+          </button>
+          <ul class="absolute right-0 top-full mt-1 bg-popover border border-border/40 rounded-xl shadow-lg py-1 min-w-[160px] hidden group-hover:block z-50">
+            {{ range last (sub (len $.Site.Menus.main) $.Site.Params.showMenuItems) $.Site.Menus.main }}
+              {{ if not .HasChildren }}
+                <li><a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }} class="block px-4 py-2 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground">{{ .Name }}</a></li>
+              {{ end }}
+            {{ end }}
+          </ul>
+        </li>
+      {{ end }}
+    {{ else }}
+      {{ range $.Site.Menus.main }}
+        {{ if not .HasChildren }}
+          {{ $isSubmit := eq .Identifier "submit" }}
+          <li><a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }} class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-8 px-3 text-sm rounded-xl{{ if $isSubmit }} bg-primary text-primary-foreground shadow-sm hover:bg-primary/90{{ else }} hover:bg-accent hover:text-accent-foreground{{ if eq $currentPage.RelPermalink (.URL | relLangURL) }} bg-accent text-accent-foreground{{ end }}{{ end }}">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </ul>
+</nav>

@@ -7,25 +7,25 @@
 {{ end }}
 {
   "meta": {
-    "title": "{{ .Title }}",
-    "description": "{{ .Description }}",
+    "title": {{ .Title | jsonify }},
+    "description": {{ .Description | jsonify }},
     "total": {{ len $skills }}
   },
   "skills": [
     {{ range $i, $skill := $skills.ByTitle }}
     {
-      "name": "{{ $skill.Title }}",
-      "slug": "{{ $skill.File.ContentBaseName }}",
-      "url": "{{ $skill.Permalink }}",
-      "description": "{{ $skill.Description }}",
-      "version": "{{ $skill.Params.version }}",
-      "author": "{{ $skill.Params.author }}",
-      "repo_url": "{{ $skill.Params.repo_url }}",
-      "install_cmd": "{{ $skill.Params.install_cmd }}",
-      "category": "{{ $skill.Params.category }}",
+      "name": {{ $skill.Title | jsonify }},
+      "slug": {{ $skill.File.ContentBaseName | jsonify }},
+      "url": {{ $skill.Permalink | jsonify }},
+      "description": {{ $skill.Description | jsonify }},
+      "version": {{ $skill.Params.version | jsonify }},
+      "author": {{ $skill.Params.author | jsonify }},
+      "repo_url": {{ $skill.Params.repo_url | jsonify }},
+      "install_cmd": {{ $skill.Params.install_cmd | jsonify }},
+      "category": {{ $skill.Params.category | jsonify }},
       "rating": {{ $skill.Params.rating | default 0 }},
-      "tags": [{{ with $skill.Params.tags }}{{ range $j, $tag := . }}{{ if $j }}, {{ end }}"{{ $tag }}"{{ end }}{{ end }}],
-      "compatibility": [{{ with $skill.Params.compatibility }}{{ range $j, $c := . }}{{ if $j }}, {{ end }}"{{ $c }}"{{ end }}{{ end }}]
+      "tags": {{ $skill.Params.tags | jsonify }},
+      "compatibility": {{ $skill.Params.compatibility | jsonify }}
     }{{ if lt $i (sub (len $skills) 1) }},{{ end }}
     {{ end }}
   ]

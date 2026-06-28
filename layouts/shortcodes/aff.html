@@ -1,0 +1,14 @@
+{{- $key := .Get 0 -}}
+{{- $text := .Get 1 | default $key -}}
+{{- $label := .Get 2 | default "ref" -}}
+{{- $affiliates := (hugo.Data).affiliates -}}
+{{- $url := index $affiliates $key -}}
+{{- if $url -}}
+  {{- if $label -}}
+    <a href="{{ $url }}" target="_blank" rel="noopener nofollow" class="affiliate-link" data-affiliate="{{ $key }}">{{ $text }}</a>
+  {{- else -}}
+    <a href="{{ $url }}" target="_blank" rel="noopener nofollow">{{ $text }}</a>
+  {{- end -}}
+{{- else -}}
+  {{- $text -}}
+{{- end -}}

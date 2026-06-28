@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div>
+  <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">{{ .Title }}</h1>
+  <p class="text-lg text-muted-foreground mb-8">{{ .Description }}</p>
+
+  <div class="rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm p-6 sm:p-8 space-y-6">
+    <div>
+      <h2 class="text-lg font-bold text-foreground mb-2">1. Prepare your skill</h2>
+      <p class="text-sm text-muted-foreground">Make sure your skill has a clear <code class="text-xs bg-muted px-1.5 py-0.5 rounded">SKILL.md</code> or <code class="text-xs bg-muted px-1.5 py-0.5 rounded"> CLAUDE.md</code> with installation instructions and a concise description.</p>
+    </div>
+
+    <div>
+      <h2 class="text-lg font-bold text-foreground mb-2">2. Publish on GitHub</h2>
+      <p class="text-sm text-muted-foreground">Your skill must be in a public GitHub repository. Star it and add relevant topics.</p>
+    </div>
+
+    <div>
+      <h2 class="text-lg font-bold text-foreground mb-2">3. Submit</h2>
+      <p class="text-sm text-muted-foreground mb-3">Open an issue on our GitHub repo with the link to your skill repository.</p>
+      <a href="https://github.com/joker1502/top-ai-skills/issues/new" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-2 text-sm font-medium transition-colors bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 rounded-lg px-5">Submit on GitHub</a>
+    </div>
+  </div>
+
+  <div class="mt-8 rounded-xl border border-amber-500/20 bg-amber-500/5 p-6">
+    <h2 class="text-sm font-bold text-foreground mb-2">Promote your skill</h2>
+    <p class="text-sm text-muted-foreground">Want guaranteed placement? <a href="mailto:ad@topaiskills.com" class="text-primary font-medium hover:underline">Contact us</a> about sponsorship options.</p>
+  </div>
+</div>
+{{ end }}

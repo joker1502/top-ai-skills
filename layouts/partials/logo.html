@@ -1,5 +1,4 @@
-<a href="{{ "" | relLangURL }}">
-  <div class="logo">
-    {{ with $.Site.Params.Logo.logoText }}{{ . }}{{ else }}Terminal{{ end }}
-  </div>
+<a href="{{ "" | relLangURL }}" class="flex items-center gap-2.5 flex-shrink-0 leading-tight">
+  <img src="{{ "logo.png" | relURL }}" alt="Top AI Skills" class="h-8 w-auto">
+  <span class="text-base font-bold tracking-tight text-foreground">Top AI Skills</span>
 </a>

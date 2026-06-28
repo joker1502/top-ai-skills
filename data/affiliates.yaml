@@ -1,0 +1,10 @@
+# Affiliate links
+# Usage in markdown: {{< aff "cursor" >}}
+#
+# When a referral program changes, update the URL here — every article updates automatically.
+
+cursor: "https://cursor.sh/?ref=topaiskills"
+claude: "https://claude.ai/download?ref=topaiskills"
+vercel: "https://vercel.com/?ref=topaiskills"
+anthropic: "https://console.anthropic.com/?ref=topaiskills"
+github: "https://github.com/?ref=topaiskills"

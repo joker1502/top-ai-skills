@@ -7,22 +7,14 @@
   {{ partial "head.html" . }}
   {{ block "head_meta" . }}{{ end }}
 </head>
-<body>
-{{ $container := cond ($.Site.Params.FullWidthTheme | default false) "container full" (cond ($.Site.Params.CenterTheme | default false) "container center" "container") }}
-
-<div class="{{- $container -}}{{- cond ($.Site.Params.oneHeadingSize | default false) " headings--one-size" "" }}">
-
+<body class="min-h-screen bg-background text-foreground font-sans antialiased">
   {{ partial "header.html" . }}
-
-  <div class="content">
-    {{ block "main" . }}
-    {{ end }}
-  </div>
-
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    {{ block "main" . }}{{ end }}
+  </main>
   {{ block "footer" . }}
     {{ partial "footer.html" . }}
   {{ end }}
-</div>
-
+  {{ partial "extended_footer.html" . }}
 </body>
 </html>

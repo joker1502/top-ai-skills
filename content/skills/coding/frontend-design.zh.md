@@ -3,7 +3,7 @@ title: "Frontend Design"
 date: 2026-06-01
 draft: false
 aliases:
-  - /zh/skills/coding/cursor/
+  - /skills/coding/cursor/
 tags:
   - Frontend
   - Coding

@@ -2,32 +2,32 @@
 {{- $tutorials := where .Site.RegularPages "Section" "tutorials" -}}
 {
   "meta": {
-    "title": "{{ .Site.Title }}",
-    "description": "{{ .Site.Params.subtitle }}",
-    "language": "{{ .Site.Language.Lang }}",
+    "title": {{ .Site.Title | jsonify }},
+    "description": {{ .Site.Params.subtitle | jsonify }},
+    "language": {{ .Site.Language.Lang | jsonify }},
     "total_skills": {{ len $skills }},
     "total_tutorials": {{ len $tutorials }},
-    "generated_at": "{{ now.Format "2006-01-02T15:04:05Z07:00" }}"
+    "generated_at": {{ now.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
   },
   "skills": [
     {{- range $i, $skill := $skills.ByTitle }}
     {
-      "name": "{{ $skill.Title }}",
-      "slug": "{{ $skill.File.ContentBaseName }}",
-      "url": "{{ $skill.Permalink }}",
-      "description": "{{ $skill.Description }}",
-      "version": "{{ $skill.Params.version }}",
-      "author": "{{ $skill.Params.author }}",
-      "category": "{{ $skill.Params.category }}",
+      "name": {{ $skill.Title | jsonify }},
+      "slug": {{ $skill.File.ContentBaseName | jsonify }},
+      "url": {{ $skill.Permalink | jsonify }},
+      "description": {{ $skill.Description | jsonify }},
+      "version": {{ $skill.Params.version | jsonify }},
+      "author": {{ $skill.Params.author | jsonify }},
+      "category": {{ $skill.Params.category | jsonify }},
       "rating": {{ $skill.Params.rating | default 0 }},
-      "tags": [{{- with $skill.Params.tags }}{{ range $j, $t := . }}{{ if $j }}, {{ end }}"{{ $t }}"{{ end }}{{ end }}],
-      "compatibility": [{{- with $skill.Params.compatibility }}{{ range $j, $c := . }}{{ if $j }}, {{ end }}"{{ $c }}"{{ end }}{{ end }}],
-      "install_cmd": "{{ $skill.Params.install_cmd }}",
-      "repo_url": "{{ $skill.Params.repo_url }}",
+      "tags": {{ $skill.Params.tags | jsonify }},
+      "compatibility": {{ $skill.Params.compatibility | jsonify }},
+      "install_cmd": {{ $skill.Params.install_cmd | jsonify }},
+      "repo_url": {{ $skill.Params.repo_url | jsonify }},
       "github_stars": {{ $skill.Params.github_stars | default 0 }},
       "github_forks": {{ $skill.Params.github_forks | default 0 }},
       "installs": {{ $skill.Params.installs | default 0 }},
-      "last_updated": "{{ $skill.Params.last_updated }}",
+      "last_updated": {{ $skill.Params.last_updated | jsonify }},
       "ai_friendliness": {
         "score": {{ $skill.Params.ai_friendliness.score | default 0 }},
         "documentation": {{ $skill.Params.ai_friendliness.documentation | default 0 }},
@@ -40,14 +40,14 @@
   "tutorials": [
     {{- range $i, $tut := (sort $tutorials "Date" "desc") }}
     {
-      "title": "{{ $tut.Title }}",
-      "url": "{{ $tut.Permalink }}",
-      "date": "{{ $tut.Date.Format "2006-01-02" }}",
-      "description": "{{ $tut.Description }}",
-      "category": "{{ $tut.Params.category }}",
+      "title": {{ $tut.Title | jsonify }},
+      "url": {{ $tut.Permalink | jsonify }},
+      "date": {{ $tut.Date.Format "2006-01-02" | jsonify }},
+      "description": {{ $tut.Description | jsonify }},
+      "category": {{ $tut.Params.category | jsonify }},
       "rating": {{ $tut.Params.rating | default 0 }},
-      "tags": [{{- with $tut.Params.tags }}{{ range $j, $t := . }}{{ if $j }}, {{ end }}"{{ $t }}"{{ end }}{{ end }}],
-      "related_skills": [{{- with $tut.Params.related_skills }}{{ range $j, $s := . }}{{ if $j }}, {{ end }}"{{ $s }}"{{ end }}{{ end }}]
+      "tags": {{ $tut.Params.tags | jsonify }},
+      "related_skills": {{ $tut.Params.related_skills | jsonify }}
     }{{- if lt $i (sub (len $tutorials) 1) }},{{ end }}
     {{- end }}
   ]

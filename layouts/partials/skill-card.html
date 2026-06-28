@@ -1,0 +1,70 @@
+{{- $page := . -}}
+{{- $installs := $page.Params.installs | default 0 -}}
+{{- $stars := $page.Params.github_stars | default 0 -}}
+{{- $sponsored := where ((hugo.Data).sponsored_skills | default slice) "slug" $page.File.ContentBaseName -}}
+{{- $isSponsored := gt (len $sponsored) 0 -}}
+{{- $sponsorInfo := index $sponsored 0 | default dict -}}
+{{- $owner := "" -}}
+{{- with $page.Params.repo_url -}}{{- $parts := split (strings.TrimPrefix "https://github.com/" .) "/" -}}{{- $owner = index $parts 0 -}}{{- end -}}
+
+<div data-slot="skill-card" data-date="{{ $page.Date.Format "2006-01-02" }}" data-stars="{{ $stars }}" data-title="{{ $page.Title }}" data-tags="{{ with $page.Params.tags }}{{ delimit . " " }}{{ end }}" data-author="{{ $page.Params.author }}" data-desc="{{ $page.Description | plainify }}" class="group relative flex h-full flex-col rounded-2xl border border-border/40 bg-card/30 p-4 shadow-sm backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/40 hover:bg-card/50 hover:shadow-lg hover:shadow-primary/5 font-mono">
+  {{ if $isSponsored }}
+    <span class="self-start inline-flex items-center px-2 py-0.5 text-[10px] font-medium bg-amber-500/10 text-amber-600 rounded mb-2">Sponsored{{ with $sponsorInfo.sponsor }} · {{ . }}{{ end }}</span>
+  {{ end }}
+
+  {{/* Avatar + Title + Stars */}}
+  <div class="flex items-start gap-2.5 mb-2.5">
+    {{ if $owner }}
+      <div class="shrink-0 mt-0.5 overflow-hidden rounded-lg bg-muted size-7 border border-border/40">
+        <img src="https://github.com/{{ $owner }}.png?size=32" alt="" width="28" height="28" class="size-full object-cover" loading="lazy">
+      </div>
+    {{ end }}
+    <div class="min-w-0 flex-1">
+      <h3 class="truncate text-sm font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+        <a href="{{ $page.RelPermalink }}" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 rounded-lg">
+          {{ $page.Title }}
+        </a>
+      </h3>
+      {{ with $page.Params.author }}
+        <p class="text-xs text-muted-foreground mt-0.5">{{ . }}</p>
+      {{ end }}
+    </div>
+    {{ if gt $stars 0 }}
+      <span class="inline-flex items-center gap-1 shrink-0 bg-amber-500/10 text-amber-600 px-1.5 py-0.5 rounded text-[11px] font-medium">
+        <svg class="w-3 h-3 fill-amber-500" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        {{ if ge $stars 1000 }}{{ div $stars 1000 }}K{{ else }}{{ $stars }}{{ end }}
+      </span>
+    {{ end }}
+  </div>
+
+  {{/* Description */}}
+  {{ with $page.Params.description }}
+    <p class="flex-1 text-xs leading-relaxed text-muted-foreground line-clamp-3">{{ . | markdownify | plainify }}</p>
+  {{ end }}
+
+  {{/* Footer */}}
+  <div class="mt-3 flex items-center justify-between border-t border-border/30 pt-2.5 text-[11px] text-muted-foreground/70">
+    <div class="flex items-center gap-3">
+      {{ if gt $installs 0 }}
+        <span class="inline-flex items-center gap-1">
+          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          {{ if ge $installs 1000000 }}{{ div $installs 1000000 }}M{{ else if ge $installs 1000 }}{{ div $installs 1000 }}K{{ else }}{{ $installs }}{{ end }}
+        </span>
+      {{ end }}
+      <span>{{ $page.Date.Format "2006-01-02" }}</span>
+    </div>
+    {{ with $page.Params.category }}
+      {{ $catPage := $page.Site.GetPage (printf "/skills/%s" .) }}
+      <a href="{{ $catPage.RelPermalink }}" class="text-[10px] font-medium uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors">{{ with $catPage }}{{ .Title }}{{ end }}</a>
+    {{ end }}
+  </div>
+
+  {{/* Tags */}}
+  {{ if $page.Params.tags }}
+    <div class="flex items-center gap-1.5 mt-2.5 overflow-hidden">
+      {{ range first 3 $page.Params.tags }}
+        <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}" class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-primary transition-colors whitespace-nowrap">{{ . }}</a>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>
