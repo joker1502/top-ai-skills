@@ -23,8 +23,8 @@ compatibility:
   - OpenCode
 category: "automation"
 rating: 4.0
-github_stars: 1238
-github_forks: 194
+github_stars: 1241
+github_forks: 195
 installs: 415900
 last_updated: "2026-06-26"
 ai_friendliness:
