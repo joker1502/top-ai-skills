@@ -1,6 +1,6 @@
 ---
 title: "About"
-noindex: true
+description: "Top AI Skills is a curated directory of AI agent skills for Claude Code, Cursor, and more — discover, compare, and install the best AI coding assistant skills."
 type: "legal"
 ---
 

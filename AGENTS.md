@@ -1,26 +1,16 @@
-# Session Context — Top AI Skills
+# Session Context — Top AI Skills (v2.0)
 
 ## Rules
-- Code changes: local only, NEVER push without explicit "提交线上" approval
+- Code changes: local only, commit as "2.0", push with `--force`
 - Hermes: pushes articles to `main` directly (content/ only)
-- My branch: `code-updates` for code changes → merge to `main` only when approved
-
-## Credentials
-- Cloudflare API token: stored in ~/.config/opencode/top-ai-skills.json
-- GitHub: SSH key auth (joker1502)
-- Hosting: GitHub Pages + Cloudflare CDN
-- Domain: topaiskills.com (Cloudflare zone: ceed2c101d062a4a05e7b3d28d8d825d)
-- Google Analytics: G-V27BZ7GENQ
-
-## Quick Start
-```bash
-cd ~/top-ai-skills
-git checkout code-updates   # for code changes
-# ... make changes ...
-git checkout main && git pull  # merge Hermes articles
-git merge code-updates       # merge code
-```
 
 ## Stack
-- Hugo v0.162.1, theme: Terminal
-- Node 18+ for CLI tool (cli/topaiskills/)
+- Hugo v0.162.1, Tailwind CSS v4
+- Node 18+ for `npm run build:css`
+- Build: `npm run build` (CSS → hugo --minify)
+- Dev: `npm run dev` (CSS → hugo server)
+
+## Hosting
+- GitHub Pages + Cloudflare CDN
+- Domain: topaiskills.com
+- Google Analytics: G-V27BZ7GENQ

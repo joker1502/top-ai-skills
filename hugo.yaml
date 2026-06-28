@@ -37,6 +37,7 @@ outputs:
   home:
     - HTML
     - JSON
+    - RSS
     - LLMS
 
 params:
