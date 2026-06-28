@@ -121,7 +121,7 @@
     {{ range first 6 $reviews.ByDate.Reverse }}
       <a href="{{ .Permalink }}" class="group rounded-xl border border-border/30{{ if .Params.cover }} overflow-hidden{{ end }} hover:border-border/60 transition-colors flex flex-col">
         {{ with .Params.cover }}
-          <img src="{{ . | absURL }}" alt="" class="w-full h-28 object-cover" loading="lazy">
+          <img src="{{ . | absURL }}" alt="" width="400" height="112" class="w-full h-28 object-cover" loading="lazy">
         {{ end }}
         <div class="p-4 flex flex-col flex-1">
           <h3 class="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug mb-1.5">{{ .Title | markdownify }}</h3>
