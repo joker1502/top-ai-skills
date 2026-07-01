@@ -75,7 +75,7 @@
 
 {{/* Category sections */}}
 {{ $skillsSection := .Site.GetPage "/skills" }}
-{{ range $skillsSection.Sections }}
+{{ range $skillsSection.Sections.ByTitle }}
   {{ $catSkills := .RegularPagesRecursive }}
   {{ if $catSkills }}
     <div class="flex items-center justify-between mb-6">
