@@ -137,6 +137,26 @@
     font-size: 0.8125rem;
     color: var(--color-foreground);
   }
+
+  /* Responsive tables - horizontal scroll on overflow */
+  .prose-content table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Optional: make tables look better on small screens */
+  @media (max-width: 640px) {
+    .prose-content table {
+      font-size: 0.8125rem;
+    }
+    .prose-content th,
+    .prose-content td {
+      padding: 0.5rem 0.75rem;
+    }
+  }
 }
 
 @layer components {
