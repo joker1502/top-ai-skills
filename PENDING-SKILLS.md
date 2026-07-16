@@ -99,7 +99,7 @@
 ## 📊 GSC Data Signals
 
 Auto-generated from Google Search Console analysis.
-Updated: 2026-07-06 07:15 UTC
+Updated: 2026-07-13 07:09 UTC
 
 | Priority | Query | Impressions | Position | Suggested Content Type |
 |----------|-------|------------|----------|----------------------|
@@ -111,5 +111,5 @@ Updated: 2026-07-06 07:15 UTC
 | 6 | best ai for students | 2,418 | 16.9 | Comparison |
 | 7 | llm api pricing 2026 | 1,638 | 21.7 | Guide |
 | 8 | ai agent comparison | 288 | 15.8 | Comparison |
-| 9 | "microsoft" "copilot" or azure ai | 50 | 20.4 | Comparison |
-| 10 | "pika labs" or "pika" ai video | 28 | 23.0 | Comparison |
+| 9 | lark base | 95 | 25.3 | Guide |
+| 10 | "microsoft" "copilot" or azure ai | 75 | 20.4 | Comparison |
