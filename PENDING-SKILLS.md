@@ -99,7 +99,7 @@
 ## 📊 GSC Data Signals
 
 Auto-generated from Google Search Console analysis.
-Updated: 2026-07-13 07:09 UTC
+Updated: 2026-07-20 07:12 UTC
 
 | Priority | Query | Impressions | Position | Suggested Content Type |
 |----------|-------|------------|----------|----------------------|
@@ -110,6 +110,6 @@ Updated: 2026-07-13 07:09 UTC
 | 5 | ai note taking app | 3,353 | 35.5 | Guide |
 | 6 | best ai for students | 2,418 | 16.9 | Comparison |
 | 7 | llm api pricing 2026 | 1,638 | 21.7 | Guide |
-| 8 | ai agent comparison | 288 | 15.8 | Comparison |
-| 9 | lark base | 95 | 25.3 | Guide |
-| 10 | "microsoft" "copilot" or azure ai | 75 | 20.4 | Comparison |
+| 8 | matt pocock improve codebase architecture | 14 | 13.8 | Guide |
+| 9 | ai agent comparison | 288 | 15.8 | Comparison |
+| 10 | lark base | 241 | 24.7 | Guide |
