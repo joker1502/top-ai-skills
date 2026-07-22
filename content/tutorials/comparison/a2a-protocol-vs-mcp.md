@@ -8,9 +8,7 @@ tags:
   - A2A
   - MCP
   - Agent Communication
-categories:
-  - tutorials
-  - comparison
+category: "comparison"
 description: "A2A vs MCP — two protocols for AI agent communication, but they solve different problems. Here's when to use each, and when you need both."
 keywords:
   - A2A protocol vs MCP
