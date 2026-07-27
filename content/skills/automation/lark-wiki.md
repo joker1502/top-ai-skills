@@ -8,7 +8,7 @@ tags:
   - Wiki
   - Knowledge Base
   - Collaboration
-description: "AI skill for searching, reading, and managing Lark/Feishu wiki pages and knowledge bases directly from your coding assistant. Part of the larksuite CLI ecosystem with 26 agent skills."
+description: "Search, read, and manage Lark/Feishu wiki pages and knowledge bases via AI. Find documents instantly, organize knowledge, and connect wiki content to your code."
 version: "1.0.0"
 author: "larksuite"
 repo_url: "https://github.com/larksuite/cli"

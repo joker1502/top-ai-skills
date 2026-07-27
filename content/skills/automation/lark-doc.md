@@ -7,7 +7,7 @@ tags:
   - Feishu
   - Documents
   - Collaboration
-description: "AI skill for reading, creating, and editing Lark/Feishu documents directly from your coding assistant. Part of the larksuite CLI ecosystem with 26 agent skills."
+description: "Read, create, and edit Lark/Feishu docs using AI. Generate documents, batch-update content, and integrate document workflows into your development pipeline."
 version: "2.0.0"
 author: "larksuite"
 repo_url: "https://github.com/larksuite/cli"

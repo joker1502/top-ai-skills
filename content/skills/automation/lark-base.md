@@ -8,7 +8,7 @@ tags:
   - Base
   - Database
   - Collaboration
-description: "AI skill for reading and managing Lark/Feishu Base records and tables from your coding assistant. Part of the larksuite CLI with 26 agent skills."
+description: "Manage Lark/Feishu Base records, tables, and fields via AI. Query data, update rows, and automate workflows without leaving your coding assistant."
 version: "1.0.0"
 author: "larksuite"
 repo_url: "https://github.com/larksuite/cli"

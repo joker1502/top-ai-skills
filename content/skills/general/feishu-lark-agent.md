@@ -4,7 +4,7 @@ date: 2026-06-28
 draft: true
 tags:
   - General
-description: ""
+description: "Connect Feishu/Lark to your AI coding assistant. Search company knowledge, manage docs, and collaborate across your team's Lark workspace without switching contexts."
 version: ""
 author: "joeseesun"
 repo_url: "https://github.com/joeseesun/feishu-lark-agent"
