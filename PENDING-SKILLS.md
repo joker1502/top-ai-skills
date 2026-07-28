@@ -99,17 +99,17 @@
 ## 📊 GSC Data Signals
 
 Auto-generated from Google Search Console analysis.
-Updated: 2026-07-20 07:12 UTC
+Updated: 2026-07-27 07:09 UTC
 
 | Priority | Query | Impressions | Position | Suggested Content Type |
 |----------|-------|------------|----------|----------------------|
-| 1 | ai video generator | 4,409 | 14.2 | Comparison |
-| 2 | ai workflow automation | 4,059 | 27.0 | Comparison |
-| 3 | free ai tools list | 3,298 | 19.5 | List |
-| 4 | cloudflare workers tutorial | 2,477 | 11.6 | Comparison |
-| 5 | ai note taking app | 3,353 | 35.5 | Guide |
-| 6 | best ai for students | 2,418 | 16.9 | Comparison |
-| 7 | llm api pricing 2026 | 1,638 | 21.7 | Guide |
-| 8 | matt pocock improve codebase architecture | 14 | 13.8 | Guide |
-| 9 | ai agent comparison | 288 | 15.8 | Comparison |
-| 10 | lark base | 241 | 24.7 | Guide |
+| 1 | matt pocock improve codebase architecture | 32 | 10.9 | Guide |
+| 2 | best ai image generation tools 2026 | 20 | 10.9 | List |
+| 3 | best ai coding assistants 2026 | 20 | 15.0 | List |
+| 4 | lark knowledge ai | 10 | 14.9 | Guide |
+| 5 | anysearch-skill | 10 | 14.3 | Guide |
+| 6 | lark base | 461 | 23.3 | Guide |
+| 7 | "pika labs" or "pika" ai video | 148 | 26.6 | Comparison |
+| 8 | "microsoft" "copilot" or azure ai | 100 | 20.4 | Comparison |
+| 9 | sleek design | 62 | 26.2 | Guide |
+| 10 | anysearch | 43 | 18.3 | Guide |
