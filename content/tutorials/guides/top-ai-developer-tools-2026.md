@@ -1,4 +1,4 @@
-|---
+---
 title: "Top AI-Powered Developer Tools in 2026: 10 Essential Picks"
 date: 2026-07-16
 toc: true
