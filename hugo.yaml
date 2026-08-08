@@ -32,6 +32,11 @@ outputFormats:
     isPlainText: true
     mediaType: "text/plain"
     notAlternative: true
+  LLMSFULL:
+    baseName: "llms-full"
+    isPlainText: true
+    mediaType: "text/plain"
+    notAlternative: true
 
 outputs:
   home:
@@ -39,6 +44,7 @@ outputs:
     - JSON
     - RSS
     - LLMS
+    - LLMSFULL
 
 params:
   contentTypeName: "tutorials"

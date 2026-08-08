@@ -13,7 +13,7 @@
 | **Hugo** | v0.162.1 (静态站点生成器) |
 | **主题** | Terminal 主题 + 自定义覆盖 |
 | **CSS 框架** | Tailwind CSS v4 |
-| **分析工具** | Google Analytics (ID: G-6CC8HV421L) |
+| **分析工具** | Google Analytics (ID: G-V27BZ7GENQ) |
 | **搜索引擎** | Google Search Console (已验证) |
 
 
