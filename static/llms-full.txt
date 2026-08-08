@@ -1,0 +1,162 @@
+# Top AI Skills
+
+Top AI Skills is a curated directory of AI agent skills — installable rules/prompts for AI coding tools like Cursor, Claude Code, Codex, and OpenCode.
+
+## Skills
+- https://topaiskills.com/skills/coding/windsurf/: Windsurf — Windsurf is an agentic AI coding editor from Cognition — Tab autocomplete, inline Command edits, Cascade agent mode, and a RAG context engine with MCP support.
+- https://topaiskills.com/skills/image/pika-labs/: Pika Labs — Pika Labs turns text and images into short AI videos — Pikaffects, Pikascenes, and an MCP that gives agents 42 media tools for ads, podcasts, and launch clips.
+- https://topaiskills.com/skills/coding/cursor-ai-editor/: Cursor AI Editor — Cursor is an AI-first code editor built on VS Code — it helps developers write, edit, and debug code faster with deep context-aware AI assistance.
+- https://topaiskills.com/skills/general/stripe-best-practices/: Stripe Best Practices — Stripe's agent toolkit lets AI assistants create payments, manage customers, handle subscriptions, and process refunds from your coding environment.
+- https://topaiskills.com/skills/coding/github-skill-forge/: GitHub Skill Forge: Turn Any GitHub Repo Into an AI Skill — GitHub Skill Forge turns any repo into an AI skill from one URL — no cloning, no manual work. Your AI reads open-source projects via natural conversation.
+- https://topaiskills.com/skills/coding/gemini-api-dev/: Gemini API Dev — Google's official Gemini API skill — build AI apps with Gemini 2.5 models for text, vision, code execution, and streaming from your terminal or agent.
+- https://topaiskills.com/skills/image/gemini-designer/: Gemini Designer — Generate production-ready UI mockups and design assets directly from your AI coding agent using Google Gemini's multimodal vision and generation capabilities.
+- https://topaiskills.com/skills/automation/n8n-workflow-architect/: n8n Workflow Architect: Build Production n8n Automation with AI Agents — The n8n Workflow Architect skill makes AI agents n8n experts — build, validate, and deploy production workflows through conversation with MCP integration.
+- https://topaiskills.com/skills/coding/groq-api/: Groq API: Ultra-Fast LLM Inference for AI Agents — The Groq API skill gives AI agents access to Groq's ultra-fast LPU inference — build apps with chat, vision, audio, and tool calling at 300-1000+ tokens/sec.
+- https://topaiskills.com/skills/coding/whatsapp-cloud-api/: WhatsApp Cloud API — An AI agent skill for the WhatsApp Cloud API — send messages, manage templates, handle webhooks, and integrate conversational workflows from a single CLI.
+- https://topaiskills.com/skills/coding/developing-genkit-dart/: Developing Genkit with Dart — Official Firebase skill for building AI-powered apps with Genkit and Dart. Covers Genkit flows, model integration, and AI API patterns.
+- https://topaiskills.com/skills/general/yt-dlp-downloader/: Yt Dlp Downloader — AI Agent Video Download Skill — Download videos from YouTube, Bilibili, Twitter, and 1000+ sites through your AI agent using yt-dlp. Extract audio, grab subtitles, pick quality — all by asking in plain English.
+- https://topaiskills.com/skills/coding/lark-approval/: Lark Approval - AI-Powered Approval Management for Feishu/Lark — Manage Lark/Feishu approval workflows through your AI agent. View pending approvals, approve or reject requests, track approval history, and handle complex multi-step approvals — all from your AI coding assistant.
+- https://topaiskills.com/skills/general/agent-email-inbox/: Agent Email Inbox: Secure Email Access for AI Agents by Resend — Agent Email Inbox gives your AI agent secure email access via Resend. Install with npx skills add resend/resend-skills. Supports Claude Code, Cursor, Codex, and Grok.
+- https://topaiskills.com/skills/coding/deepeval/: DeepEval: Evaluate LLM Outputs with Your AI Coding Agent — DeepEval brings LLM evaluation to your AI coding agent. Install with npx skills add confident-ai/deepeval. Supports unit testing, CI integration, and real-time metrics for LLM outputs.
+- https://topaiskills.com/skills/general/mastra/: Mastra: Official AI Agent Skills for the Mastra Framework — Official Mastra agent skills for AI coding agents. Install with npx skills add mastra-ai/skills. Supports Claude Code, Cursor, and Codex.
+- https://topaiskills.com/skills/image/claude-design/: Claude Design — Claude Design is a portable Claude skill that turns Claude into an expert designer for HTML artifacts — landing pages, slide decks, interactive prototypes, animations, and more.
+- https://topaiskills.com/skills/automation/shopping-browser-automation/: Shopping Browser Automation — Browser automation skill for AI agents that uses Playwright and MCP to automate shopping tasks — product search, add to cart, checkout, and order tracking on any e-commerce site.
+- https://topaiskills.com/skills/general/kreuzberg/: Kreuzberg (Xberg): Document Intelligence & PDF Extraction — Extract text, tables, images, and metadata from 97+ document formats with this open-source Rust-based framework. Supports Python, Node, CLI, REST, and MCP.
+- https://topaiskills.com/skills/general/mem0/: Mem0 — Memory Layer for AI Agents — Mem0 is an open-source memory layer for AI agents that remembers user preferences, facts, and context across sessions using embeddings and retrieval.
+- https://topaiskills.com/skills/general/cloudflare/: Cloudflare Skill for AI Agents: Manage Workers, Pages, and DNS — The official Cloudflare skill lets AI agents manage Workers, Pages, DNS, R2, D1, and more — deploy serverless code, configure zones, and monitor performance from natural language.
+- https://topaiskills.com/skills/coding/ai-video-gen/: HeyGen: AI Avatar and Video Generation Skill — HeyGen's AI agent skill for avatar creation and video production. Generate talking-head videos with realistic lip-sync using the v3 Video Agent pipeline.
+- https://topaiskills.com/skills/coding/firecrawl/: Firecrawl — Firecrawl CLI adds scrape, search, crawl, and browser interaction capabilities to your AI agents — one CLI for the full web data stack.
+- https://topaiskills.com/skills/search/anysearch/: AnySearch — Unified real-time search engine skill for AI agents — general web search, vertical domain search, parallel batch queries, and full-page content extraction from a single skill.
+- https://topaiskills.com/skills/search/crawl4ai/: Crawl4AI — A portable agent skill wrapping Crawl4AI — crawl JavaScript-heavy sites, extract structured data with CSS schemas, and feed results into AI agent workflows.
+- https://topaiskills.com/skills/general/agentspace/: Agentspace — Agentspace lets AI agents share folders, files, and generated artifacts via a shareable link — no API keys, no cloud account, one command.
+- https://topaiskills.com/skills/search/gpt-researcher/: GPT Researcher — GPT Researcher is an open-source deep research agent that produces detailed, factual reports with citations from web and local documents. Install it as a Claude Code skill for autonomous research.
+- https://topaiskills.com/skills/general/a2a-protocol/: A2A Protocol — Enable seamless AI agent collaboration with the A2A protocol. Open standard for cross-vendor agent communication now under the Linux Foundation.
+- https://topaiskills.com/skills/general/agent-device/: Agent Device — agent-device is a CLI for AI agents to control iOS and Android devices. Inspect UI, tap buttons, scroll, and capture screenshots — all from natural language commands.
+- https://topaiskills.com/skills/coding/ai-video-generation/: AI Video Generation — Generate videos with 40+ AI models directly from your terminal using the belt CLI — supports Sora, Kling, Runway, and more through inference.sh
+- https://topaiskills.com/skills/search/firecrawl-scraper/: Firecrawl Scraper — Firecrawl Scraper converts any web page into clean markdown for AI agents, supporting scrape, search, crawl, and screenshot modes from one CLI tool.
+- https://topaiskills.com/skills/coding/smithery/: Smithery — Discover, install, and manage MCP servers directly from your terminal. Smithery is the essential registry for AI agent tool connectivity.
+- https://topaiskills.com/skills/general/turborepo/: Turborepo: Build System for JavaScript & TypeScript Monorepos — Turborepo is a Rust-based build system optimized for JavaScript and TypeScript monorepos. Parallel task execution, remote caching, and dependency-aware orchestration.
+- https://topaiskills.com/skills/automation/azure-deploy/: Azure Deploy — Azure Deploy automates Azure resource provisioning through your coding agent. Describe what you need, it handles templates and dependency ordering.
+- https://topaiskills.com/skills/automation/azure-ai/: Azure AI — Azure AI is a skills.sh skill that exposes Azure AI Search, Speech, OpenAI, and Document Intelligence as agent-callable tools through a single MCP server interface.
+- https://topaiskills.com/skills/coding/triage/: Triage — Matt Pocock's triage skill moves GitHub issues through a state machine of roles: categorize, verify, and write agent-ready briefs automatically.
+- https://topaiskills.com/skills/automation/lark-base/: Lark Base — Manage Lark/Feishu Base records, tables, and fields via AI. Query data, update rows, and automate workflows without leaving your coding assistant.
+- https://topaiskills.com/skills/image/kling-3-0/: Kling 3.0 — Kling 3.0 exposes six video generation endpoints on RunComfy — Standard, Pro, and 4K in text-to-video and image-to-video modes, all from a single skill.
+- https://topaiskills.com/skills/automation/lark-wiki/: Lark Wiki — Search, read, and manage Lark/Feishu wiki pages and knowledge bases via AI. Find documents instantly, organize knowledge, and connect wiki content to your code.
+- https://topaiskills.com/skills/general/copywriting/: Copywriting — Copywriting is a skills.sh agent that generates marketing copy, email sequences, landing pages, and social posts from a single prompt.
+- https://topaiskills.com/skills/image/gpt-image-2/: GPT Image 2 — GPT Image 2 brings OpenAI's strongest text-to-image model to your terminal through RunComfy — no ChatGPT tab, no API key management, one CLI command.
+- https://topaiskills.com/skills/image/video-edit/: Video Edit — Video Edit routes your editing intent to the right AI video model — Wan 2.7, Kling Motion Control, or Lucy Restyle — through one CLI command.
+- https://topaiskills.com/skills/automation/lark-doc/: LarkDoc — Read, create, and edit Lark/Feishu docs using AI. Generate documents, batch-update content, and integrate document workflows into your development pipeline.
+- https://topaiskills.com/skills/general/to-prd/: To PRD — A skill by Matt Pocock that turns unstructured AI conversation into structured PRDs and publishes them straight to your issue tracker.
+- https://topaiskills.com/skills/image/ai-image-generation/: AI Image Generation — Access 50+ image generation models directly from your AI coding assistant through inference.sh. Generate, iterate, and refine images without leaving your editor.
+- https://topaiskills.com/skills/general/just-scrape/: Just Scrape — Just Scrape is an AI-powered CLI for web scraping, structured data extraction, web search, and page monitoring via the ScrapeGraph AI API.
+- https://topaiskills.com/skills/general/caveman/: Caveman — Ultra-compressed response mode for AI coding assistants — cuts output tokens by ~75% while keeping technical accuracy, ~3x faster
+- https://topaiskills.com/skills/general/grill-me/: Grill Me — An interrogation-style plan review skill by Matt Pocock. Before you code, AI challenges your assumptions and covers every decision branch.
+- https://topaiskills.com/skills/general/agent-browser/: Agent Browser — Rust-powered browser automation CLI for AI agents. Control Chrome, Safari, and cloud browsers via terminal commands.
+- https://topaiskills.com/skills/coding/remotion-best-practices/: Remotion Best Practices — Official Remotion Agent Skill — teaches your AI assistant the best practices for writing videos with React, from animation and subtitles to 3D and transitions
+- https://topaiskills.com/skills/coding/vercel-react-best-practices/: Vercel React Best Practices — 64 performance rules for React and Next.js from Vercel's team. Install it in Claude Code and the AI writes code that follows Vercel conventions automatically.
+- https://topaiskills.com/skills/coding/improve-codebase-architecture/: Improve Codebase Architecture — Matt Pocock's skill for finding deep architectural improvements in your codebase based on domain language and ADRs
+- https://topaiskills.com/skills/automation/microsoft-foundry/: Microsoft Foundry — Part of Microsoft's official azure-skills plugin. Gives AI agents direct access to Microsoft Foundry for model discovery, deployment, and agent workflow management via MCP.
+- https://topaiskills.com/skills/general/brainstorming/: Brainstorming — Explores user intent, requirements, and design alternatives before implementation, ensuring creative work starts with a clear direction
+- https://topaiskills.com/skills/general/browser-use/: Browser Use — Automates browser interactions for web testing, form filling, screenshots, and data extraction through AI-driven browser control
+- https://topaiskills.com/skills/general/docx/: Docx — Creates, reads, and edits Word documents (.docx) with tables of contents, headings, images, tables, and tracked changes through Claude Code
+- https://topaiskills.com/skills/search/find-skills/: Find Skills — Helps Claude Code discover and install agent skills from the open ecosystem, acting as a package manager for AI capabilities
+- https://topaiskills.com/skills/coding/frontend-design/: Frontend Design — Makes Claude Code produce distinctive frontend interfaces by rejecting generic AI aesthetics and demanding a clear creative direction for every project
+- https://topaiskills.com/skills/general/pdf/: Pdf — Creates, reads, and manipulates PDF documents programmatically in Claude Code, supporting text extraction, generation, and editing
+- https://topaiskills.com/skills/general/pptx/: Pptx — Generates professional PowerPoint presentations with properly formatted slides, images, and layouts directly from Claude Code
+- https://topaiskills.com/skills/general/seo-audit/: Seo Audit — Analyzes website SEO performance across technical, on-page, and content dimensions, producing actionable optimization recommendations
+- https://topaiskills.com/skills/image/shadcn/: Shadcn — Generates beautiful, accessible UI components using the shadcn/ui design system with Tailwind CSS and Radix UI primitives
+- https://topaiskills.com/skills/general/skill-creator/: Skill Creator — Guides Claude through creating, packaging, and iterating on custom agent skills with progressive disclosure and bundled resources
+- https://topaiskills.com/skills/general/supabase-postgres-best-practices/: Supabase Postgres Best Practices — Supabase's official PostgreSQL optimization guidelines covering query performance, indexing strategies, schema design, and security policies
+- https://topaiskills.com/skills/coding/systematic-debugging/: Systematic Debugging — A methodical debugging framework that isolates root causes through hypothesis-driven investigation and targeted fixes for complex software issues
+- https://topaiskills.com/skills/general/tdd/: Tdd — Test-driven development workflow using red-green-refactor cycles focused on behavior verification through public interfaces
+- https://topaiskills.com/skills/coding/web-design-guidelines/: Web Design Guidelines — Vercel's official web design best practices covering responsive layouts, accessibility, performance, and component architecture
+- https://topaiskills.com/skills/general/xlsx/: Xlsx — Creates and edits Excel spreadsheets with formulas, formatting, multiple sheets, and data analysis capabilities in Claude Code
+
+## Tutorials
+- https://topaiskills.com/tutorials/_index/: Tutorials
+- https://topaiskills.com/tutorials/_index.zh/: 教程
+- https://topaiskills.com/tutorials/comparison/_index/: Comparisons
+- https://topaiskills.com/tutorials/comparison/_index.zh/: 评测
+- https://topaiskills.com/tutorials/comparison/a2a-protocol-vs-mcp/: A2A Protocol vs MCP: Which Agent Communication Protocol Fits Your Stack?
+- https://topaiskills.com/tutorials/comparison/ai-video-generator-comparison-2026/: AI Video Generator Comparison 2026: Sora vs Kling 3.0 vs Runway vs Pika vs HeyGen
+- https://topaiskills.com/tutorials/comparison/ai-workflow-automation-skills-comparison/: AI Workflow Automation Skills Compared: Microsoft Foundry vs Azure AI vs Lark Tools
+- https://topaiskills.com/tutorials/comparison/best-ai-for-students-comparison/: Best AI Tools for Students 2026: ChatGPT vs Claude vs Gemini vs Copilot
+- https://topaiskills.com/tutorials/comparison/best-ai-tools-for-students-2026/: Best AI Tools for Students in 2026: ChatGPT vs Claude vs NotebookLM vs Perplexity
+- https://topaiskills.com/tutorials/comparison/browser-automation-tools-2026/: Agent Browser vs Browser Use vs Playwright MCP for AI Agents (2026)
+- https://topaiskills.com/tutorials/comparison/chatgpt-vs-gemini/: ChatGPT vs Gemini: Which AI Assistant Should You Use?
+- https://topaiskills.com/tutorials/comparison/claude-code-vs-cursor/: Claude Code vs Cursor: Which AI Coding Tool Should You Use?
+- https://topaiskills.com/tutorials/comparison/cloudflare-workers-comparison-2026/: Cloudflare Workers Comparison 2026: AWS Lambda@Edge vs Deno Deploy vs Vercel Edge Functions
+- https://topaiskills.com/tutorials/comparison/gemini-vs-claude-vs-gpt4o/: Gemini vs Claude vs GPT-4o: Choosing the Best AI Model API for Your App in 2026
+- https://topaiskills.com/tutorials/comparison/kling-3-0-vs-video-edit/: Kling 3.0 vs Video Edit: When to Generate and When to Edit
+- https://topaiskills.com/tutorials/comparison/lark-doc-vs-lark-wiki/: Lark Doc vs Lark Wiki: Which LarkSuite Skill Do You Need?
+- https://topaiskills.com/tutorials/comparison/n8n-vs-make-vs-zapier/: n8n vs Make vs Zapier: Which Automation Platform Should You Use in 2026?
+- https://topaiskills.com/tutorials/guides/_index/: Guides
+- https://topaiskills.com/tutorials/guides/_index.zh/: 指南
+- https://topaiskills.com/tutorials/guides/agent-browser/: Agent Browser: A Complete Setup Guide
+- https://topaiskills.com/tutorials/guides/agent-browser.zh/: Agent Browser 安装指南，Vercel 出品的浏览器自动化 CLI
+- https://topaiskills.com/tutorials/guides/ai-agent-email-automation/: How to Set Up an Email-Powered AI Agent Workflow with Resend
+- https://topaiskills.com/tutorials/guides/ai-agent-refactoring-experience/: I Let AI Agents Refactor My React Codebase — The Results Were Brutally Honest
+- https://topaiskills.com/tutorials/guides/ai-agent-skills-faq/: AI Agent Skills FAQ: Installation, Compatibility, and Troubleshooting Guide
+- https://topaiskills.com/tutorials/guides/ai-approval-workflow-experiment/: I Let AI Handle My Team's Approval Workflow for a Week — Here's What Happened
+- https://topaiskills.com/tutorials/guides/ai-image-generation-experiment/: I Generated 100 AI Images From My Coding Assistant
+- https://topaiskills.com/tutorials/guides/ai-image-generation-faq-2026/: AI Image Generation FAQ 2026: Tools, Prompts, and Workflow Answers
+- https://topaiskills.com/tutorials/guides/ai-note-taking-agent-experiment/: I Let an AI Note-Taking Agent Run My Notes for a Month — Here's What Survived
+- https://topaiskills.com/tutorials/guides/ai-note-taking-apps-2026-guide/: Best AI Note Taking Apps in 2026: A Complete Guide to Smart Note-Taking
+- https://topaiskills.com/tutorials/guides/ai-search-agent-week-experiment/: I Replaced Google with an AI Search Agent for a Week — Here's What Happened
+- https://topaiskills.com/tutorials/guides/ai-search-research-faq-2026/: AI Search and Research FAQ 2026: Find Answers Faster
+- https://topaiskills.com/tutorials/guides/ai-video-editing-video-edit-skill/index/: AI Video Editing With RunComfy: Testing the Video Edit Skill
+- https://topaiskills.com/tutorials/guides/ai-video-generation-faq-2026/: AI Video Generation FAQ 2026: Everything You Need to Know
+- https://topaiskills.com/tutorials/guides/ai-video-terminal-guide/: How to Generate AI Videos from the Command Line: A Step-by-Step Guide
+- https://topaiskills.com/tutorials/guides/ai-workflow-automation-faq/: AI Workflow Automation FAQ: Tools, Setup, and Best Practices
+- https://topaiskills.com/tutorials/guides/automate-workflows-ai-agents-n8n/: How to Automate Workflows with AI Agents Using n8n: A Step-by-Step Guide
+- https://topaiskills.com/tutorials/guides/best-ai-skills-roundup-2026/: 7 Best AI Skills Every Developer Should Install in 2026
+- https://topaiskills.com/tutorials/guides/best-free-ai-tools-2026/: 10 Best Free AI Tools for Developers in 2026
+- https://topaiskills.com/tutorials/guides/browser-use-install.zh/: 如何安装和使用 Browser Use：让 AI 代理操控浏览器
+- https://topaiskills.com/tutorials/guides/build-ai-customer-support-chatbot/: How to Build an AI-Powered Customer Support Chatbot with a Custom Knowledge Base
+- https://topaiskills.com/tutorials/guides/caveman/: Caveman: Cut AI Response Tokens by 75% Without Losing Accuracy
+- https://topaiskills.com/tutorials/guides/caveman.zh/: Caveman 使用教程，让 AI 少说废话的必备技能
+- https://topaiskills.com/tutorials/guides/copywriting-procedural-guide/index/: How to Use the Copywriting Skill to Generate Marketing Content
+- https://topaiskills.com/tutorials/guides/faq-installing-ai-agent-skills/: FAQ: Installing AI Agent Skills in Claude Code and Cursor
+- https://topaiskills.com/tutorials/guides/faq-web-scraping-with-ai-agents/: FAQ: Web Scraping with AI Agent Skills
+- https://topaiskills.com/tutorials/guides/find-skills-discovery.zh/: 用 find-skills 在终端里淘 AI 技能，比刷 GitHub Trending 快多了
+- https://topaiskills.com/tutorials/guides/free-ai-tools-faq-2026/: Free AI Tools FAQ 2026: Your Questions About the Best Free AI Tools Answered
+- https://topaiskills.com/tutorials/guides/free-ai-tools-list-2026/: Free AI Tools List 2026: 10 Actually Useful Tools That Cost $0
+- https://topaiskills.com/tutorials/guides/gpt-image-2-experiment/: I Generated Marketing Assets With GPT Image 2 Inside Claude Code
+- https://topaiskills.com/tutorials/guides/grill-me/: Grill Me: Have AI Challenge Your Plan Before You Write a Single Line
+- https://topaiskills.com/tutorials/guides/grill-me.zh/: Grill Me 使用教程，动手前先让 AI 盘问你的方案
+- https://topaiskills.com/tutorials/guides/how-ai-writing-assistants-changed-content-creation/: How AI Writing Assistants Changed the Way I Create Content
+- https://topaiskills.com/tutorials/guides/how-i-fixed-a-stubborn-bug-using-systematic-debugging/: How I Fixed a Stubborn Bug Using Systematic Debugging
+- https://topaiskills.com/tutorials/guides/how-to-build-ai-research-pipeline/: How to Build an AI-Powered Research Pipeline with Search Skills
+- https://topaiskills.com/tutorials/guides/how-to-build-first-ai-automation-workflow/: How to Build Your First AI Automation Workflow: A Step-by-Step Guide
+- https://topaiskills.com/tutorials/guides/how-to-build-your-first-mcp-server/: How to Build Your First MCP Server: A Step-by-Step Guide
+- https://topaiskills.com/tutorials/guides/how-to-create-your-own-ai-agent-skills/: How to Create Your Own AI Agent Skills: A Step-by-Step Guide
+- https://topaiskills.com/tutorials/guides/how-to-discover-and-install-ai-skills-with-find-skills/: How to Discover and Install AI Skills with Find-Skills
+- https://topaiskills.com/tutorials/guides/i-tried-tdd-with-an-ai-assistant/: I Tried TDD With an AI Assistant and It Caught a Bug
+- https://topaiskills.com/tutorials/guides/improve-codebase-architecture/: Finding Architecture Problems with Improve Codebase Architecture
+- https://topaiskills.com/tutorials/guides/improve-codebase-architecture.zh/: Improve Codebase Architecture 使用教程，让 AI 帮你找出架构问题
+- https://topaiskills.com/tutorials/guides/install-ai-agent-skills/index/: How to Install AI Agent Skills in Claude Code and Cursor
+- https://topaiskills.com/tutorials/guides/just-scrape/: AI-Powered Web Scraping: A Guide to Just Scrape CLI
+- https://topaiskills.com/tutorials/guides/kling-3-0-video-generation-experience/: AI Video Generation With Kling 3.0 — Hits and Misses
+- https://topaiskills.com/tutorials/guides/lark-base-faq/: Lark Base AI Skill: 12 Questions About Using It
+- https://topaiskills.com/tutorials/guides/lark-doc-narrative-experience/: I Let My AI Agent Manage Lark Documentation for a Week — Here's What Happened
+- https://topaiskills.com/tutorials/guides/lark-doc/: How to Install and Use LarkDoc: Read and Write Lark Documents with AI
+- https://topaiskills.com/tutorials/guides/lark-knowledge-ai-setup/: How to Set Up Lark Knowledge AI: Build an AI-Searchable Team Knowledge Base
+- https://topaiskills.com/tutorials/guides/llm-api-pricing-2026/: LLM API Pricing 2026: Compare Costs Across Every Major Provider
+- https://topaiskills.com/tutorials/guides/llm-testing-evaluation-tools-roundup-2026/: 8 Best LLM Testing & Evaluation Tools in 2026 Roundup
+- https://topaiskills.com/tutorials/guides/microsoft-foundry/: Using Microsoft Foundry Skill to Deploy AI Models via CLI
+- https://topaiskills.com/tutorials/guides/microsoft-foundry.zh/: 不打开 Azure Portal 就部署好模型？Microsoft Foundry 使用教程
+- https://topaiskills.com/tutorials/guides/remotion-best-practices/: Writing Videos with React: A Guide to the Remotion Agent Skill
+- https://topaiskills.com/tutorials/guides/remotion-best-practices.zh/: 让 AI 用 React 帮你写视频？Remotion 上手教程
+- https://topaiskills.com/tutorials/guides/to-prd-experiment/: I Let AI Write My PRD for a Week Here's What Happened
+- https://topaiskills.com/tutorials/guides/top-7-ai-agent-skills-web-developers-2026/: Top 7 AI Agent Skills for Web Developers in 2026
+- https://topaiskills.com/tutorials/guides/top-ai-coding-assistants-2026/: Best AI Coding Assistants in 2026: A No-Nonsense Roundup
+- https://topaiskills.com/tutorials/guides/top-ai-developer-tools-2026/: Top AI-Powered Developer Tools in 2026: 10 Essential Picks
+- https://topaiskills.com/tutorials/guides/top-ai-image-generation-tools-2026/: 10 Best AI Image Generation Tools in 2026: A Complete Roundup
+- https://topaiskills.com/tutorials/guides/top-ai-skills-directories-2026/: Top AI Skills Directories in 2026
+- https://topaiskills.com/tutorials/guides/using-copywriting-skill-for-launch/index/: Using the Copywriting Skill to Ship a Landing Page in One Afternoon
+- https://topaiskills.com/tutorials/guides/vercel-react-best-practices/: Vercel React Best Practices: 64 Rules for Faster Next.js Apps
+- https://topaiskills.com/tutorials/guides/vercel-react-best-practices.zh/: Vercel React Best Practices 使用教程，让 AI 写出高性能 Next.js 代码
+
+## About
+
+- https://topaiskills.com/about/: About Top AI Skills
