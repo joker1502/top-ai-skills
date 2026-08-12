@@ -91,7 +91,7 @@
 | khazix-skills | ⬜ | ⬜ | ⬜ | ⬜ |
 | humanizer-zh | ⬜ | ⬜ | ⬜ | ⬜ |
 | notebooklm-skill | ⬜ | ⬜ | ⬜ | ⬜ |
-| dbskill | ⬜ | ⬜ | ⬜ | ⬜ |
+| dbskill | ✅ | ⬜ | ⬜ | ⬜ |
 | html-anything | ⬜ | ⬜ | ⬜ | ⬜ |
 | guizang-social-card-skill | ⬜ | ⬜ | ⬜ | ⬜ |
 | ian-xiaohei-illustrations | ⬜ | ⬜ | ⬜ | ⬜ |
@@ -99,17 +99,17 @@
 ## 📊 GSC Data Signals
 
 Auto-generated from Google Search Console analysis.
-Updated: 2026-07-27 07:09 UTC
+Updated: 2026-08-10 10:40 UTC
 
 | Priority | Query | Impressions | Position | Suggested Content Type |
 |----------|-------|------------|----------|----------------------|
-| 1 | matt pocock improve codebase architecture | 32 | 10.9 | Guide |
-| 2 | best ai image generation tools 2026 | 20 | 10.9 | List |
-| 3 | best ai coding assistants 2026 | 20 | 15.0 | List |
-| 4 | lark knowledge ai | 10 | 14.9 | Guide |
-| 5 | anysearch-skill | 10 | 14.3 | Guide |
-| 6 | lark base | 461 | 23.3 | Guide |
-| 7 | "pika labs" or "pika" ai video | 148 | 26.6 | Comparison |
-| 8 | "microsoft" "copilot" or azure ai | 100 | 20.4 | Comparison |
-| 9 | sleek design | 62 | 26.2 | Guide |
-| 10 | anysearch | 43 | 18.3 | Guide |
+| 1 | lark wiki | 174 | 11.7 | Guide |
+| 2 | best ai image generation tools 2026 | 60 | 10.9 | List |
+| 3 | best ai coding assistants 2026 | 46 | 14.8 | List |
+| 4 | smithery | 21 | 15.0 | Guide |
+| 5 | lark knowledge ai | 16 | 14.0 | Guide |
+| 6 | anysearch-skill | 14 | 13.6 | Guide |
+| 7 | lark base | 710 | 22.1 | Guide |
+| 8 | firecrawl | 291 | 16.9 | Guide |
+| 9 | anysearch | 87 | 16.9 | Guide |
+| 10 | "microsoft" "copilot" or azure ai | 50 | 20.4 | Comparison |
